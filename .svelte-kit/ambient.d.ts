@@ -66,6 +66,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_tslib: string;
 	export const npm_execpath: string;
 	export const PAGER: string;
+	export const VIRTUAL_ENV: string;
 	export const npm_package_devDependencies_svelte: string;
 	export const LSCOLORS: string;
 	export const npm_config_frozen_lockfile: string;
@@ -108,6 +109,7 @@ declare module '$env/static/private' {
 	export const npm_package_scripts_test: string;
 	export const LOGNAME: string;
 	export const LESS: string;
+	export const VSCODE_PATH_PREFIX: string;
 	export const npm_package_scripts_format: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
@@ -117,6 +119,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const npm_package_devDependencies__playwright_test: string;
 	export const npm_package_devDependencies__types_eslint: string;
+	export const VIRTUAL_ENV_PROMPT: string;
 	export const npm_package_scripts_check: string;
 	export const COLORTERM: string;
 	export const npm_package_scripts_test_unit: string;
@@ -193,6 +196,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_tslib: string;
 		npm_execpath: string;
 		PAGER: string;
+		VIRTUAL_ENV: string;
 		npm_package_devDependencies_svelte: string;
 		LSCOLORS: string;
 		npm_config_frozen_lockfile: string;
@@ -235,6 +239,7 @@ declare module '$env/dynamic/private' {
 		npm_package_scripts_test: string;
 		LOGNAME: string;
 		LESS: string;
+		VSCODE_PATH_PREFIX: string;
 		npm_package_scripts_format: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
@@ -244,6 +249,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_NODE: string;
 		npm_package_devDependencies__playwright_test: string;
 		npm_package_devDependencies__types_eslint: string;
+		VIRTUAL_ENV_PROMPT: string;
 		npm_package_scripts_check: string;
 		COLORTERM: string;
 		npm_package_scripts_test_unit: string;
