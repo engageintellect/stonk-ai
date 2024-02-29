@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
+	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
 
 	export let data: PageData;
 
@@ -77,14 +79,16 @@
 						{#if ticker.performance && ticker.performance.currentPrice && ticker.performance.yesterdaysClose && Number(ticker.performance.currentPrice) > Number(ticker.performance.yesterdaysClose)}
 							{#if ticker.info.currentPrice}
 								<div
-									class="badge badge-primary text-primary-content h-full px-4 py-2 text-3xl font-bold"
+									class="badge badge-primary h-full px-4 py-2 text-3xl font-bold text-primary-content"
 								>
 									{ticker.info.currentPrice}
+									<ArrowUp class="h-10 w-10 text-primary-content" />
 								</div>
 							{/if}
 						{:else if ticker.info.currentPrice}
-							<div class="badge badge-error text-error-content h-full px-4 py-2 text-3xl font-bold">
+							<div class="badge badge-error h-full px-4 py-2 text-3xl font-bold text-error-content">
 								{ticker.info.currentPrice}
+								<ArrowDown class="h-10 w-10 text-error-content" />
 							</div>
 						{/if}
 					</div>
@@ -123,12 +127,12 @@
 					{#each Object.entries(ticker) as [key, value]}
 						{#if key !== 'info' && key !== 'analysis'}
 							{#if value && Object.values(value).some((x) => x)}
-								<div class="bg-accent text-accent-content rounded p-6">
+								<div class="rounded bg-accent p-6 text-sm text-accent-content">
 									{#each Object.entries(value) as [prop, propValue]}
 										{#if propValue}
 											<div class="flex gap-2">
-												<div class="capitalize">{prop}:</div>
-												<div class="font-thin">{propValue}</div>
+												<div class="font-thin capitalize">{prop}:</div>
+												<div class="font-semibold">{propValue}</div>
 											</div>
 										{/if}
 									{/each}
@@ -144,7 +148,7 @@
 				<div class="flex gap-2 overflow-auto">
 					{#each Object.entries(ticker.analysis) as [key, value]}
 						{#if value}
-							<div class="bg-secondary text-secondary-content rounded p-6">
+							<div class="rounded bg-secondary p-6 text-secondary-content">
 								<div class="flex flex-col items-center justify-center gap-2">
 									<div class="font-thin capitalize">{key}:</div>
 									<div class="text-xl font-semibold uppercase">{value}</div>
@@ -159,7 +163,7 @@
 				<div class="font-semibold">30 AI Day Forecast:</div>
 				<div class="flex gap-2 overflow-auto">
 					{#each predicted_prices as price}
-						<div class="bg-primary text-primary-content rounded p-6 text-center">
+						<div class="rounded bg-primary p-6 text-center text-primary-content">
 							<div class="flex flex-col items-center justify-center gap-2">
 								<div class="w-full text-nowrap text-sm font-thin">{price.date}</div>
 								<div class="text-xl font-semibold uppercase">{price.price}</div>
@@ -180,7 +184,7 @@
 
 		<div class="my-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
 			{#each predicted_prices as price}
-				<div class="bg-base-300 rounded p-2">
+				<div class="rounded bg-base-300 p-2">
 					<div class="w-full">{price.date}</div>
 					<div class="w-full">{price.price}</div>
 				</div>
