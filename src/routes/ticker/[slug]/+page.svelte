@@ -24,7 +24,7 @@
     info: {
       symbol: data.ticker?.toUpperCase() ?? "",
       name: data.ticker_info?.shortName ?? "",
-      currentPrice: data.ticker_info?.currentPrice,
+      currentPrice: formatPrice(data.ticker_info?.currentPrice),
       website: data.ticker_info?.website ?? "",
       city: data.ticker_info?.city ?? "",
       state: data.ticker_info?.state ?? "",
