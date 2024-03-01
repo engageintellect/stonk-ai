@@ -77,7 +77,7 @@
     <div class="flex flex-col gap-5">
       <div class="flex flex-col">
         <div class="flex items-start gap-2">
-          <div class="flex items-center gap-5 text-7xl uppercase">
+          <div class="flex items-center gap-5 text-5xl sm:text-7xl uppercase">
             <div>
               {ticker.info.symbol}
             </div>
@@ -85,18 +85,20 @@
             {#if ticker.performance.currentPrice > ticker.performance.yesterdaysClose}
               {#if ticker.info.currentPrice}
                 <div
-                  class="badge badge-primary h-full px-4 py-2 text-3xl font-bold text-primary-content"
+                  class="badge badge-primary h-full px-4 py-2 text-xl sm:text-3xl font-bold text-primary-content"
                 >
                   {ticker.info.currentPrice}
-                  <ArrowUp class="h-10 w-10 text-primary-content" />
+                  <ArrowUp
+                    class="h-7 w-7 sm:h-10 sm:w-10 text-primary-content"
+                  />
                 </div>
               {/if}
             {:else if ticker.info.currentPrice}
               <div
-                class="badge badge-error h-full px-4 py-2 text-3xl font-bold text-error-content"
+                class="badge badge-error h-full px-4 py-2 text-xl sm:text-3xl font-bold text-error-content"
               >
                 {ticker.info.currentPrice}
-                <ArrowDown class="h-10 w-10 text-error-content" />
+                <ArrowDown class="h-7 w-7 sm:h-10 sm:w-10 text-error-content" />
               </div>
             {/if}
           </div>
