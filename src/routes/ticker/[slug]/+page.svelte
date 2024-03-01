@@ -141,6 +141,22 @@
         </div>
       </div>
 
+      {#if parseFloat(predicted_prices[0].price.replace("$", "")) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace("$", ""))}
+        <div
+          class="badge badge-error text-sm h-full px-4 py-2 font-bold text-error-content"
+        >
+          Bearish
+          <ArrowDown class="h-5 w-5 text-error-content" />
+        </div>
+      {:else}
+        <div
+          class="badge badge-primary text-sm h-full px-4 py-2 font-bold text-primary-content"
+        >
+          Bullish
+          <ArrowUp class="h-5 w-5 text-primary-content" />
+        </div>
+      {/if}
+
       <div class="">
         <div class="font-semibold">Performance Data:</div>
         <div class="flex gap-2 overflow-auto">

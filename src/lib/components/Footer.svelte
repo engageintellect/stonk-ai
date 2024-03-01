@@ -1,11 +1,15 @@
 <footer class="footer footer-center bg-base-200 text-base-content rounded p-10">
-	<nav class="grid grid-flow-col gap-4">
-		<a class="link link-hover">About us</a>
-		<a class="link link-hover">Contact</a>
-		<a class="link link-hover">Jobs</a>
-		<a class="link link-hover">Press kit</a>
-	</nav>
-	<nav>
+  <nav class="grid grid-flow-col gap-4">
+    <a class="link link-hover" href="/about">About</a>
+    <a class="link link-hover" href="mailto:engage.intellect@protonmail.com"
+      >Contact</a
+    >
+    <a
+      class="link link-hover"
+      href="https://github.com/engageintellect/ai-stock-client">Github</a
+    >
+  </nav>
+  <!-- <nav>
 		<div class="grid grid-flow-col gap-4">
 			<a
 				><svg
@@ -44,8 +48,8 @@
 				></a
 			>
 		</div>
-	</nav>
-	<aside>
-		<p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
-	</aside>
+	</nav> -->
+  <aside>
+    <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+  </aside>
 </footer>
