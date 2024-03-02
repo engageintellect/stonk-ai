@@ -8,7 +8,7 @@
 			<a href="/" class="btn btn-primary text-xl"> <StockMarket class="h-7 w-7" /></a>
 		</div>
 
-		<div class="dropdown dropdown-end">
+		<!-- <div class="dropdown dropdown-end">
 			<div tabindex="0" role="button" class="btn m-1">
 				Theme
 				<svg
@@ -87,7 +87,7 @@
 					/>
 				</li>
 			</ul>
-		</div>
+		</div> -->
 
 		<div class="flex-none gap-2">
 			<!-- <div class="form-control">

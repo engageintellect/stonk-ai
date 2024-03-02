@@ -7,6 +7,7 @@
 	import CompanyOfficers from '$lib/components/CompanyOfficers.svelte';
 
 	import colors from 'tailwindcss/colors';
+	import daisyuiColors from 'daisyui/src/theming/themes';
 
 	export let data: PageData;
 	let ticker = generateTicker(data);
