@@ -17,7 +17,6 @@
 
 	let onlyPrices = data.predicted_prices.map((price: any) => price.price);
 	let onlyDates = predicted_prices.map((price: any) => price.date);
-	let priceHistory = data.price_history;
 </script>
 
 <div class="">
@@ -88,8 +87,13 @@
 			</div>
 
 			<div class="h-full min-h-96">
-				<Chart chartTitle="Price History" chartValues={priceHistory} chartLabels={priceHistory} />
+				<Chart
+					chartTitle="Price History"
+					chartValues={data.price_history.map((price: any) => price.price)}
+					chartLabels={data.price_history.map((date: any) => date.date)}
+				/>
 			</div>
+
 			<div class="">
 				<div class="flex gap-2 overflow-auto">
 					{#each Object.entries(ticker) as [key, value]}

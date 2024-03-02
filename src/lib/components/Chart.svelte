@@ -35,6 +35,14 @@
 					title: {
 						display: false
 					}
+				},
+				scales: {
+					x: {
+						display: false
+					},
+					y: {
+						display: true
+					}
 				}
 			}
 		});
