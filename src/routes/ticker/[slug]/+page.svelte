@@ -116,6 +116,22 @@
 			</div>
 
 			<div class="">
+				<div class="pb-2 font-semibold">Analysis Data</div>
+				<div class="flex gap-2 overflow-auto">
+					{#each Object.entries(ticker.analysis) as [key, value]}
+						{#if value}
+							<div class="bg-accent text-accent-content rounded p-6">
+								<div class="flex flex-col items-center justify-center gap-2">
+									<div class="font-thin capitalize">{key}:</div>
+									<div class="text-xl font-semibold uppercase">{value}</div>
+								</div>
+							</div>
+						{/if}
+					{/each}
+				</div>
+			</div>
+
+			<div class="">
 				<div class="flex gap-2 overflow-auto">
 					{#each Object.entries(ticker) as [key, value]}
 						{#if key !== 'info' && key !== 'analysis'}
@@ -124,7 +140,7 @@
 									<div class="font-semibold capitalize">{key}</div>
 									{#each Object.entries(value) as [prop, propValue]}
 										{#if propValue}
-											<div class=" bg-accent text-accent-content rounded p-2 text-sm">
+											<div class=" bg-secondary text-secondary-content rounded p-2 text-sm">
 												<div class="flex gap-2">
 													<div class="font-semibold capitalize">{prop}:</div>
 													<div class="">{propValue}</div>
@@ -134,22 +150,6 @@
 									{/each}
 								</div>
 							{/if}
-						{/if}
-					{/each}
-				</div>
-			</div>
-
-			<div class="">
-				<div class="pb-2 font-semibold">Analysis Data</div>
-				<div class="flex gap-2 overflow-auto">
-					{#each Object.entries(ticker.analysis) as [key, value]}
-						{#if value}
-							<div class="bg-secondary text-secondary-content rounded p-6">
-								<div class="flex flex-col items-center justify-center gap-2">
-									<div class="font-thin capitalize">{key}:</div>
-									<div class="text-xl font-semibold uppercase">{value}</div>
-								</div>
-							</div>
 						{/if}
 					{/each}
 				</div>
