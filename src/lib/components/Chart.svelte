@@ -1,4 +1,5 @@
 <script lang="ts">
+	import colors from 'tailwindcss/colors';
 	import chartjs from 'chart.js/auto';
 	let chartData;
 	import { onMount } from 'svelte';
@@ -6,6 +7,8 @@
 	export let chartTitle: string;
 	export let chartValues: number[];
 	export let chartLabels: string[];
+
+	export let someColor: any;
 
 	let ctx;
 	let chartCanvas: any;
@@ -19,8 +22,9 @@
 				datasets: [
 					{
 						label: chartTitle,
-						backgroundColor: 'rgb(255, 255, 255)',
-						borderColor: 'rgb(255, 255, 255)',
+						backgroundColor: someColor,
+						borderColor: someColor,
+
 						data: chartValues
 					}
 				]

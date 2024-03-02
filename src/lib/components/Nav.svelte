@@ -8,7 +8,7 @@
 			<a href="/" class="btn btn-primary text-xl"> <StockMarket class="h-7 w-7" /></a>
 		</div>
 
-		<div class="dropdown">
+		<div class="dropdown dropdown-end">
 			<div tabindex="0" role="button" class="btn m-1">
 				Theme
 				<svg
@@ -20,7 +20,7 @@
 					><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg
 				>
 			</div>
-			<ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
+			<ul tabindex="0" class="dropdown-content bg-base-300 rounded-box dropdown-end z-[1] w-52 p-2">
 				<li>
 					<input
 						type="radio"
@@ -53,8 +53,28 @@
 						type="radio"
 						name="theme-dropdown"
 						class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-						aria-label="Valentine"
-						value="valentine"
+						aria-label="Dark"
+						value="dark"
+					/>
+				</li>
+
+				<li>
+					<input
+						type="radio"
+						name="theme-dropdown"
+						class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+						aria-label="Lofi"
+						value="lofi"
+					/>
+				</li>
+
+				<li>
+					<input
+						type="radio"
+						name="theme-dropdown"
+						class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+						aria-label="Dim"
+						value="dim"
 					/>
 				</li>
 				<li>

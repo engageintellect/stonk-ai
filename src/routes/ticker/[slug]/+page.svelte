@@ -6,6 +6,8 @@
 	import { generateTicker, formatPrice } from '$lib/tickerModel';
 	import CompanyOfficers from '$lib/components/CompanyOfficers.svelte';
 
+	import colors from 'tailwindcss/colors';
+
 	export let data: PageData;
 	let ticker = generateTicker(data);
 
@@ -33,6 +35,8 @@
 			};
 		});
 	}
+
+	let someColor = [colors.white];
 </script>
 
 <div class="">
@@ -110,6 +114,7 @@
 			<div class="h-52 sm:h-80">
 				<Chart
 					chartTitle="Price History"
+					{someColor}
 					chartValues={data.price_history.map((price: any) => price.price)}
 					chartLabels={data.price_history.map((date: any) => date.date)}
 				/>
@@ -184,7 +189,12 @@
 			{/if}
 
 			<div class="h-52 sm:h-80">
-				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
+				<Chart
+					{someColor}
+					chartTitle="Projected Prices"
+					chartValues={onlyPrices}
+					chartLabels={onlyDates}
+				/>
 			</div>
 
 			{#if data.ticker_info.longBusinessSummary}
