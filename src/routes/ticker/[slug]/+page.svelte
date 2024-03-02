@@ -17,6 +17,7 @@
 
 	let onlyPrices = data.predicted_prices.map((price: any) => price.price);
 	let onlyDates = predicted_prices.map((price: any) => price.date);
+	let priceHistory = data.price_history;
 </script>
 
 <div class="">
@@ -86,18 +87,9 @@
 				</div>
 			</div>
 
-			{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
-				<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
-					Bearish
-					<ArrowDown class="text-error-content h-5 w-5" />
-				</div>
-			{:else}
-				<div class="badge badge-primary text-primary-content h-full px-4 py-2 text-sm font-bold">
-					Bullish
-					<ArrowUp class="text-primary-content h-5 w-5" />
-				</div>
-			{/if}
-
+			<div class="h-full min-h-96">
+				<Chart chartTitle="Price History" chartValues={priceHistory} chartLabels={priceHistory} />
+			</div>
 			<div class="">
 				<div class="flex gap-2 overflow-auto">
 					{#each Object.entries(ticker) as [key, value]}
@@ -153,6 +145,18 @@
 					{/each}
 				</div>
 			</div>
+
+			{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
+				<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
+					Bearish
+					<ArrowDown class="text-error-content h-5 w-5" />
+				</div>
+			{:else}
+				<div class="badge badge-primary text-primary-content h-full px-4 py-2 text-sm font-bold">
+					Bullish
+					<ArrowUp class="text-primary-content h-5 w-5" />
+				</div>
+			{/if}
 
 			<div class="h-full min-h-96">
 				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
