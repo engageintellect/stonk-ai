@@ -21,13 +21,21 @@
 						label: chartTitle,
 						backgroundColor: 'rgb(255, 255, 255)',
 						borderColor: 'rgb(255, 255, 255)',
-
 						data: chartValues
 					}
 				]
 			},
 			options: {
-				responsive: true
+				responsive: true,
+				maintainAspectRatio: false,
+				plugins: {
+					legend: {
+						display: false
+					},
+					title: {
+						display: false
+					}
+				}
 			}
 		});
 	});
