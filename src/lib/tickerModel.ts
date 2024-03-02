@@ -47,7 +47,14 @@ export function generateTicker(data: PageData) {
 			sharesOutstanding: formatPrice(data.ticker_info?.sharesOutstanding),
 			sharesShort: formatPrice(data.ticker_info?.sharesShort),
 			sharesShortPriorMonth: formatPrice(data.ticker_info?.sharesShortPriorMonth),
-			shortPercent: formatPercent(data.ticker_info?.shortPercentOfFloat) + '%',
+			// shortPercent: formatPercent(data.ticker_info?.shortPercentOfFloat) + '%',
+
+			shortPercent:
+				data.ticker_info?.shortPercentOfFloat !== null &&
+				data.ticker_info?.shortPercentOfFloat !== undefined
+					? formatPercent(data.ticker_info.shortPercentOfFloat) + '%'
+					: undefined, // or '' depending on what you want for undefined cases
+
 			shortRatio: data.ticker_info?.shortRatio
 		},
 

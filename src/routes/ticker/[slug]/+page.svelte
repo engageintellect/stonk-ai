@@ -4,6 +4,7 @@
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
 	import Chart from '$lib/components/Chart.svelte';
 	import { generateTicker, formatPrice } from '$lib/tickerModel';
+	import CompanyOfficers from '$lib/components/CompanyOfficers.svelte';
 
 	export let data: PageData;
 	let ticker = generateTicker(data);
@@ -17,6 +18,21 @@
 
 	let onlyPrices = data.predicted_prices.map((price: any) => price.price);
 	let onlyDates = predicted_prices.map((price: any) => price.date);
+
+	let companyOfficers: any;
+	if (data.ticker_info.companyOfficers) {
+		companyOfficers = data.ticker_info.companyOfficers.map((officer: any) => {
+			return {
+				name: officer.name,
+				title: officer.title,
+				age: officer.age,
+				fiscalYear: officer.fiscalYear,
+				totalPay: officer.totalPay,
+				exercisedValue: officer.exercisedValue,
+				unexercisedValue: officer.unexercisedValue
+			};
+		});
+	}
 </script>
 
 <div class="">
@@ -34,18 +50,23 @@
 						{#if ticker.performance.currentPrice > ticker.performance.yesterdaysClose}
 							{#if ticker.info.currentPrice}
 								<div
-									class="badge badge-primary text-primary-content h-full px-4 py-2 text-xl font-bold sm:text-3xl"
+									class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-3xl"
 								>
-									{ticker.info.currentPrice}
-									<ArrowUp class="text-primary-content h-7 w-7 sm:h-10 sm:w-10" />
+									<div>
+										{ticker.info.currentPrice}
+									</div>
+
+									<div>
+										<ArrowUp class="text-primary-content h-5 w-5 sm:h-10 sm:w-10" />
+									</div>
 								</div>
 							{/if}
 						{:else if ticker.info.currentPrice}
 							<div
-								class="badge badge-error text-error-content h-full px-4 py-2 text-xl font-bold sm:text-3xl"
+								class="badge badge-error text-error-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-3xl"
 							>
 								{ticker.info.currentPrice}
-								<ArrowDown class="text-error-content h-7 w-7 sm:h-10 sm:w-10" />
+								<ArrowDown class="text-error-content h-5 w-5 sm:h-10 sm:w-10" />
 							</div>
 						{/if}
 					</div>
@@ -86,7 +107,7 @@
 				</div>
 			</div>
 
-			<div class="h-full min-h-80">
+			<div class="h-full min-h-52 sm:min-h-80">
 				<Chart
 					chartTitle="Price History"
 					chartValues={data.price_history.map((price: any) => price.price)}
@@ -162,7 +183,7 @@
 				</div>
 			{/if}
 
-			<div class="h-full min-h-80">
+			<div class="h-full min-h-52 sm:min-h-80">
 				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
 			</div>
 
@@ -175,9 +196,18 @@
 		</div>
 		<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">Learn More</a>
 
+		{#if CompanyOfficers}
+			<div class="pb-2 font-semibold">Company Officers</div>
+			<div class="flex w-full gap-2 overflow-auto">
+				{#each companyOfficers as officer}
+					<CompanyOfficers companyOfficers={officer} />
+				{/each}
+			</div>
+		{/if}
+
 		<div class="my-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
 			{#each predicted_prices as price}
-				<div class="bg-base-300 rounded p-2">
+				<div class="bg-base-300 w-full rounded p-2">
 					<div class="w-full">{price.date}</div>
 					<div class="w-full">{price.price}</div>
 				</div>
