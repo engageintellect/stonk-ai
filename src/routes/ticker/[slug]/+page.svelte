@@ -107,7 +107,7 @@
 				</div>
 			</div>
 
-			<div class="h-full min-h-52 sm:min-h-80">
+			<div class="h-52 sm:h-80">
 				<Chart
 					chartTitle="Price History"
 					chartValues={data.price_history.map((price: any) => price.price)}
@@ -183,7 +183,7 @@
 				</div>
 			{/if}
 
-			<div class="h-full min-h-52 sm:min-h-80">
+			<div class="h-52 sm:h-80">
 				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
 			</div>
 
