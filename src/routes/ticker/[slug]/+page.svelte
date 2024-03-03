@@ -5,9 +5,9 @@
 	import Chart from '$lib/components/Chart.svelte';
 	import { generateTicker, formatPrice } from '$lib/tickerModel';
 	import CompanyOfficers from '$lib/components/CompanyOfficers.svelte';
+	import LearnMore from 'virtual:icons/carbon/ibm-watson-machine-learning';
 
-	import colors from 'tailwindcss/colors';
-	import daisyuiColors from 'daisyui/src/theming/themes';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 	let ticker = generateTicker(data);
@@ -36,8 +36,6 @@
 			};
 		});
 	}
-
-	let someColor = [colors.white];
 </script>
 
 <div class="">
@@ -115,7 +113,6 @@
 			<div class="h-52 sm:h-80">
 				<Chart
 					chartTitle="Price History"
-					{someColor}
 					chartValues={data.price_history.map((price: any) => price.price)}
 					chartLabels={data.price_history.map((date: any) => date.date)}
 				/>
@@ -129,7 +126,7 @@
 							<div class="bg-accent text-accent-content rounded p-6">
 								<div class="flex flex-col items-center justify-center gap-2">
 									<div class="font-thin capitalize">{key}:</div>
-									<div class="text-xl font-semibold uppercase">{value}</div>
+									<div class=" text-xl font-semibold uppercase">{value}</div>
 								</div>
 							</div>
 						{/if}
@@ -190,12 +187,7 @@
 			{/if}
 
 			<div class="h-52 sm:h-80">
-				<Chart
-					{someColor}
-					chartTitle="Projected Prices"
-					chartValues={onlyPrices}
-					chartLabels={onlyDates}
-				/>
+				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
 			</div>
 
 			{#if data.ticker_info.longBusinessSummary}
@@ -205,8 +197,13 @@
 				</div>
 			{/if}
 		</div>
-		<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">Learn More</a>
+		<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">
+			<div class="flex items-center gap-1">
+				<div>Learn More</div>
 
+				<LearnMore class="text-error-content h-7 w-7" />
+			</div>
+		</a>
 		{#if CompanyOfficers}
 			<div class="pb-2 font-semibold">Company Officers</div>
 			<div class="flex w-full gap-2 overflow-auto">
