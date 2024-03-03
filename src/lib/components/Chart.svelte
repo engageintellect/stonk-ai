@@ -1,50 +1,44 @@
 <script lang="ts">
 	import chartjs from 'chart.js/auto';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 
 	import daisyuiColors from 'daisyui/src/theming/themes';
+	import { selectedTheme } from '$lib/store';
+
 	export let chartTitle: string;
 	export let chartValues: number[];
 	export let chartLabels: string[];
 
-	import { selectedTheme } from '$lib/store';
+	let currentTheme: string;
+	let col: string;
+	let ctx: any;
+	let chartCanvas: HTMLCanvasElement;
+	let chart: any;
 
-	let currentTheme: unknown;
-	// let someColor: any;
-
-	// Subscribe to the selectedTheme store
 	selectedTheme.subscribe((value) => {
 		currentTheme = value;
+		updateChartColor();
 	});
 
-	// console.log('daisyuiColors:', daisyuiColors);
-
-	// see if any of the keys in daisyuiColors match the currentTheme. if so, return the 'primary' prop of it
-	let col: any;
-	let someColor = Object.entries(daisyuiColors).map(([key, value]) => {
-		if (key == currentTheme) {
-			col = value.primary;
-			console.log(key, currentTheme);
-			console.log('yes');
-			console.log('value:', value.primary);
-			return value.primary;
-		}
-	});
-
-	console.log('this is my color:', col);
-
-	// see if any keys in daisyuiColors match the current theme. if so, return the 'primary' prop of it
-
-	let ctx;
-	let chartCanvas: any;
-
-	console.log('someColor:', someColor);
-
-	// someColor = [daisyuiColors.acid.primary];
+	function updateChartColor() {
+		if (!currentTheme) return;
+		Object.entries(daisyuiColors).forEach(([key, value]) => {
+			if (key == currentTheme) {
+				col = value.primary;
+				if (chart) {
+					chart.data.datasets[0].backgroundColor = col;
+					chart.data.datasets[0].pointBorderColor = col;
+					chart.data.datasets[0].pointBackgroundColor = col;
+					chart.data.datasets[0].borderColor = col;
+					chart.update();
+				}
+			}
+		});
+	}
 
 	onMount(async () => {
 		ctx = chartCanvas.getContext('2d');
-		var chart = new chartjs(ctx, {
+		chart = new chartjs(ctx, {
 			type: 'line',
 			data: {
 				labels: chartLabels,
@@ -54,9 +48,7 @@
 						backgroundColor: col,
 						pointBorderColor: col,
 						pointBackgroundColor: col,
-
 						borderColor: col,
-
 						data: chartValues
 					}
 				]
@@ -65,23 +57,19 @@
 				responsive: true,
 				maintainAspectRatio: false,
 				plugins: {
-					legend: {
-						display: false
-					},
-					title: {
-						display: false
-					}
+					legend: { display: false },
+					title: { display: false }
 				},
 				scales: {
-					x: {
-						display: false
-					},
-					y: {
-						display: true
-					}
+					x: { display: false },
+					y: { display: true }
 				}
 			}
 		});
+	});
+
+	afterUpdate(() => {
+		updateChartColor();
 	});
 </script>
 
