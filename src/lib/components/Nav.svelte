@@ -25,7 +25,7 @@
 	}
 </script>
 
-<div class="navbar bg-base-200 sticky top-0 z-10">
+<div class="navbar sticky top-0 z-10">
 	<div class="mx-auto w-full max-w-3xl">
 		<div class="flex-1">
 			<a href="/" class="btn btn-primary text-xl"> <StockMarket class="h-7 w-7" /></a>
@@ -35,21 +35,21 @@
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="mx-2">
 					<!-- Add dropdown icon here -->
-					<div class="flex items-center gap-2">
+					<div class="btn btn-ghost flex items-center gap-2">
 						<div>Themes</div>
 						<ThemeIcon class="h-7 w-7" />
 					</div>
 				</div>
 				<ul
 					tabindex="0"
-					class="dropdown-content bg-base-200 rounded-box dropdown-end z-[1] mt-8 h-96 w-52 overflow-auto p-2"
+					class="dropdown-content bg-base-200 rounded-box dropdown-end z-[1] h-96 w-52 overflow-auto p-2 shadow"
 				>
 					{#each themes as theme}
 						<li>
 							<input
 								type="radio"
 								name="theme-dropdown"
-								class="theme-controller btn btn-sm btn-block btn-ghost justify-start uppercase"
+								class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
 								aria-label={theme}
 								value={theme}
 								on:change={handleThemeChange}
@@ -75,7 +75,7 @@
 					</div>
 					<ul
 						tabindex="0"
-						class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+						class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] w-52 p-2 shadow"
 					>
 						<li>
 							<a class="justify-between">
