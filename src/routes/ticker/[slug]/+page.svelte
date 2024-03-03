@@ -201,7 +201,7 @@
 			<div class="flex items-center gap-1">
 				<div>Learn More</div>
 
-				<LearnMore class="text-error-content h-7 w-7" />
+				<LearnMore class=" h-7 w-7" />
 			</div>
 		</a>
 		{#if CompanyOfficers}
