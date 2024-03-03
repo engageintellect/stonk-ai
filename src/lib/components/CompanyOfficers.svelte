@@ -24,9 +24,11 @@
 				<div class="flex gap-2">
 					<div class="font-semibold">Pay:</div>
 					<div>
-						{formatPrice(Number(companyOfficers.totalPay))}
+						<div class="flex items-center">
+							{formatPrice(Number(companyOfficers.totalPay))}
+							<div class="">/yr</div>
+						</div>
 					</div>
-					<div class="">/yr</div>
 				</div>
 			{/if}
 		</div>
