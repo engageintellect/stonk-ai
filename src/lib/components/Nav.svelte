@@ -31,7 +31,7 @@
 			<a href="/" class="btn btn-primary text-xl"> <StockMarket class="h-7 w-7" /></a>
 		</div>
 
-		<div class="flex items-center gap-2">
+		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="mx-2">
 					<!-- Add dropdown icon here -->
