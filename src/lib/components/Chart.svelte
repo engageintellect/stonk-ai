@@ -31,6 +31,7 @@
 					chart.data.datasets[0].pointBackgroundColor = col;
 					chart.data.datasets[0].borderColor = col;
 					chart.options.scales.y.ticks.color = col;
+					chart.options.scales.y.border.color = col;
 
 					chart.update();
 				}
@@ -69,7 +70,12 @@
 					},
 					y: {
 						display: true,
-						grid: { display: false },
+						grid: {
+							display: false
+						},
+						border: {
+							color: col
+						},
 						ticks: {
 							color: col
 						}
