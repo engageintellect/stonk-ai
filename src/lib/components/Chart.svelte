@@ -30,6 +30,8 @@
 					chart.data.datasets[0].pointBorderColor = col;
 					chart.data.datasets[0].pointBackgroundColor = col;
 					chart.data.datasets[0].borderColor = col;
+					chart.options.scales.y.ticks.color = col;
+
 					chart.update();
 				}
 			}
@@ -61,8 +63,17 @@
 					title: { display: false }
 				},
 				scales: {
-					x: { display: false },
-					y: { display: true }
+					x: {
+						display: false,
+						grid: { display: false }
+					},
+					y: {
+						display: true,
+						grid: { display: false },
+						ticks: {
+							color: col
+						}
+					}
 				}
 			}
 		});
