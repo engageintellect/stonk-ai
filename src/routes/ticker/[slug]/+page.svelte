@@ -7,6 +7,7 @@
 	import CompanyOfficers from '$lib/components/CompanyOfficers.svelte';
 	import LearnMore from 'virtual:icons/carbon/ibm-watson-machine-learning';
 	import RobotIcon from 'virtual:icons/mdi/robot-outline';
+	import NewsItem from '$lib/components/NewsItem.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -43,7 +44,7 @@
 	{#if !data}
 		<div>Loading...</div>
 	{:else}
-		<div class="flex flex-col gap-5">
+		<div class="flex flex-col gap-10">
 			<div class="flex flex-col">
 				<div class="flex items-start gap-2">
 					<div class="flex items-center gap-5 text-5xl uppercase sm:text-7xl">
@@ -165,7 +166,7 @@
 				<div class="font-semibold">30d AI Day Forecast</div>
 			</div> -->
 			<div class="">
-				<div class="pb-2 font-semibold">30d AI Day Forecast</div>
+				<div class="pb-2 font-semibold">30d Ai Forecast</div>
 				<div class="flex gap-2 overflow-auto">
 					{#each predicted_prices as price}
 						<div class="bg-primary text-primary-content rounded p-6 text-center">
@@ -192,7 +193,7 @@
 				</div>
 			{/if}
 
-			<div class="h-52 sm:h-80">
+			<div class="h-52 sm:h-72">
 				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
 			</div>
 
@@ -200,32 +201,45 @@
 				<div>
 					<div class="pb-2 font-semibold">Description:</div>
 					<div>{data.ticker_info.longBusinessSummary}</div>
+					<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">
+						<div class="flex items-center gap-1">
+							<div>Learn More</div>
+							<LearnMore class=" h-7 w-7" />
+						</div>
+					</a>
 				</div>
 			{/if}
-		</div>
-		<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">
-			<div class="flex items-center gap-1">
-				<div>Learn More</div>
 
-				<LearnMore class=" h-7 w-7" />
-			</div>
-		</a>
-		{#if CompanyOfficers}
-			<div class="pb-2 font-semibold">Company Officers</div>
-			<div class="flex w-full gap-2 overflow-auto">
-				{#each companyOfficers as officer}
-					<CompanyOfficers companyOfficers={officer} />
+			{#if CompanyOfficers}
+				<div>
+					<div class="pb-2 font-semibold">Company Officers</div>
+					<div class="flex w-full gap-2 overflow-auto">
+						{#each companyOfficers as officer}
+							<CompanyOfficers companyOfficers={officer} />
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			{#if data.news}
+				<div>
+					<div class="pb-2 font-semibold">{ticker.info.name} News</div>
+					<div class="flex w-full gap-2 overflow-auto">
+						{#each data.news as newsItem}
+							<NewsItem {newsItem} />
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			<div class="my-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+				{#each predicted_prices as price}
+					<div class="bg-base-300 w-full rounded p-2">
+						<div class="w-full">{price.date}</div>
+						<div class="w-full">{price.price}</div>
+					</div>
 				{/each}
 			</div>
-		{/if}
-
-		<div class="my-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-			{#each predicted_prices as price}
-				<div class="bg-base-300 w-full rounded p-2">
-					<div class="w-full">{price.date}</div>
-					<div class="w-full">{price.price}</div>
-				</div>
-			{/each}
 		</div>
 	{/if}
 </div>
