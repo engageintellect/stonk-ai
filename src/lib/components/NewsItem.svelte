@@ -20,14 +20,20 @@
 	};
 </script>
 
-<div class="group h-72 w-full min-w-80 rounded">
-	<a href={newsItem.link} class="bg-primary relative w-full">
+<div class="group relative h-72 w-full min-w-80 rounded">
+	<a href={newsItem.link} target="_blank" class="bg-primary relative w-full">
 		<img
-			class="border-primary h-full w-full rounded border object-cover opacity-40 saturate-150 sm:group-hover:blur-sm"
+			class="border-primary h-full w-full rounded border object-cover saturate-150"
 			src={newsItem.thumbnail.resolutions[0].url}
 			alt={newsItem.title}
 		/>
-		<div class="absolute bottom-0 flex w-80 flex-col p-6 drop-shadow">
+		<!-- OVERLAY START -->
+		<div
+			class="bg-primary absolute left-0 top-0 h-full w-full rounded opacity-70 transition-opacity duration-300 sm:group-hover:opacity-80"
+		></div>
+		<!-- OVERLAY END -->
+
+		<div class="text-primary-content absolute bottom-0 z-10 flex w-80 flex-col p-6 drop-shadow">
 			<div class="w-full text-lg font-semibold">{newsItem.title}</div>
 			<div class="w-full font-thin">{newsItem.publisher}</div>
 			<div class="w-full text-xs">{convertDate(newsItem.providerPublishTime)}</div>

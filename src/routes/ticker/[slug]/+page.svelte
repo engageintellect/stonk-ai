@@ -159,12 +159,6 @@
 					{/each}
 				</div>
 			</div>
-			<!-- <div class=" flex items-end gap-2 rounded">
-				<div>
-					<RobotIcon class="h-5 w-5" />
-				</div>
-				<div class="font-semibold">30d AI Day Forecast</div>
-			</div> -->
 			<div class="">
 				<div class="pb-2 font-semibold">30d Ai Forecast</div>
 				<div class="flex gap-2 overflow-auto">
