@@ -5,6 +5,8 @@
 	export let data: any;
 
 	export let ticker: any;
+
+	import { fade } from 'svelte/transition';
 </script>
 
 <div class="flex flex-col">

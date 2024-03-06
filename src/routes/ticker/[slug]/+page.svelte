@@ -21,7 +21,7 @@
 	let predicted_prices: any;
 
 	onMount(async () => {
-		const res = await fetch(`/api/predictPrice`);
+		const res = await fetch(`/api/predictPrice/`);
 		predicted_prices = await res.json();
 		onlyPrices = predicted_prices.predicted_prices.map((price: any) => price.price);
 		onlyDates = predicted_prices.predicted_prices.map((price: any) => price.date);

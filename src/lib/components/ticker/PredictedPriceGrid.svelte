@@ -14,4 +14,9 @@
 			{/each}
 		</div>
 	</div>
+{:else}
+	<div class="flex items-center gap-2">
+		<div class=" animate-pulse text-lg font-semibold">Loading AI Response</div>
+		<span class="loading loading-spinner text-primary"></span>
+	</div>
 {/if}

@@ -1,16 +1,18 @@
 <script lang="ts">
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
+	import Loading from 'virtual:icons/eos-icons/three-dots-loading';
 	export let predicted_prices: any = [];
 	export let onlyPrices: any = [];
 	export let onlyDates: any = [];
 	import Chart from '$lib/components/ticker/Chart.svelte';
+	import { fade } from 'svelte/transition';
 </script>
 
 {#if predicted_prices.length > 0}
-	<div>
+	<div transition:fade={{ delay: 0, duration: 200 }}>
 		<div class="">
-			<div class="text-lg font-semibold">30d Ai Forecast</div>
+			<div class="text-lg font-semibold">30 day AI Forecast</div>
 			<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 				{#each predicted_prices as price}
 					<div class="bg-primary text-primary-content snap-center rounded p-6 text-center">
@@ -43,5 +45,8 @@
 		</div>
 	</div>
 {:else}
-	<div class="animate-pulse text-lg font-semibold">Loading AI Response...</div>
+	<div class="flex items-center gap-2">
+		<div class=" animate-pulse text-lg font-semibold">Loading AI Response</div>
+		<span class="loading loading-spinner text-primary"></span>
+	</div>
 {/if}
