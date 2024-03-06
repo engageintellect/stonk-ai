@@ -31,10 +31,10 @@
 	{#if $isLoading}
 		<div class="flex animate-pulse items-end gap-1 font-thin">
 			<div>
-				Searching <span class="uppercase">{inputValue}</span>
+				Searching <span class="animate-pulse uppercase">{inputValue}</span>
 			</div>
 
-			<span class="loading loading-dots loading-xs"></span>
+			<div>...</div>
 		</div>
 	{:else}
 		<div class="font-thin">Find the latest stock information for any company</div>

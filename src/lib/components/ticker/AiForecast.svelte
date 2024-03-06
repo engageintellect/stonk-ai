@@ -24,7 +24,7 @@
 				{/each}
 			</div>
 		</div>
-		<div>
+		<div class="pt-2">
 			{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
 				<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
 					Bearish
