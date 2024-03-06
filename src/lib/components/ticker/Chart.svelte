@@ -72,8 +72,8 @@
 						ticks: {
 							align: 'end',
 							color: col,
-							callback: (value) => {
-								return '$' + value;
+							callback: (value: any) => {
+								return '$' + value.toFixed(2);
 							}
 						},
 						display: true,
