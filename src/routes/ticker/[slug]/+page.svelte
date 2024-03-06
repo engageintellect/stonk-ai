@@ -16,16 +16,6 @@
 
 	let ticker = generateTicker(data);
 
-	// let predicted_prices = data.predicted_prices.map((price: any) => {
-	// return {
-	// date: new Date(price.date).toLocaleDateString('en-US'),
-	// price: formatPrice(price.price)
-	// };
-	// });
-
-	// let onlyPrices = predicted_prices.map((price: any) => price.price);
-	// let onlyDates = predicted_prices.map((price: any) => price.date);
-
 	let onlyPrices: number[];
 	let onlyDates: string[];
 	let predicted_prices: any;
@@ -33,7 +23,6 @@
 	onMount(async () => {
 		const res = await fetch(`/api/predictPrice`);
 		predicted_prices = await res.json();
-
 		onlyPrices = predicted_prices.predicted_prices.map((price: any) => price.price);
 		onlyDates = predicted_prices.predicted_prices.map((price: any) => price.date);
 		predicted_prices = predicted_prices.predicted_prices.map((price: any) => {
@@ -72,13 +61,11 @@
 			<TickerHeading {ticker} {data} />
 			<AnalystData {ticker} />
 			<CompanyData {ticker} />
-			{#if predicted_prices}
-				<AiForecast {predicted_prices} {onlyPrices} {onlyDates} />
-			{/if}
+			<AiForecast {predicted_prices} {onlyPrices} {onlyDates} />
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<NewsFeed {data} {ticker} />
-			<!-- <PredictedPriceGrid {predicted_prices} /> -->
+			<PredictedPriceGrid {predicted_prices} />
 		</div>
 	{/if}
 </div>

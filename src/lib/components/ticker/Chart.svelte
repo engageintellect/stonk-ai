@@ -69,14 +69,19 @@
 						grid: { display: false }
 					},
 					y: {
+						ticks: {
+							align: 'end',
+							color: col,
+							callback: (value) => {
+								return '$' + value;
+							}
+						},
 						display: true,
+						position: 'right',
 						grid: {
 							display: false
 						},
 						border: {
-							color: col
-						},
-						ticks: {
 							color: col
 						}
 					}

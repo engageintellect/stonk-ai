@@ -2,6 +2,7 @@
 	"/": [
 		"src/routes/+page.server.ts"
 	],
+	"/about": [],
 	"/api/predictPrice": [
 		"src/routes/api/predictPrice/+server.ts"
 	],
