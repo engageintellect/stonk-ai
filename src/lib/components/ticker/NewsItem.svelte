@@ -12,6 +12,9 @@
 			resolutions: [
 				{
 					url: 'https://www.example.com/image.jpg'
+				},
+				{
+					url: 'https://www.example.com/image.jpg'
 				}
 			]
 		},
@@ -23,11 +26,13 @@
 <div class="group relative h-72 w-full min-w-80 rounded">
 	<a href={newsItem.link} target="_blank" class="bg-primary group w-full">
 		<div class="relative h-72 w-full">
-			<img
-				class="border-primary h-full w-full rounded border object-cover opacity-100 saturate-150"
-				src={newsItem.thumbnail.resolutions[0].url}
-				alt={newsItem.title}
-			/>
+			{#if newsItem.thumbnail?.resolutions[0].url}
+				<img
+					class="border-primary h-full w-full rounded border object-cover opacity-100 saturate-150"
+					src={newsItem.thumbnail.resolutions[0].url}
+					alt={newsItem.title}
+				/>
+			{/if}
 
 			<!-- OVERLAY START -->
 			<div

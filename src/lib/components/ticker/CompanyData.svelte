@@ -11,7 +11,7 @@
 						<div class="pb-3 text-lg font-semibold capitalize">{key}</div>
 						{#each Object.entries(value) as [prop, propValue]}
 							{#if propValue}
-								<div class=" bg-secondary text-secondary-content rounded p-2 text-sm">
+								<div class=" bg-primary text-primary-content rounded p-2 text-sm">
 									<div class="flex gap-2">
 										<div class="font-semibold capitalize">{prop}:</div>
 										<div class="">{propValue}</div>

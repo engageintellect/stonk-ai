@@ -1,43 +1,43 @@
 <script lang="ts">
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
-	import Chart from '$lib/components/base/Chart.svelte';
+	import Chart from '$lib/components/ticker/Chart.svelte';
 	export let data: any;
 
 	export let ticker: any;
 </script>
 
 <div class="flex flex-col">
-	<div class="text-sm font-thin">
+	<div class="text-xs font-thin">
 		{new Date().toLocaleDateString('en-US')}
 	</div>
 
-	<div class="flex items-start gap-2">
+	<div class="flex items-start gap-2 pb-2">
 		<div class="flex items-center gap-5 text-5xl uppercase sm:text-7xl">
 			<div>
 				{ticker.info.symbol}
 			</div>
 
-			{#if ticker.performance.currentPrice > ticker.performance.yesterdaysClose}
+			{#if Number(ticker.performance.currentPrice.replace('$', '')) > Number(ticker.performance.yesterdaysClose.replace('$', ''))}
 				{#if ticker.info.currentPrice}
 					<div
-						class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-3xl"
+						class="badge badge-success text-success-content flex h-full items-center gap-1 px-4 py-2 font-semibold sm:text-2xl"
 					>
 						<div>
 							{ticker.info.currentPrice}
 						</div>
 
 						<div>
-							<ArrowUp class="text-primary-content h-5 w-5 sm:h-10 sm:w-10" />
+							<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
 						</div>
 					</div>
 				{/if}
 			{:else if ticker.info.currentPrice}
 				<div
-					class="badge badge-error text-error-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-3xl"
+					class="badge badge-error text-error-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-2xl"
 				>
 					{ticker.info.currentPrice}
-					<ArrowDown class="text-error-content h-5 w-5 sm:h-10 sm:w-10" />
+					<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
 				</div>
 			{/if}
 		</div>

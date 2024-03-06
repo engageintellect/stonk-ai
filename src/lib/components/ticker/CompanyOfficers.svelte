@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CompanyOfficerCard from '$lib/components/base/CompanyOfficerCard.svelte';
+	import CompanyOfficerCard from '$lib/components/ticker/CompanyOfficerCard.svelte';
 	export let data: any;
 	export let companyOfficers: any;
 </script>

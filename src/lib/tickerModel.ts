@@ -31,8 +31,8 @@ export function generateTicker(data: PageData) {
 		},
 
 		performance: {
-			currentPrice: data.ticker_info?.currentPrice,
-			yesterdaysClose: data.ticker_info?.previousClose,
+			currentPrice: formatPrice(data.ticker_info?.currentPrice),
+			yesterdaysClose: formatPrice(data.ticker_info?.previousClose),
 			marketCap: formatPrice(data.ticker_info?.marketCap),
 			volume: formatPrice(data.ticker_info?.volume),
 			open: formatPrice(data.ticker_info?.open),

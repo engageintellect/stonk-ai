@@ -4,7 +4,7 @@
 	export let predicted_prices: any = [];
 	export let onlyPrices: any = [];
 	export let onlyDates: any = [];
-	import Chart from '$lib/components/base/Chart.svelte';
+	import Chart from '$lib/components/ticker/Chart.svelte';
 </script>
 
 <div class="">
@@ -29,9 +29,9 @@
 			<ArrowDown class="text-error-content h-5 w-5" />
 		</div>
 	{:else}
-		<div class="badge badge-primary text-primary-content h-full px-4 py-2 text-sm font-bold">
+		<div class="badge badge-success text-success-content h-full px-4 py-2 text-sm font-bold">
 			Bullish
-			<ArrowUp class="text-primary-content h-5 w-5" />
+			<ArrowUp class="text-success-content h-5 w-5" />
 		</div>
 	{/if}
 
