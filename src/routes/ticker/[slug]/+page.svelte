@@ -218,9 +218,11 @@
 			{#if data.news}
 				<div>
 					<div class="pb-2 font-semibold">{ticker.info.name} News</div>
-					<div class="flex w-full gap-2 overflow-auto">
+					<div class="flex w-full snap-x gap-2 overflow-auto">
 						{#each data.news as newsItem}
-							<NewsItem {newsItem} />
+							<div class="snap-center">
+								<NewsItem {newsItem} />
+							</div>
 						{/each}
 					</div>
 				</div>
