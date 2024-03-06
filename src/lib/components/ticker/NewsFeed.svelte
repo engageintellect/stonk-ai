@@ -6,7 +6,9 @@
 
 {#if data.news}
 	<div>
-		<div class="text-lg font-semibold">{ticker.info.name} News</div>
+		<div class="text-lg font-semibold">
+			<span class="uppercase">{ticker.info.symbol}</span> News
+		</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.news as newsItem}
 				<div class="snap-center">
