@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MoneyIcon from 'virtual:icons/teenyicons/money-outline';
 	import { formatPrice } from '$lib/tickerModel';
 	export let companyOfficers = {
 		name: '',
@@ -21,8 +22,8 @@
 		<div class=" w-full font-semibold uppercase">{companyOfficers.title}</div>
 		<div class="w-full">
 			{#if companyOfficers.totalPay}
-				<div class="flex gap-2">
-					<div class="font-semibold">Pay:</div>
+				<div class="flex items-center gap-2">
+					<div><MoneyIcon class="h-5 w-5" /></div>
 					<div>
 						<div class="flex items-center">
 							{formatPrice(Number(companyOfficers.totalPay))}
