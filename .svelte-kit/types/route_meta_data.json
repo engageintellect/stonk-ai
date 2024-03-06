@@ -2,6 +2,9 @@
 	"/": [
 		"src/routes/+page.server.ts"
 	],
+	"/api/predictPrice": [
+		"src/routes/api/predictPrice/+server.ts"
+	],
 	"/ticker/[slug]": [
 		"src/routes/ticker/[slug]/+page.server.ts"
 	]
