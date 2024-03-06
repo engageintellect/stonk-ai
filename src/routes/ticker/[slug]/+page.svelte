@@ -40,6 +40,7 @@
 	}
 </script>
 
+shadow
 <div class="">
 	{#if !data}
 		<div>Loading...</div>
@@ -121,8 +122,8 @@
 			</div>
 
 			<div class="">
-				<div class="pb-2 font-semibold">Analysis Data</div>
-				<div class="flex gap-2 overflow-auto">
+				<div class="font-semibold">Analysis Data</div>
+				<div class="flex gap-2 overflow-auto py-5">
 					{#each Object.entries(ticker.analysis) as [key, value]}
 						{#if value}
 							<div class="bg-accent text-accent-content rounded p-6">
@@ -141,8 +142,8 @@
 					{#each Object.entries(ticker) as [key, value]}
 						{#if key !== 'info' && key !== 'analysis'}
 							{#if value && Object.values(value).some((x) => x)}
-								<div class="flex flex-col gap-2 rounded">
-									<div class="font-semibold capitalize">{key}</div>
+								<div class="flex flex-col gap-2 rounded py-5">
+									<div class="pb-3 font-semibold capitalize">{key}</div>
 									{#each Object.entries(value) as [prop, propValue]}
 										{#if propValue}
 											<div class=" bg-secondary text-secondary-content rounded p-2 text-sm">
@@ -160,8 +161,8 @@
 				</div>
 			</div>
 			<div class="">
-				<div class="pb-2 font-semibold">30d Ai Forecast</div>
-				<div class="flex gap-2 overflow-auto">
+				<div class="font-semibold">30d Ai Forecast</div>
+				<div class="flex gap-2 overflow-auto py-5">
 					{#each predicted_prices as price}
 						<div class="bg-primary text-primary-content rounded p-6 text-center">
 							<div class="flex flex-col items-center justify-center gap-2">
@@ -175,27 +176,29 @@
 				</div>
 			</div>
 
-			{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
-				<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
-					Bearish
-					<ArrowDown class="text-error-content h-5 w-5" />
-				</div>
-			{:else}
-				<div class="badge badge-primary text-primary-content h-full px-4 py-2 text-sm font-bold">
-					Bullish
-					<ArrowUp class="text-primary-content h-5 w-5" />
-				</div>
-			{/if}
+			<div>
+				{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
+					<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
+						Bearish
+						<ArrowDown class="text-error-content h-5 w-5" />
+					</div>
+				{:else}
+					<div class="badge badge-primary text-primary-content h-full px-4 py-2 text-sm font-bold">
+						Bullish
+						<ArrowUp class="text-primary-content h-5 w-5" />
+					</div>
+				{/if}
 
-			<div class="h-52 sm:h-72">
-				<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
+				<div class="h-52 sm:h-72">
+					<Chart chartTitle="Projected Prices" chartValues={onlyPrices} chartLabels={onlyDates} />
+				</div>
 			</div>
 
 			{#if data.ticker_info.longBusinessSummary}
 				<div>
-					<div class="pb-2 font-semibold">Description:</div>
-					<div>{data.ticker_info.longBusinessSummary}</div>
-					<a class="btn btn-primary my-5" href={ticker.info.website} target="_blank">
+					<div class="font-semibold">Description:</div>
+					<div class="py-5">{data.ticker_info.longBusinessSummary}</div>
+					<a class="btn btn-primary" href={ticker.info.website} target="_blank">
 						<div class="flex items-center gap-1">
 							<div>Learn More</div>
 							<LearnMore class=" h-7 w-7" />
@@ -206,8 +209,8 @@
 
 			{#if CompanyOfficers}
 				<div>
-					<div class="pb-2 font-semibold">Company Officers</div>
-					<div class="flex w-full gap-2 overflow-auto">
+					<div class="font-semibold">Company Officers</div>
+					<div class="flex w-full gap-2 overflow-auto py-5">
 						{#each companyOfficers as officer}
 							<CompanyOfficers companyOfficers={officer} />
 						{/each}
@@ -217,8 +220,8 @@
 
 			{#if data.news}
 				<div>
-					<div class="pb-2 font-semibold">{ticker.info.name} News</div>
-					<div class="flex w-full snap-x gap-2 overflow-auto">
+					<div class="font-semibold">{ticker.info.name} News</div>
+					<div class="flex w-full snap-x gap-2 overflow-auto py-5">
 						{#each data.news as newsItem}
 							<div class="snap-center">
 								<NewsItem {newsItem} />

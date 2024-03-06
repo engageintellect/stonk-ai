@@ -31,7 +31,7 @@
 
 			<!-- OVERLAY START -->
 			<div
-				class="bg-primary absolute left-0 top-0 h-full w-full rounded opacity-70 transition-opacity duration-300 group-hover:opacity-80"
+				class="bg-primary absolute left-0 top-0 h-full w-full rounded opacity-70 transition-opacity duration-200 group-hover:opacity-80"
 			></div>
 			<!-- OVERLAY END -->
 			<div class="text-secondary-content absolute bottom-0 z-10 flex w-80 flex-col p-6 drop-shadow">
