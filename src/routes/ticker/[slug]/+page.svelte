@@ -40,7 +40,10 @@
 	}
 </script>
 
-shadow
+<div class="font-thin">
+	{new Date().toLocaleDateString('en-US')}
+</div>
+
 <div class="">
 	{#if !data}
 		<div>Loading...</div>
@@ -111,14 +114,14 @@ shadow
 						{/if}
 					</div>
 				</div>
-			</div>
 
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartTitle="Price History"
-					chartValues={data.price_history.map((price: any) => price.price)}
-					chartLabels={data.price_history.map((date: any) => date.date)}
-				/>
+				<div class="h-52 sm:h-80">
+					<Chart
+						chartTitle="Price History"
+						chartValues={data.price_history.map((price: any) => price.price)}
+						chartLabels={data.price_history.map((date: any) => date.date)}
+					/>
+				</div>
 			</div>
 
 			<div class="">
@@ -142,7 +145,7 @@ shadow
 					{#each Object.entries(ticker) as [key, value]}
 						{#if key !== 'info' && key !== 'analysis'}
 							{#if value && Object.values(value).some((x) => x)}
-								<div class="flex flex-col gap-2 rounded py-5">
+								<div class="flex flex-col gap-2 rounded pb-5">
 									<div class="pb-3 font-semibold capitalize">{key}</div>
 									{#each Object.entries(value) as [prop, propValue]}
 										{#if propValue}
