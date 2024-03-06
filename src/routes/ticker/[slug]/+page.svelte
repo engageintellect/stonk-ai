@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="font-thin">
+<div class="text-sm font-thin">
 	{new Date().toLocaleDateString('en-US')}
 </div>
 
@@ -125,7 +125,7 @@
 			</div>
 
 			<div class="">
-				<div class="font-semibold">Analysis Data</div>
+				<div class="text-lg font-semibold">Analysis Data</div>
 				<div class="flex gap-2 overflow-auto py-5">
 					{#each Object.entries(ticker.analysis) as [key, value]}
 						{#if value}
@@ -146,7 +146,7 @@
 						{#if key !== 'info' && key !== 'analysis'}
 							{#if value && Object.values(value).some((x) => x)}
 								<div class="flex flex-col gap-2 rounded pb-5">
-									<div class="pb-3 font-semibold capitalize">{key}</div>
+									<div class="pb-3 text-lg font-semibold capitalize">{key}</div>
 									{#each Object.entries(value) as [prop, propValue]}
 										{#if propValue}
 											<div class=" bg-secondary text-secondary-content rounded p-2 text-sm">
@@ -164,7 +164,7 @@
 				</div>
 			</div>
 			<div class="">
-				<div class="font-semibold">30d Ai Forecast</div>
+				<div class="text-lg font-semibold">30d Ai Forecast</div>
 				<div class="flex gap-2 overflow-auto py-5">
 					{#each predicted_prices as price}
 						<div class="bg-primary text-primary-content rounded p-6 text-center">
@@ -199,7 +199,7 @@
 
 			{#if data.ticker_info.longBusinessSummary}
 				<div>
-					<div class="font-semibold">Description:</div>
+					<div class="text-lg font-semibold">Description:</div>
 					<div class="py-5">{data.ticker_info.longBusinessSummary}</div>
 					<a class="btn btn-primary" href={ticker.info.website} target="_blank">
 						<div class="flex items-center gap-1">
@@ -212,7 +212,7 @@
 
 			{#if CompanyOfficers}
 				<div>
-					<div class="font-semibold">Company Officers</div>
+					<div class="text-lg font-semibold">Company Officers</div>
 					<div class="flex w-full gap-2 overflow-auto py-5">
 						{#each companyOfficers as officer}
 							<CompanyOfficers companyOfficers={officer} />
@@ -223,7 +223,7 @@
 
 			{#if data.news}
 				<div>
-					<div class="font-semibold">{ticker.info.name} News</div>
+					<div class="text-lg font-semibold">{ticker.info.name} News</div>
 					<div class="flex w-full snap-x gap-2 overflow-auto py-5">
 						{#each data.news as newsItem}
 							<div class="snap-center">
