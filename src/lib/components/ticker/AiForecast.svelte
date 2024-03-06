@@ -11,9 +11,9 @@
 	<div>
 		<div class="">
 			<div class="text-lg font-semibold">30d Ai Forecast</div>
-			<div class="flex gap-2 overflow-auto py-5">
+			<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 				{#each predicted_prices as price}
-					<div class="bg-primary text-primary-content rounded p-6 text-center">
+					<div class="bg-primary text-primary-content snap-center rounded p-6 text-center">
 						<div class="flex flex-col items-center justify-center gap-2">
 							<div class="w-full text-nowrap text-sm font-thin">
 								{price.date}

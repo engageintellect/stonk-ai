@@ -15,7 +15,7 @@
 <a
 	href={`https://www.google.com/search?q=${companyOfficers.name}`}
 	target={`_blank`}
-	class="bg-primary text-primary-content w-full min-w-72 rounded p-6"
+	class="bg-primary text-primary-content w-full min-w-72 snap-center rounded p-6"
 >
 	<div class="flex w-full flex-col items-center justify-start gap-2">
 		<div class="w-full text-nowrap font-thin capitalize">{companyOfficers.name}</div>

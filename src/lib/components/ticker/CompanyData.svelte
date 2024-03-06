@@ -3,12 +3,12 @@
 </script>
 
 <div class="">
-	<div class="flex gap-2 overflow-auto">
+	<div class="flex snap-x snap-mandatory gap-2 overflow-auto">
 		{#each Object.entries(ticker) as [key, value]}
 			{#if key !== 'info' && key !== 'analysis'}
 				{#if value && Object.values(value).some((x) => x)}
 					<div class="flex flex-col gap-2 rounded pb-5">
-						<div class="pb-3 text-lg font-semibold capitalize">{key}</div>
+						<div class="snap-center pb-3 text-lg font-semibold capitalize">{key}</div>
 						{#each Object.entries(value) as [prop, propValue]}
 							{#if propValue}
 								<div class=" bg-primary text-primary-content rounded p-2 text-sm">
