@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Roadmap from '$lib/components/Roadmap.svelte';
+	import Roadmap from '$lib/components/base/Roadmap.svelte';
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
 	import StockMarket from 'virtual:icons/icon-park-solid/stock-market';

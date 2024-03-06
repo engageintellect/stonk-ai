@@ -1,8 +1,8 @@
 <script>
 	import '../app.pcss';
-	import Nav from '$lib/components/Nav.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import BottomNav from '$lib/components/BottomNav.svelte';
+	import Nav from '$lib/components/base/Nav.svelte';
+	import Footer from '$lib/components/base/Footer.svelte';
+	import BottomNav from '$lib/components/base/BottomNav.svelte';
 </script>
 
 <div class="">
