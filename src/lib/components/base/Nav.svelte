@@ -33,7 +33,7 @@
 
 		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="mx-2">
+				<div tabindex="0" role="button" class="mx-5">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
 						<div>Theme</div>
@@ -42,7 +42,7 @@
 				</div>
 				<ul
 					tabindex="0"
-					class="dropdown-content bg-base-200 rounded-box dropdown-end z-[1] h-96 w-52 overflow-auto p-2 shadow"
+					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end z-[1] h-96 w-52 overflow-auto border p-2 shadow"
 				>
 					{#each themes as theme}
 						<li>
@@ -75,7 +75,7 @@
 					</div>
 					<ul
 						tabindex="0"
-						class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] w-52 p-2 shadow"
+						class="menu menu-sm dropdown-content bg-base-100 border-primary rounded-box z-[1] w-52 border p-2 shadow"
 					>
 						<li>
 							<a class="justify-between">

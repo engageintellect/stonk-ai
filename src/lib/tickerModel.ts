@@ -5,6 +5,31 @@ export const formatPercent = (number?: number): string => (number ? (number * 10
 export const formatPrice = (number?: number): string =>
 	number ? number.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '';
 
+export const camelCaseToRegular = (camelCaseString: string): string => {
+	return camelCaseString
+		.replace(/([a-z])([A-Z])/g, '$1 $2') // insert space between lowercase and uppercase letters
+		.replace(/^./, function (str) {
+			return str.toUpperCase();
+		}); // capitalize the first letter
+};
+
+export const calculatePricePercentage = (high: number, low: number, currentPrice: number): {} => {
+	if (high <= low || currentPrice < low || currentPrice > high) {
+		throw new Error(
+			'Invalid input. Ensure 52-week high is greater than 52-week low, and current price is within the range.'
+		);
+	}
+
+	const priceRange = high - low;
+	const priceAboveLow = currentPrice - low;
+	const percentage = (priceAboveLow / priceRange) * 100;
+	return {
+		high: Number(high),
+		low: Number(low),
+		percentage: Number(percentage)
+	};
+};
+
 export function generateTicker(data: PageData) {
 	return {
 		info: {
@@ -32,13 +57,17 @@ export function generateTicker(data: PageData) {
 		performance: {
 			currentPrice: formatPrice(data.ticker_info?.currentPrice),
 			yesterdaysClose: formatPrice(data.ticker_info?.previousClose),
-			marketCap: formatPrice(data.ticker_info?.marketCap),
 			volume: formatPrice(data.ticker_info?.volume),
 			open: formatPrice(data.ticker_info?.open),
 			low: formatPrice(data.ticker_info?.dayLow),
 			high: formatPrice(data.ticker_info?.dayHigh),
 			fiftyTwoWeekHigh: formatPrice(data.ticker_info?.fiftyTwoWeekHigh),
-			fiftyTwoWeekLow: formatPrice(data.ticker_info?.fiftyTwoWeekLow)
+			fiftyTwoWeekLow: formatPrice(data.ticker_info?.fiftyTwoWeekLow),
+			fiftyTwoWeekRange: calculatePricePercentage(
+				data.ticker_info?.fiftyTwoWeekHigh,
+				data.ticker_info?.fiftyTwoWeekLow,
+				data.ticker_info?.currentPrice
+			)
 		},
 
 		sentiment: {
@@ -58,6 +87,7 @@ export function generateTicker(data: PageData) {
 		},
 
 		financials: {
+			marketCap: formatPrice(data.ticker_info?.marketCap),
 			revenue: formatPrice(data.ticker_info?.revenue),
 			grossProfit: formatPrice(data.ticker_info?.grossProfit),
 			profitMargin: data.ticker_info?.profitMargins,

@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let ticker: any;
+	import { camelCaseToRegular, formatPrice } from '$lib/tickerModel';
+	import { formatPercent } from '$lib/tickerModel';
 </script>
 
 <div class="">
@@ -13,8 +15,32 @@
 							{#if propValue}
 								<div class=" bg-primary text-primary-content rounded p-2 text-sm">
 									<div class="flex gap-2">
-										<div class="font-semibold capitalize">{prop}:</div>
-										<div class="">{propValue}</div>
+										{#if prop === 'fiftyTwoWeekRange'}
+											<div class="flex flex-col gap-2">
+												<div class="text-nowrap font-semibold capitalize">
+													<div class="flex gap-2">
+														<div>
+															{camelCaseToRegular(prop)}:
+														</div>
+														<div class="font-thin">{propValue.percentage.toFixed(0)}%</div>
+													</div>
+												</div>
+												<div class="flex items-center gap-1">
+													<div class="text-xs">{formatPrice(propValue.low)}</div>
+													<progress
+														class="progress progress-warning border-warning h-3 w-full min-w-32 border"
+														value={propValue.percentage}
+														max="100"
+													></progress>
+													<div class="text-xs">{formatPrice(propValue.high)}</div>
+												</div>
+											</div>
+										{:else}
+											<div class="text-nowrap font-semibold capitalize">
+												{camelCaseToRegular(prop)}:
+											</div>
+											<div class="">{propValue}</div>
+										{/if}
 									</div>
 								</div>
 							{/if}
