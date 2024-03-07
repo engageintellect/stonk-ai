@@ -14,9 +14,9 @@
 		{new Date().toLocaleDateString('en-US')}
 	</div>
 
-	<div class="flex items-start gap-2 pb-2">
-		<div class="flex items-center gap-5 text-5xl uppercase sm:text-7xl">
-			<div>
+	<div class="">
+		<div class="flex items-center gap-5">
+			<div class="text-5xl sm:text-7xl">
 				{ticker.info.symbol}
 			</div>
 

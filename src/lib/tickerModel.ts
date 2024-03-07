@@ -23,7 +23,6 @@ export function generateTicker(data: PageData) {
 			debtToEquity: data.ticker_info?.debtToEquity ?? '',
 			freeCashFlow: formatPrice(data.ticker_info?.freeCashflow),
 			ebitda: formatPrice(data.ticker_info?.ebitda),
-			shortRatio: data.ticker_info?.shortRatio ?? '',
 			shortFloat: formatPercent(data.ticker_info?.shortPercentOfFloata ?? 0),
 			beta: data.ticker_info?.beta ?? '',
 			trailingEps: formatPrice(data.ticker_info?.trailingEps),

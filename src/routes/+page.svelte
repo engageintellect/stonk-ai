@@ -40,13 +40,13 @@
 		<div class="font-thin">Find the latest stock information for any company</div>
 	{/if}
 
-	<form on:submit={handleSubmit} class="w-full">
+	<form on:submit={handleSubmit} class="w-full max-w-sm">
 		<label class="input input-bordered my-5 flex w-full items-center gap-2">
 			<input
 				autofocus
 				type="text"
 				class="w-full grow uppercase"
-				placeholder="Search..."
+				placeholder="Enter a stock ticker..."
 				bind:value={inputValue}
 			/>
 			<svg
