@@ -27,6 +27,7 @@
  */
 declare module '$env/static/private' {
 	export const SERVER_ENDPOINT: string;
+	export const YOUTUBE_API_KEY: string;
 	export const npm_package_devDependencies_prettier: string;
 	export const PINECONE_API_KEY: string;
 	export const TERM_PROGRAM: string;
@@ -157,6 +158,7 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		SERVER_ENDPOINT: string;
+		YOUTUBE_API_KEY: string;
 		npm_package_devDependencies_prettier: string;
 		PINECONE_API_KEY: string;
 		TERM_PROGRAM: string;

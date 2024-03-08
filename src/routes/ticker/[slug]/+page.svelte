@@ -10,6 +10,7 @@
 	import AiForecast from '$lib/components/ticker/AiForecast.svelte';
 	import NewsFeed from '$lib/components/ticker/NewsFeed.svelte';
 	import { onMount } from 'svelte';
+	import YouTubeFeed from '$lib/components/ticker/YouTubeFeed.svelte';
 
 	export let data: PageData;
 	export let stuff: PageData;
@@ -65,6 +66,7 @@
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<NewsFeed {data} {ticker} />
+			<YouTubeFeed />
 			<PredictedPriceGrid {predicted_prices} />
 		</div>
 	{/if}

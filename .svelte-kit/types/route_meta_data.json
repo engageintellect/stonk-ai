@@ -6,6 +6,9 @@
 	"/api/predictPrice": [
 		"src/routes/api/predictPrice/+server.ts"
 	],
+	"/api/queryYouTube": [
+		"src/routes/api/queryYouTube/+server.ts"
+	],
 	"/ticker/[slug]": [
 		"src/routes/ticker/[slug]/+page.server.ts"
 	]

@@ -7,7 +7,7 @@
 
 <div class="">
 	<Nav />
-	<div class="p-4 sm:p-6">
+	<div class="p-2 sm:p-6">
 		<div class="mx-auto max-w-3xl">
 			<slot />
 		</div>

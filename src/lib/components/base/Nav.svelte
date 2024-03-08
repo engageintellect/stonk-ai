@@ -33,7 +33,7 @@
 
 		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="mx-5">
+				<div tabindex="0" role="button" class="">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
 						<div>Theme</div>
