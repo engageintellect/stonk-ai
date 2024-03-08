@@ -8,6 +8,7 @@
 	export let ticker: any;
 
 	import { fade } from 'svelte/transition';
+	import ChartButtons from './ChartButtons.svelte';
 </script>
 
 <div class="flex flex-col">
@@ -98,12 +99,13 @@
 			{/if}
 		</div>
 	</div>
-</div>
 
-<div class="h-52 sm:h-80">
-	<Chart
-		chartTitle="Price History"
-		chartValues={data.price_history.map((price: any) => price.price)}
-		chartLabels={data.price_history.map((date: any) => date.date)}
-	/>
+	<div class="mb-10 mt-2 h-52 sm:h-80">
+		<ChartButtons
+			chartTitle="Price History"
+			chartLabels={data.price_history.map((date: any) => date.date)}
+			chartValues={data.price_history.map((price: any) => price.price)}
+			{data}
+		/>
+	</div>
 </div>
