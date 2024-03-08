@@ -18,8 +18,10 @@
 	class="bg-primary text-primary-content w-full min-w-72 snap-center rounded p-6"
 >
 	<div class="flex w-full flex-col items-center justify-start gap-2">
-		<div class="w-full text-nowrap font-thin capitalize">{companyOfficers.name}</div>
+		<div class="w-full text-nowrap text-lg font-thin capitalize">{companyOfficers.name}</div>
+
 		<div class=" w-full font-semibold uppercase">{companyOfficers.title}</div>
+
 		<div class="w-full">
 			{#if companyOfficers.totalPay}
 				<div class="flex items-center gap-2">

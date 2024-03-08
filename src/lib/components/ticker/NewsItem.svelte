@@ -40,7 +40,7 @@
 			></div>
 			<!-- OVERLAY END -->
 			<div class="text-secondary-content absolute bottom-0 z-10 flex w-80 flex-col p-6 drop-shadow">
-				<div class="w-full text-lg font-semibold">{newsItem.title}</div>
+				<div class="w-full text-2xl font-semibold">{newsItem.title}</div>
 				<div class="w-full font-thin">{newsItem.publisher}</div>
 				<div class="w-full text-xs">{convertDate(newsItem.providerPublishTime)}</div>
 				<div class="flex w-full flex-wrap gap-1 pt-2 text-xs">

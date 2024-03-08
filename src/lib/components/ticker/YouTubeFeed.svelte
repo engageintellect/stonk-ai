@@ -27,7 +27,7 @@
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div
-					class="bg-primary text-primary-content group flex w-full min-w-80 snap-center flex-col rounded"
+					class="bg-primary text-primary-content group flex w-full min-w-72 snap-center flex-col rounded"
 				>
 					<a
 						href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
@@ -42,15 +42,19 @@
 								</div>
 							</div>
 
-							<div class="h-full max-h-40 overflow-hidden">
+							<div class="relative h-full max-h-40 overflow-hidden">
 								<img
 									src={item.snippet.thumbnails.high.url}
 									alt=""
-									class="h-40 w-full object-cover opacity-70 saturate-150 transition-all duration-300 sm:group-hover:scale-[102%] sm:group-hover:opacity-80"
+									class="h-40 w-full object-cover saturate-150 transition-all duration-300 sm:group-hover:scale-[102%]"
 								/>
+
+								<div
+									class="bg-primary absolute left-0 top-0 h-40 w-full opacity-50 transition-all duration-300 sm:group-hover:opacity-20"
+								></div>
 							</div>
 
-							<div class="flex-grow p-2 font-thin capitalize">
+							<div class="flex-grow p-2 text-lg font-semibold capitalize">
 								{item.snippet.title}
 							</div>
 						</div>

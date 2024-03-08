@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let ticker: any;
+	import { camelCaseToRegular } from '$lib/tickerModel';
 </script>
 
 {#if ticker.analysis.recommendation != ''}
@@ -8,9 +9,11 @@
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each Object.entries(ticker.analysis) as [key, value]}
 				{#if value}
-					<div class="bg-primary text-primary-content snap-center rounded p-6">
-						<div class="flex flex-col items-center justify-center gap-2">
-							<div class="font-thin capitalize">{key}:</div>
+					<div class="bg-primary text-primary-content snap-center text-nowrap rounded">
+						<div class="flex h-full w-full flex-col items-center justify-center gap-2 p-6">
+							<div class="flex whitespace-nowrap font-thin capitalize">
+								{camelCaseToRegular(key)}:
+							</div>
 							<div class=" text-xl font-semibold uppercase">{value}</div>
 						</div>
 					</div>
