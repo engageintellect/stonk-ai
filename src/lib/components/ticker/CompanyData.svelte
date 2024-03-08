@@ -5,7 +5,7 @@
 </script>
 
 <div class="">
-	<div class="flex snap-x snap-mandatory gap-2 overflow-auto">
+	<div class="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-auto text-nowrap">
 		{#each Object.entries(ticker) as [key, value]}
 			{#if key !== 'info' && key !== 'analysis'}
 				{#if value && Object.values(value).some((x) => x)}
@@ -18,7 +18,7 @@
 										{#if prop === 'fiftyTwoWeekRange'}
 											<div class="flex flex-col gap-2">
 												<div class="text-nowrap font-semibold capitalize">
-													<div class="flex gap-2">
+													<div class="flex w-full items-center justify-between gap-2">
 														<div>
 															{camelCaseToRegular(prop)}:
 														</div>
@@ -36,10 +36,12 @@
 												</div>
 											</div>
 										{:else}
-											<div class="text-nowrap font-semibold capitalize">
-												{camelCaseToRegular(prop)}:
+											<div class="flex w-full justify-between gap-2">
+												<div class="w-full text-nowrap font-semibold capitalize">
+													{camelCaseToRegular(prop)}:
+												</div>
+												<div class="">{propValue}</div>
 											</div>
-											<div class="">{propValue}</div>
 										{/if}
 									</div>
 								</div>

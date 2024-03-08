@@ -66,7 +66,7 @@
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<NewsFeed {data} {ticker} />
-			<YouTubeFeed />
+			<YouTubeFeed {ticker} />
 			<PredictedPriceGrid {predicted_prices} />
 		</div>
 	{/if}

@@ -1,11 +1,12 @@
 <script lang="ts">
-	let YOUTUBE_API_KEY = 'AIzaSyDXquVBOHplIeDlF-vEoVWaA1_2wgWREls';
+	let YOUTUBE_API_KEY = 'AIzaSyDyOcVMZnI_jBCE9_w88gtugswbGwvwMKE';
 	let max_result = '25';
 	let response;
 	let data: any;
-	let term = 'palantir';
+	export let ticker: any;
+	let term = `${ticker.info.name} stock news`;
 	import { onMount } from 'svelte';
-	import NewsItem from './NewsItem.svelte';
+	import { prettifyDate } from '$lib/tickerModel';
 
 	onMount(() => {
 		const getData = async () => {
@@ -23,10 +24,10 @@
 {#if data}
 	<div class="">
 		<div class="text-lg font-semibold">Related Videos</div>
-		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-2">
+		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div
-					class="bg-primary text-primary-content flex w-full min-w-80 snap-center flex-col rounded p-2"
+					class="bg-primary text-primary-content group flex w-full min-w-80 snap-center flex-col rounded"
 				>
 					<a
 						href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
@@ -34,14 +35,22 @@
 						rel="noreferrer"
 						class="flex h-full w-full flex-col"
 					>
-						<img
-							src={item.snippet.thumbnails.high.url}
-							alt=""
-							class="h-40 w-full rounded object-cover"
-						/>
+						<div class="flex flex-col overflow-hidden">
+							<div class="p-2">
+								<div class="badge badge-outline flex-grow rounded p-2 text-sm font-thin capitalize">
+									{prettifyDate(item.snippet.publishTime)}
+								</div>
+							</div>
 
-						<div class="flex-grow font-thin capitalize">
-							{item.snippet.title}:
+							<img
+								src={item.snippet.thumbnails.high.url}
+								alt=""
+								class="h-40 w-full object-cover opacity-70 saturate-150 transition-opacity duration-300 hover:scale-105 sm:group-hover:opacity-80"
+							/>
+
+							<div class="flex-grow p-2 font-thin capitalize">
+								{item.snippet.title}
+							</div>
 						</div>
 					</a>
 				</div>
