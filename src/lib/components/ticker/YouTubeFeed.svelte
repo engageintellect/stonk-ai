@@ -46,7 +46,7 @@
 								<img
 									src={item.snippet.thumbnails.high.url}
 									alt=""
-									class="h-40 w-full object-cover opacity-70 saturate-150 transition-all duration-300 hover:scale-[102%] sm:group-hover:opacity-80"
+									class="h-40 w-full object-cover opacity-70 saturate-150 transition-all duration-300 sm:group-hover:scale-[102%] sm:group-hover:opacity-80"
 								/>
 							</div>
 
