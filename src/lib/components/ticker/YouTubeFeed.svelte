@@ -41,7 +41,7 @@
 								<img
 									src={item.snippet.thumbnails.high.url}
 									alt=""
-									class="h-40 w-full object-cover saturate-150 transition-all duration-300 sm:group-hover:scale-[102%]"
+									class="h-40 w-full scale-105 object-cover saturate-150 transition-all duration-300 sm:group-hover:scale-[107%]"
 								/>
 
 								<div
