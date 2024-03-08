@@ -19,6 +19,7 @@
 		<button class="btn btn-sm btn-outline" on:click={() => handleClick(30)}>30d</button>
 		<button class="btn btn-sm btn-outline" on:click={() => handleClick(60)}>60d</button>
 		<button class="btn btn-sm btn-outline" on:click={() => handleClick(90)}>90d</button>
+		<button class="btn btn-sm btn-outline" on:click={() => handleClick(180)}>180d</button>
 	</div>
 
 	<div>
@@ -57,6 +58,16 @@
 				<Chart
 					chartLabels={data.price_history.slice(-90).map((date: any) => date.date)}
 					chartValues={data.price_history.slice(-90).map((price: any) => price.price)}
+					{chartTitle}
+				/>
+			</div>
+		{/if}
+
+		{#if $prefferedTimeframe == 180}
+			<div class="h-52 sm:h-80">
+				<Chart
+					chartLabels={data.price_history.slice(-180).map((date: any) => date.date)}
+					chartValues={data.price_history.slice(-180).map((price: any) => price.price)}
 					{chartTitle}
 				/>
 			</div>
