@@ -4,7 +4,7 @@
 
 {#if predicted_prices.length > 0}
 	<div>
-		<div class="text-lg font-semibold">Predicted Prices</div>
+		<div class="text-2xl font-semibold">Predicted Prices</div>
 		<div class="my-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
 			{#each predicted_prices as price}
 				<div class="bg-base-300 w-full rounded p-2">

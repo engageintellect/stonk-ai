@@ -24,7 +24,7 @@
 
 		<div class="w-full">
 			{#if companyOfficers.totalPay}
-				<div class="flex items-center gap-2">
+				<div class="flex items-center gap-2 text-sm">
 					<div><MoneyIcon class="h-5 w-5" /></div>
 					<div>
 						<div class="flex items-center">

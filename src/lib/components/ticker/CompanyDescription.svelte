@@ -6,7 +6,7 @@
 
 {#if data.ticker_info.longBusinessSummary}
 	<div>
-		<div class="text-lg font-semibold">Description</div>
+		<div class="text-2xl font-semibold">Description</div>
 		<div class="py-5">{data.ticker_info.longBusinessSummary}</div>
 		<a class="btn btn-primary" href={ticker.info.website} target="_blank">
 			<div class="flex items-center gap-1">

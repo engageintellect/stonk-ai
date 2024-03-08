@@ -18,7 +18,7 @@
 
 {#if data}
 	<div class="">
-		<div class="text-lg font-semibold">{ticker.info.symbol} Videos</div>
+		<div class="text-2xl font-semibold">{ticker.info.symbol} Videos</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div
@@ -56,6 +56,13 @@
 					</a>
 				</div>
 			{/each}
+		</div>
+	</div>
+{:else}
+	<div class="text-2xl font-semibold">
+		<div class="flex items-center gap-2">
+			<span class="animate-pulse">Video feed is down. API may be tired</span>
+			<span class="loading loading-ring text-primary"></span>
 		</div>
 	</div>
 {/if}

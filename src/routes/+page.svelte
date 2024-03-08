@@ -79,4 +79,6 @@
 	</form>
 </div>
 
-<!-- <Roadmap /> -->
+{#if !$isLoading}
+	<Roadmap />
+{/if}

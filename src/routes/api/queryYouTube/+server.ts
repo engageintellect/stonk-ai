@@ -10,8 +10,12 @@ export const GET: RequestHandler = async ({ url }) => {
 		// `https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id(videoId),snippet(title,thumbnails/high/url,publishTime))&q=${params}&type=video&key=${YOUTUBE_API_KEY}&maxResults=${maxResults}&order=date`
 	);
 
-	const data = await res.json();
-	return new Response(JSON.stringify(data), {
-		headers: { 'content-type': 'application/json' }
-	});
+	if (!res.ok) {
+		throw new Error('Failed to fetch data from YouTube');
+	} else {
+		const data = await res.json();
+		return new Response(JSON.stringify(data), {
+			headers: { 'content-type': 'application/json' }
+		});
+	}
 };

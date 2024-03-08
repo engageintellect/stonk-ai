@@ -6,7 +6,7 @@
 
 {#if data.ticker_info.companyOfficers}
 	<div>
-		<div class="text-lg font-semibold">Company Officers</div>
+		<div class="text-2xl font-semibold">Company Officers</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each companyOfficers as officer}
 				<CompanyOfficerCard companyOfficers={officer} />

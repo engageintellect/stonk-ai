@@ -2,6 +2,7 @@
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
 	import Chart from '$lib/components/ticker/Chart.svelte';
+	import { calculatePercentageChange } from '$lib/tickerModel';
 	export let data: any;
 
 	export let ticker: any;
@@ -32,14 +33,33 @@
 						<div>
 							<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
 						</div>
+
+						<div class="font-thin">
+							{calculatePercentageChange(
+								Number(ticker.performance.yesterdaysClose.replace('$', '')),
+								Number(ticker.performance.currentPrice.replace('$', ''))
+							).toFixed(2) + '%'}
+						</div>
 					</div>
 				{/if}
 			{:else if ticker.info.currentPrice}
 				<div
 					class="badge badge-error text-error-content flex h-full items-center gap-1 px-4 py-2 text-lg font-semibold sm:text-2xl"
 				>
-					{ticker.info.currentPrice}
-					<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+					<div>
+						{ticker.info.currentPrice}
+					</div>
+
+					<div>
+						<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+					</div>
+
+					<div class="font-thin">
+						{calculatePercentageChange(
+							Number(ticker.performance.yesterdaysClose.replace('$', '')),
+							Number(ticker.performance.currentPrice.replace('$', ''))
+						).toFixed(2) + '%'}
+					</div>
 				</div>
 			{/if}
 		</div>

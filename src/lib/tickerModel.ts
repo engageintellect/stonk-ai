@@ -1,5 +1,18 @@
 import type { PageData } from './$types';
 
+export const calculatePercentageChange = (previousValue: number, currentValue: number): number => {
+	const difference = currentValue - previousValue;
+	const percentageChange = (difference / Math.abs(previousValue)) * 100;
+	return percentageChange;
+};
+
+// Example usage:
+// const previousValue = 50;
+// const currentValue = 75;
+
+// const percentageChange = calculatePercentageChange(previousValue, currentValue);
+// console.log(`Percentage change: ${percentageChange}%`);
+
 export const prettifyDate = (dateString: string): string => {
 	const date = new Date(dateString);
 
