@@ -22,7 +22,7 @@
 	let predicted_prices: any;
 
 	onMount(async () => {
-		const res = await fetch(`/api/predictPrice/?value=${ticker.info.symbol}`);
+		const res = await fetch(`/api/predictPrice/?ticker=${ticker.info.symbol}`);
 		if (!res.ok) {
 			throw new Error('Error fetching /api/predictPrice from client.');
 		}

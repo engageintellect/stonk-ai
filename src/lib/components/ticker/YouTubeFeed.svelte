@@ -1,23 +1,18 @@
 <script lang="ts">
-	let YOUTUBE_API_KEY = 'AIzaSyDyOcVMZnI_jBCE9_w88gtugswbGwvwMKE';
-	let max_result = '25';
 	let response;
 	let data: any;
 	export let ticker: any;
-	let term = `${ticker.info.name} stock news`;
 	import { onMount } from 'svelte';
 	import { prettifyDate } from '$lib/tickerModel';
 
-	onMount(() => {
-		const getData = async () => {
-			const res = await fetch(
-				`https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id(videoId),snippet(title,thumbnails/high/url,publishTime))&q=${term}&type=video&key=${YOUTUBE_API_KEY}&maxResults=${max_result}&order=date`
-			);
-			response = await res.json();
-			console.log(response);
-			data = response;
-		};
-		getData();
+	onMount(async () => {
+		const res = await fetch(`/api/queryYouTube/?value=${ticker.info.symbol}`);
+		if (!res.ok) {
+			throw new Error('Error fetching /api/queryYouTube from client.');
+		}
+		response = await res.json();
+		console.log(response);
+		data = response;
 	});
 </script>
 
