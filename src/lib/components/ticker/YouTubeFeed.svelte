@@ -18,7 +18,7 @@
 
 {#if data}
 	<div class="">
-		<div class="text-lg font-semibold">Related Videos</div>
+		<div class="text-lg font-semibold">{ticker.info.symbol} Videos</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div

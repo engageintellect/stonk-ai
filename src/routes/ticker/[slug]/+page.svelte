@@ -13,7 +13,6 @@
 	import YouTubeFeed from '$lib/components/ticker/YouTubeFeed.svelte';
 
 	export let data: PageData;
-	export let stuff: PageData;
 
 	let ticker = generateTicker(data);
 
