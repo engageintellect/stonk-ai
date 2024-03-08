@@ -11,7 +11,7 @@
 	onMount(() => {
 		const getData = async () => {
 			const res = await fetch(
-				`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${term}&type=video&key=${YOUTUBE_API_KEY}&maxResults=${max_result}&order=date`
+				`https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id(videoId),snippet(title,thumbnails/high/url,publishTime))&q=${term}&type=video&key=${YOUTUBE_API_KEY}&maxResults=${max_result}&order=date`
 			);
 			response = await res.json();
 			console.log(response);
@@ -42,11 +42,13 @@
 								</div>
 							</div>
 
-							<img
-								src={item.snippet.thumbnails.high.url}
-								alt=""
-								class="h-40 w-full object-cover opacity-70 saturate-150 transition-opacity duration-300 hover:scale-105 sm:group-hover:opacity-80"
-							/>
+							<div class="h-full max-h-40 overflow-hidden">
+								<img
+									src={item.snippet.thumbnails.high.url}
+									alt=""
+									class="h-40 w-full object-cover opacity-70 saturate-150 transition-all duration-300 hover:scale-[102%] sm:group-hover:opacity-80"
+								/>
+							</div>
 
 							<div class="flex-grow p-2 font-thin capitalize">
 								{item.snippet.title}
