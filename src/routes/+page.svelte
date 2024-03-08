@@ -4,12 +4,14 @@
 	import { writable } from 'svelte/store';
 	import StockMarket from 'virtual:icons/icon-park-solid/stock-market';
 	import Send from 'virtual:icons/bi/send-fill';
+	import { searchTicker } from '$lib/store';
 	let inputValue = '';
 	let isLoading = writable(false); // Initialize loading state as false
 
 	async function handleSubmit(event: any) {
 		event.preventDefault(); // Prevent default form submission behavior
 		const searchQuery = inputValue.trim();
+		searchTicker.set(searchQuery); // Set the search query in the store
 		if (searchQuery) {
 			isLoading.set(true); // Activate loading state
 			try {

@@ -22,7 +22,10 @@
 	let predicted_prices: any;
 
 	onMount(async () => {
-		const res = await fetch(`/api/predictPrice/`);
+		const res = await fetch(`/api/predictPrice/?value=${ticker.info.symbol}`);
+		if (!res.ok) {
+			throw new Error('Error fetching /api/predictPrice from client.');
+		}
 		predicted_prices = await res.json();
 		onlyPrices = predicted_prices.predicted_prices.map((price: any) => price.price);
 		onlyDates = predicted_prices.predicted_prices.map((price: any) => price.date);
