@@ -22,7 +22,7 @@
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div
-					class="bg-primary text-primary-content group flex w-full min-w-72 snap-center flex-col rounded"
+					class="bg-primary text-primary-content group flex w-full min-w-72 max-w-80 snap-center flex-col rounded"
 				>
 					<a
 						href={`https://www.youtube.com/watch?v=${item.id.videoId}`}

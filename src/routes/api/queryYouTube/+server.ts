@@ -6,7 +6,7 @@ export const GET: RequestHandler = async ({ url }) => {
 	let params = new URLSearchParams(url.search);
 
 	const res = await fetch(
-		`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${params}&type=video&order=date&key=${YOUTUBE_API_KEY}`
+		`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q='${params} stock news'&type=video&order=date&key=${YOUTUBE_API_KEY}`
 		// `https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id(videoId),snippet(title,thumbnails/high/url,publishTime))&q=${params}&type=video&key=${YOUTUBE_API_KEY}&maxResults=${maxResults}&order=date`
 	);
 
