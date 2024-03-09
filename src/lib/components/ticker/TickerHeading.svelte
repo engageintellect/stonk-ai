@@ -23,24 +23,26 @@
 				{#if ticker.info.currentPrice}
 					<div class="flex items-center gap-2">
 						<div
-							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 font-semibold sm:text-2xl"
+							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 						>
 							<div>
 								{ticker.info.currentPrice}
 							</div>
-
-							<div>
-								<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
-							</div>
 						</div>
 
 						<div
-							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 font-semibold sm:text-2xl"
+							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 						>
-							{calculatePercentageChange(
-								Number(ticker.performance.yesterdaysClose.replace('$', '')),
-								Number(ticker.performance.currentPrice.replace('$', ''))
-							).toFixed(2) + '%'}
+							<div>
+								<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+							</div>
+
+							<div>
+								{calculatePercentageChange(
+									Number(ticker.performance.yesterdaysClose.replace('$', '')),
+									Number(ticker.performance.currentPrice.replace('$', ''))
+								).toFixed(2) + '%'}
+							</div>
 						</div>
 					</div>
 				{/if}
@@ -52,19 +54,21 @@
 						<div>
 							{ticker.info.currentPrice}
 						</div>
-
-						<div>
-							<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
-						</div>
 					</div>
 
 					<div
 						class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 					>
-						{calculatePercentageChange(
-							Number(ticker.performance.yesterdaysClose.replace('$', '')),
-							Number(ticker.performance.currentPrice.replace('$', ''))
-						).toFixed(2) + '%'}
+						<div>
+							<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+						</div>
+
+						<div>
+							{calculatePercentageChange(
+								Number(ticker.performance.yesterdaysClose.replace('$', '')),
+								Number(ticker.performance.currentPrice.replace('$', ''))
+							).toFixed(2) + '%'}
+						</div>
 					</div>
 				</div>
 			{/if}
