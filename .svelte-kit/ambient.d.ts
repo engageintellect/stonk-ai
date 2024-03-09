@@ -94,6 +94,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const npm_package_devDependencies_vitest: string;
 	export const npm_package_devDependencies_eslint_config_prettier: string;
+	export const npm_package_dependencies__tailwindcss_line_clamp: string;
 	export const npm_config_node_gyp: string;
 	export const XPC_SERVICE_NAME: string;
 	export const npm_package_version: string;
@@ -225,6 +226,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		npm_package_devDependencies_vitest: string;
 		npm_package_devDependencies_eslint_config_prettier: string;
+		npm_package_dependencies__tailwindcss_line_clamp: string;
 		npm_config_node_gyp: string;
 		XPC_SERVICE_NAME: string;
 		npm_package_version: string;
