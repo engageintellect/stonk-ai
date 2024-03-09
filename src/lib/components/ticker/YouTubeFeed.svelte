@@ -33,7 +33,7 @@
 						href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
 						target="_blank"
 						rel="noreferrer"
-						class="flex h-full w-full flex-col"
+						class="border-primary flex h-full w-full flex-col rounded border"
 					>
 						<div class="flex flex-col overflow-hidden">
 							<div class="p-2">
