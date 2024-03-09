@@ -4,6 +4,7 @@
 	export let ticker: any;
 	import { onMount } from 'svelte';
 	import { prettifyDate } from '$lib/tickerModel';
+	import Alert from '$lib/components/base/Alert.svelte';
 
 	onMount(async () => {
 		const res = await fetch(`/api/queryYouTube/?value=${ticker.info.symbol}`);
@@ -59,10 +60,12 @@
 		</div>
 	</div>
 {:else}
-	<div class="text-2xl font-semibold">
+	<Alert alertMsg="Video API may be tired..." alertType="error" />
+
+	<!-- <div class="">
 		<div class="flex items-center gap-2">
 			<span class="animate-pulse">Video API may be tired...</span>
-			<span class="loading loading-ring text-primary"></span>
+			<span class="		loading loading-ring text-primary"></span>
 		</div>
-	</div>
+	</div> -->
 {/if}

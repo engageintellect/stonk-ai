@@ -12,6 +12,7 @@
 	import { onMount } from 'svelte';
 	import YouTubeFeed from '$lib/components/ticker/YouTubeFeed.svelte';
 	import { fade } from 'svelte/transition';
+	import Alert from '$lib/components/base/Alert.svelte';
 
 	export let data: PageData;
 
@@ -58,8 +59,10 @@
 </script>
 
 <div class="" in:fade={{ delay: 200, duration: 300 }}>
-	{#if !data}
-		<div>Loading...</div>
+	{#if data.price_history.length === 0}
+		<div class="">
+			<Alert alertMsg="No data found for this ticker symbol." alertType="warning" />
+		</div>
 	{:else}
 		<div class="flex flex-col gap-10">
 			<TickerHeading {ticker} {data} />

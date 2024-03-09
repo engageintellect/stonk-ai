@@ -9,7 +9,7 @@
 </script>
 
 <div class="flex flex-col">
-	<div class="text-xs font-thin">
+	<div class="text-xs font-thin sm:text-sm">
 		{new Date().toLocaleDateString('en-US')}
 	</div>
 
