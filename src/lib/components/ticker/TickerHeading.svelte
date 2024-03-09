@@ -3,9 +3,23 @@
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
 	import { calculatePercentageChange } from '$lib/tickerModel';
 	import ChartButtons from './ChartButtons.svelte';
+	import { prefferedTimeframe } from '$lib/store';
+	import { get } from 'svelte/store';
+
+	prefferedTimeframe.subscribe((value) => {
+		$prefferedTimeframe = value;
+	});
 
 	export let data: any;
 	export let ticker: any;
+
+	let timeframes = [10, 30, 60, 90, 180];
+
+	const isBullish = (previous: number, current: number) => {
+		if (previous && current) {
+			return Number(previous) < Number(current);
+		}
+	};
 </script>
 
 <div class="flex flex-col">
@@ -19,59 +33,63 @@
 				{ticker.info.symbol}
 			</div>
 
-			{#if Number(ticker.performance.currentPrice.replace('$', '')) > Number(ticker.performance.yesterdaysClose.replace('$', ''))}
-				{#if ticker.info.currentPrice}
-					<div class="flex items-center gap-2">
-						<div
-							class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-						>
-							<div>
-								{ticker.info.currentPrice}
+			<div class="">
+				{#each timeframes as timeframe}
+					{#if timeframe == $prefferedTimeframe}
+						{#if isBullish(data.price_history.slice(-timeframe)[0].price, data.price_history.slice(-timeframe)[timeframe - 1].price)}
+							<div class="flex items-center gap-2">
+								<div
+									class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+								>
+									<div>
+										{ticker.info.currentPrice}
+									</div>
+								</div>
+
+								<div
+									class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+								>
+									<div>
+										<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+									</div>
+
+									<div>
+										{calculatePercentageChange(
+											Number(data.price_history.slice(-timeframe)[0].price),
+											Number(data.price_history.slice(-timeframe)[timeframe - 1].price)
+										).toFixed(2) + '%'}
+									</div>
+								</div>
 							</div>
-						</div>
+						{:else}
+							<div class="flex items-center gap-2">
+								<div
+									class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+								>
+									<div>
+										{ticker.info.currentPrice}
+									</div>
+								</div>
 
-						<div
-							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-						>
-							<div>
-								<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+								<div
+									class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+								>
+									<div>
+										<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+									</div>
+
+									<div>
+										{calculatePercentageChange(
+											Number(data.price_history.slice(-timeframe)[0].price),
+											Number(data.price_history.slice(-timeframe)[timeframe - 1].price)
+										).toFixed(2) + '%'}
+									</div>
+								</div>
 							</div>
-
-							<div>
-								{calculatePercentageChange(
-									Number(ticker.performance.yesterdaysClose.replace('$', '')),
-									Number(ticker.performance.currentPrice.replace('$', ''))
-								).toFixed(2) + '%'}
-							</div>
-						</div>
-					</div>
-				{/if}
-			{:else if ticker.info.currentPrice}
-				<div class="flex items-center gap-2">
-					<div
-						class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-					>
-						<div>
-							{ticker.info.currentPrice}
-						</div>
-					</div>
-
-					<div
-						class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-					>
-						<div>
-							<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
-						</div>
-
-						<div>
-							{calculatePercentageChange(
-								Number(ticker.performance.yesterdaysClose.replace('$', '')),
-								Number(ticker.performance.currentPrice.replace('$', ''))
-							).toFixed(2) + '%'}
-						</div>
-					</div>
-				</div>
-			{/if}
+						{/if}
+					{/if}
+				{/each}
+			</div>
 		</div>
 	</div>
 
