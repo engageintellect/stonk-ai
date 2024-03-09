@@ -2,6 +2,8 @@
 	import { prefferedTimeframe } from '$lib/store';
 	import Chart from './Chart.svelte';
 
+	import { fade } from 'svelte/transition';
+
 	export let chartTitle: string;
 	export let chartLabels: string[];
 	export let chartValues: number[];

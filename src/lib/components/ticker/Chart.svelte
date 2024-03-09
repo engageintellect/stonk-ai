@@ -5,6 +5,8 @@
 	import daisyuiColors from 'daisyui/src/theming/themes';
 	import { selectedTheme } from '$lib/store';
 
+	import { formatPrice } from '$lib/tickerModel';
+
 	export let chartTitle: string;
 	export let chartValues: number[];
 	export let chartLabels: string[];

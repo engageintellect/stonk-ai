@@ -4,6 +4,7 @@
 	import { writable } from 'svelte/store';
 	import StockMarket from 'virtual:icons/icon-park-solid/stock-market';
 	import Send from 'virtual:icons/bi/send-fill';
+	import { fade } from 'svelte/transition';
 	import { searchTicker } from '$lib/store';
 	let inputValue = '';
 	let isLoading = writable(false); // Initialize loading state as false
@@ -24,16 +25,19 @@
 	}
 </script>
 
-<div class="mx-auto flex w-full max-w-lg flex-col items-center justify-center py-5 sm:py-10">
+<div
+	transition:fade={{ delay: 0, duration: 200 }}
+	class="mx-auto flex w-full max-w-lg flex-col items-center justify-center py-5 sm:py-10"
+>
 	<div class="flex items-center gap-2 text-7xl">
 		<StockMarket class="bg-primary text-primary-content h-20 w-20 rounded px-4 py-2" />
 		<div class="my-5 font-thin">Stonk AI</div>
 	</div>
 
 	{#if $isLoading}
-		<div class="flex animate-pulse items-end gap-1 font-thin">
+		<div class="flex items-end gap-1 font-thin" transition:fade={{ delay: 0, duration: 500 }}>
 			<div>
-				Searching <span class="animate-pulse uppercase">{inputValue}</span>
+				Searching <span class=" uppercase">{inputValue}</span>
 			</div>
 
 			<div>...</div>
@@ -80,5 +84,7 @@
 </div>
 
 {#if !$isLoading}
-	<Roadmap />
+	<div transition:fade={{ delay: 0, duration: 200 }}>
+		<Roadmap />
+	</div>
 {/if}

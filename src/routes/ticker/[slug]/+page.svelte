@@ -57,7 +57,7 @@
 	}
 </script>
 
-<div class="" in:fade={{ delay: 200, duration: 500 }}>
+<div class="" in:fade={{ delay: 200, duration: 300 }}>
 	{#if !data}
 		<div>Loading...</div>
 	{:else}
