@@ -49,7 +49,7 @@
 							<input
 								type="radio"
 								name="theme-dropdown"
-								class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+								class="theme-controller btn btn-sm btn-block btn-ghost justify-start capitalize"
 								aria-label={theme}
 								value={theme}
 								on:change={handleThemeChange}

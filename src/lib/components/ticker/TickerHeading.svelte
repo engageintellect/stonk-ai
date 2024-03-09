@@ -23,7 +23,7 @@
 				{#if ticker.info.currentPrice}
 					<div class="flex items-center gap-2">
 						<div
-							class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+							class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 						>
 							<div>
 								{ticker.info.currentPrice}
@@ -49,7 +49,7 @@
 			{:else if ticker.info.currentPrice}
 				<div class="flex items-center gap-2">
 					<div
-						class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+						class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 					>
 						<div>
 							{ticker.info.currentPrice}

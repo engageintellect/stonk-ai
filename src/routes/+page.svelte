@@ -25,10 +25,7 @@
 	}
 </script>
 
-<div
-	transition:fade={{ delay: 0, duration: 200 }}
-	class="mx-auto flex w-full flex-col items-center justify-center py-5 sm:py-10"
->
+<div class="mx-auto flex w-full flex-col items-center justify-center py-5 sm:py-10">
 	<div class="flex items-center gap-2 text-7xl lg:text-8xl">
 		<StockMarket
 			class="bg-primary text-primary-content h-20 w-20 rounded px-4 py-2 lg:h-24 lg:w-24"

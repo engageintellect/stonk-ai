@@ -7,11 +7,15 @@
 	import Chart from '$lib/components/ticker/Chart.svelte';
 	import { fade } from 'svelte/transition';
 	import { calculatePercentageChange } from '$lib/tickerModel';
+	import AiForecaseIcon from 'virtual:icons/ph/calendar-duotone';
 </script>
 
 {#if predicted_prices.length > 0}
 	<div in:fade={{ delay: 0, duration: 500 }}>
-		<div class="text-2xl font-semibold">30 day AI Forecast</div>
+		<div class="flex items-center gap-2">
+			<div class="text-2xl font-semibold">30 day AI Forecast</div>
+			<AiForecaseIcon class="text-primary h-10 w-10" />
+		</div>
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each predicted_prices as price}
 				<div class="bg-primary text-primary-content snap-center rounded p-6 text-center">

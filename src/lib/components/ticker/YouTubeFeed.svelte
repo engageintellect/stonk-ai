@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import { prettifyDate } from '$lib/tickerModel';
 	import Alert from '$lib/components/base/Alert.svelte';
+	import YouTubeIcon from 'virtual:icons/tabler/brand-youtube-filled';
 
 	onMount(async () => {
 		const res = await fetch(`/api/queryYouTube/?value=${ticker.info.symbol}`);
@@ -19,7 +20,10 @@
 
 {#if data}
 	<div class="">
-		<div class="text-2xl font-semibold">{ticker.info.symbol} Videos</div>
+		<div class="flex items-center gap-2">
+			<div class="text-2xl font-semibold">{ticker.info.symbol} Videos</div>
+			<YouTubeIcon class="text-primary h-10 w-10" />
+		</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each data.items as item}
 				<div
