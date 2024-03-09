@@ -8,7 +8,7 @@
 	<div class="">
 		<div class="flex items-center gap-2">
 			<div class="text-2xl font-semibold">Analyst Data</div>
-			<AnalysisIcon class="text-primary h-10 w-10" />
+			<!-- <AnalysisIcon class="text-primary h-10 w-10" /> -->
 		</div>
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each Object.entries(ticker.analysis) as [key, value]}

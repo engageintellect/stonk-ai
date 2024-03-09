@@ -7,7 +7,7 @@
 	<div>
 		<div class="flex items-center gap-2">
 			<div class="text-2xl font-semibold">Predicted Prices</div>
-			<BrainIcon class="text-primary h-10 w-10" />
+			<!-- <BrainIcon class="text-primary h-10 w-10" /> -->
 		</div>
 		<div class="my-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
 			{#each predicted_prices as price}

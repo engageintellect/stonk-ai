@@ -10,7 +10,7 @@
 		<div class="text-2xl font-semibold">
 			<div class="flex items-center gap-2">
 				<span class="uppercase">{ticker.info.symbol}</span> News
-				<NewsIcon class="text-primary h-10 w-10" />
+				<!-- <NewsIcon class="text-primary h-10 w-10" /> -->
 			</div>
 		</div>
 		<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
