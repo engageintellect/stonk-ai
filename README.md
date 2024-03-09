@@ -1,38 +1,47 @@
-# create-svelte
+# ai-stock-client
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Getting Started:
 
-## Creating a project
+### Prerequisites
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+YOUTUBE_API_KEY: You will need to create a YouTube API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+YOUTUBE_API_KEY=your_api_key
 ```
 
-## Building
-
-To create a production version of your app:
+OPENAI_API_KEY: You will need to create an OpenAI API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
 
 ```bash
-npm run build
+OPENAI_API_KEY=your_api_key
 ```
 
-You can preview the production build with `npm run preview`.
+SERVER_URL: You will need to set the server url as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+SERVER_URL=your_server_url (e.g. http://localhost:8000)
+```
+
+## Running client
+
+```bash
+cd ai-stock-client
+```
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Run client
+
+```bash
+pnpm run dev
+```
+
+### Build client
+
+```bash
+pnpm run build
+```
