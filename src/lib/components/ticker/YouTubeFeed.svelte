@@ -64,7 +64,7 @@
 		</div>
 	</div>
 {:else}
-	<Alert alertMsg="Video API may be tired..." alertType="error" />
+	<Alert alertMsg="Video API may be tired..." alertType="alert" />
 
 	<!-- <div class="">
 		<div class="flex items-center gap-2">

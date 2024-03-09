@@ -4,7 +4,6 @@
 	import { calculatePercentageChange } from '$lib/tickerModel';
 	import ChartButtons from './ChartButtons.svelte';
 	import { prefferedTimeframe } from '$lib/store';
-	import { get } from 'svelte/store';
 
 	prefferedTimeframe.subscribe((value) => {
 		$prefferedTimeframe = value;
@@ -36,16 +35,16 @@
 			<div class="">
 				{#each timeframes as timeframe}
 					{#if timeframe == $prefferedTimeframe}
-						{#if isBullish(data.price_history.slice(-timeframe)[0].price, data.price_history.slice(-timeframe)[timeframe - 1].price)}
-							<div class="flex items-center gap-2">
-								<div
-									class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-								>
-									<div>
-										{ticker.info.currentPrice}
-									</div>
+						<div class="flex items-center gap-2">
+							<div
+								class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
+							>
+								<div>
+									{ticker.info.currentPrice}
 								</div>
+							</div>
 
+							{#if isBullish(data.price_history.slice(-timeframe)[0].price, data.price_history.slice(-timeframe)[timeframe - 1].price)}
 								<div
 									class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 								>
@@ -60,17 +59,7 @@
 										).toFixed(2) + '%'}
 									</div>
 								</div>
-							</div>
-						{:else}
-							<div class="flex items-center gap-2">
-								<div
-									class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
-								>
-									<div>
-										{ticker.info.currentPrice}
-									</div>
-								</div>
-
+							{:else}
 								<div
 									class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 								>
@@ -85,8 +74,8 @@
 										).toFixed(2) + '%'}
 									</div>
 								</div>
-							</div>
-						{/if}
+							{/if}
+						</div>
 					{/if}
 				{/each}
 			</div>
