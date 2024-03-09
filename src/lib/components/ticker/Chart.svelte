@@ -10,7 +10,7 @@
 	export let chartLabels: string[];
 
 	let currentTheme: string;
-	let col: string;
+	let primary: string;
 	let ctx: any;
 	let chartCanvas: HTMLCanvasElement;
 	let chart: any;
@@ -24,14 +24,14 @@
 		if (!currentTheme) return;
 		Object.entries(daisyuiColors).forEach(([key, value]) => {
 			if (key == currentTheme) {
-				col = value.primary;
+				primary = value.primary;
 				if (chart) {
-					chart.data.datasets[0].backgroundColor = col;
-					chart.data.datasets[0].pointBorderColor = col;
-					chart.data.datasets[0].pointBackgroundColor = col;
-					chart.data.datasets[0].borderColor = col;
-					chart.options.scales.y.ticks.color = col;
-					chart.options.scales.y.border.color = col;
+					chart.data.datasets[0].backgroundColor = primary;
+					chart.data.datasets[0].pointBorderColor = primary;
+					chart.data.datasets[0].pointBackgroundColor = primary;
+					chart.data.datasets[0].borderColor = primary;
+					chart.options.scales.y.ticks.color = primary;
+					chart.options.scales.y.border.color = primary;
 
 					chart.update();
 				}
@@ -48,10 +48,10 @@
 				datasets: [
 					{
 						label: chartTitle,
-						backgroundColor: col,
-						pointBorderColor: col,
-						pointBackgroundColor: col,
-						borderColor: col,
+						backgroundColor: primary,
+						pointBorderColor: primary,
+						pointBackgroundColor: primary,
+						borderColor: primary,
 						data: chartValues
 					}
 				]
@@ -71,7 +71,7 @@
 					y: {
 						ticks: {
 							align: 'end',
-							color: col,
+							color: primary,
 							callback: (value: any) => {
 								return '$' + value.toFixed(2);
 							}
@@ -82,7 +82,7 @@
 							display: false
 						},
 						border: {
-							color: col
+							color: primary
 						}
 					}
 				}
