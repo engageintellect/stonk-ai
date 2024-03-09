@@ -1,14 +1,11 @@
 <script lang="ts">
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
-	import Chart from '$lib/components/ticker/Chart.svelte';
 	import { calculatePercentageChange } from '$lib/tickerModel';
-	export let data: any;
-
-	export let ticker: any;
-
-	import { fade } from 'svelte/transition';
 	import ChartButtons from './ChartButtons.svelte';
+
+	export let data: any;
+	export let ticker: any;
 </script>
 
 <div class="flex flex-col">

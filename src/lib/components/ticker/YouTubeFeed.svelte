@@ -61,7 +61,7 @@
 {:else}
 	<div class="text-2xl font-semibold">
 		<div class="flex items-center gap-2">
-			<span class="animate-pulse">Video feed is down. API may be tired</span>
+			<span class="animate-pulse">Video API may be tired...</span>
 			<span class="loading loading-ring text-primary"></span>
 		</div>
 	</div>

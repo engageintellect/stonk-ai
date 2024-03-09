@@ -6,16 +6,8 @@ export const calculatePercentageChange = (previousValue: number, currentValue: n
 	return percentageChange;
 };
 
-// Example usage:
-// const previousValue = 50;
-// const currentValue = 75;
-
-// const percentageChange = calculatePercentageChange(previousValue, currentValue);
-// console.log(`Percentage change: ${percentageChange}%`);
-
 export const prettifyDate = (dateString: string): string => {
 	const date = new Date(dateString);
-
 	const year = String(date.getFullYear()).slice(2);
 	const month = String(date.getMonth() + 1).padStart(2, '0');
 	const day = String(date.getDate()).padStart(2, '0');

@@ -11,6 +11,7 @@
 	import NewsFeed from '$lib/components/ticker/NewsFeed.svelte';
 	import { onMount } from 'svelte';
 	import YouTubeFeed from '$lib/components/ticker/YouTubeFeed.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let data: PageData;
 
@@ -56,7 +57,7 @@
 	}
 </script>
 
-<div class="">
+<div class="" in:fade={{ delay: 250, duration: 500 }}>
 	{#if !data}
 		<div>Loading...</div>
 	{:else}
