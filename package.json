@@ -44,6 +44,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tailwindcss/line-clamp": "^0.4.4",
 		"chart.js": "^4.4.2",
 		"d3-scale": "^4.0.2",
 		"svelte-add": "2024.2.16-0.0"

@@ -43,7 +43,7 @@ const config = {
 		]
 	},
 
-	plugins: [require('daisyui')]
+	plugins: [require('daisyui', '@tailwindcss/line-clamp')]
 };
 
 module.exports = config;
