@@ -11,81 +11,31 @@
 	function handleClick(time: number) {
 		prefferedTimeframe.set(time);
 	}
+
+	let timeframeOptions = [10, 30, 60, 90, 180];
 </script>
 
 <div class="">
 	<div class="flex gap-1">
-		<button
-			class={$prefferedTimeframe === 10 ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
-			on:click={() => handleClick(10)}>10d</button
-		>
-		<button
-			class={$prefferedTimeframe === 30 ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
-			on:click={() => handleClick(30)}>30d</button
-		>
-		<button
-			class={$prefferedTimeframe === 60 ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
-			on:click={() => handleClick(60)}>60d</button
-		>
-		<button
-			class={$prefferedTimeframe === 90 ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
-			on:click={() => handleClick(90)}>90d</button
-		>
-		<button
-			class={$prefferedTimeframe === 180 ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
-			on:click={() => handleClick(180)}>180d</button
-		>
+		{#each timeframeOptions as option}
+			<button
+				class={$prefferedTimeframe === option ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline'}
+				on:click={() => handleClick(option)}>{option}d</button
+			>
+		{/each}
 	</div>
 
 	<div>
-		{#if $prefferedTimeframe == 10}
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartLabels={data.price_history.slice(-10).map((date: any) => date.date)}
-					chartValues={data.price_history.slice(-10).map((price: any) => price.price)}
-					{chartTitle}
-				/>
-			</div>
-		{/if}
-
-		{#if $prefferedTimeframe == 30}
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartLabels={data.price_history.slice(-30).map((date: any) => date.date)}
-					chartValues={data.price_history.slice(-30).map((price: any) => price.price)}
-					{chartTitle}
-				/>
-			</div>
-		{/if}
-
-		{#if $prefferedTimeframe == 60}
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartLabels={data.price_history.slice(-60).map((date: any) => date.date)}
-					chartValues={data.price_history.slice(-60).map((price: any) => price.price)}
-					{chartTitle}
-				/>
-			</div>
-		{/if}
-
-		{#if $prefferedTimeframe == 90}
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartLabels={data.price_history.slice(-90).map((date: any) => date.date)}
-					chartValues={data.price_history.slice(-90).map((price: any) => price.price)}
-					{chartTitle}
-				/>
-			</div>
-		{/if}
-
-		{#if $prefferedTimeframe == 180}
-			<div class="h-52 sm:h-80">
-				<Chart
-					chartLabels={data.price_history.slice(-180).map((date: any) => date.date)}
-					chartValues={data.price_history.slice(-180).map((price: any) => price.price)}
-					{chartTitle}
-				/>
-			</div>
-		{/if}
+		{#each timeframeOptions as option}
+			{#if $prefferedTimeframe == option}
+				<div class="h-52 sm:h-80">
+					<Chart
+						chartLabels={data.price_history.slice(-option).map((date: any) => date.date)}
+						chartValues={data.price_history.slice(-option).map((price: any) => price.price)}
+						{chartTitle}
+					/>
+				</div>
+			{/if}
+		{/each}
 	</div>
 </div>
