@@ -15,11 +15,26 @@
 
 <div class="">
 	<div class="flex gap-1">
-		<button class="btn btn-sm btn-outline" on:click={() => handleClick(10)}>10d</button>
-		<button class="btn btn-sm btn-outline" on:click={() => handleClick(30)}>30d</button>
-		<button class="btn btn-sm btn-outline" on:click={() => handleClick(60)}>60d</button>
-		<button class="btn btn-sm btn-outline" on:click={() => handleClick(90)}>90d</button>
-		<button class="btn btn-sm btn-outline" on:click={() => handleClick(180)}>180d</button>
+		<button
+			class={$prefferedTimeframe === 10 ? 'btn btn-active' : 'btn btn-outline'}
+			on:click={() => handleClick(10)}>10d</button
+		>
+		<button
+			class={$prefferedTimeframe === 30 ? 'btn btn-active' : 'btn btn-outline'}
+			on:click={() => handleClick(30)}>30d</button
+		>
+		<button
+			class={$prefferedTimeframe === 60 ? 'btn btn-active' : 'btn btn-outline'}
+			on:click={() => handleClick(60)}>60d</button
+		>
+		<button
+			class={$prefferedTimeframe === 90 ? 'btn btn-active' : 'btn btn-outline'}
+			on:click={() => handleClick(90)}>90d</button
+		>
+		<button
+			class={$prefferedTimeframe === 180 ? 'btn btn-active' : 'btn btn-outline'}
+			on:click={() => handleClick(180)}>180d</button
+		>
 	</div>
 
 	<div>
