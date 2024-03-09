@@ -10,7 +10,7 @@
 </script>
 
 {#if predicted_prices.length > 0}
-	<div transition:fade={{ delay: 0, duration: 200 }}>
+	<div in:fade={{ delay: 0, duration: 500 }}>
 		<div class="text-2xl font-semibold">30 day AI Forecast</div>
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each predicted_prices as price}
