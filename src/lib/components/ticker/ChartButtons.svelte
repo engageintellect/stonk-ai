@@ -2,8 +2,6 @@
 	import { prefferedTimeframe } from '$lib/store';
 	import Chart from './Chart.svelte';
 
-	import { fade } from 'svelte/transition';
-
 	export let chartTitle: string;
 	export let chartLabels: string[];
 	export let chartValues: number[];
@@ -30,7 +28,7 @@
 	<div>
 		{#each timeframeOptions as option}
 			{#if $prefferedTimeframe == option}
-				<div class="h-52 sm:h-80">
+				<div class="h-60 sm:h-80">
 					<Chart
 						chartLabels={data.price_history.slice(-option).map((date: any) => date.date)}
 						chartValues={data.price_history.slice(-option).map((price: any) => price.price)}

@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-	<div class="sm:hidden">
+	<div class="pt-10 sm:hidden sm:pt-0">
 		<BottomNav />
 	</div>
 	<!-- <Footer /> -->
