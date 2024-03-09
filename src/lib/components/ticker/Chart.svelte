@@ -9,7 +9,7 @@
 
 	export let chartTitle: string;
 	export let chartValues: number[];
-	export let chartLabels: string[];
+	export let chartLabels: any[];
 
 	let currentTheme: string;
 	let primary: string;

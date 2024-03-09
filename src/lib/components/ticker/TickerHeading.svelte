@@ -15,7 +15,7 @@
 
 	<div class="pb-2">
 		<div class="flex items-center gap-5">
-			<div class="text-5xl sm:text-7xl">
+			<div class="font-sans text-5xl font-thin sm:text-7xl">
 				{ticker.info.symbol}
 			</div>
 

@@ -6,7 +6,9 @@
 </script>
 
 <div class="">
-	<Nav />
+	<div class="sticky top-0 z-50 w-full shadow">
+		<Nav />
+	</div>
 	<div class="p-2 sm:p-6">
 		<div class="mx-auto max-w-3xl">
 			<slot />
