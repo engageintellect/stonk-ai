@@ -3,6 +3,9 @@
 		"src/routes/+page.server.ts"
 	],
 	"/about": [],
+	"/api/chatAi": [
+		"src/routes/api/chatAi/+server.ts"
+	],
 	"/api/predictPrice": [
 		"src/routes/api/predictPrice/+server.ts"
 	],

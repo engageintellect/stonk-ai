@@ -6,6 +6,7 @@
 	import { prettifyDate } from '$lib/tickerModel';
 	import Alert from '$lib/components/base/Alert.svelte';
 	import YouTubeIcon from 'virtual:icons/tabler/brand-youtube-filled';
+	import Toast from '$lib/components/base/Toast.svelte';
 
 	onMount(async () => {
 		const res = await fetch(`/api/queryYouTube/?value=${ticker.info.symbol}`);
@@ -64,6 +65,7 @@
 		</div>
 	</div>
 {:else}
+	<Toast />
 	<Alert alertMsg="Video API may be tired..." alertType="alert" />
 
 	<!-- <div class="">
