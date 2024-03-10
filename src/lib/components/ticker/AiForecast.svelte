@@ -8,7 +8,6 @@
 	import { fade } from 'svelte/transition';
 	import { calculatePercentageChange } from '$lib/tickerModel';
 	import AiForecaseIcon from 'virtual:icons/ph/calendar-duotone';
-	import AiInsight from '$lib/components/ticker/AiInsight.svelte';
 </script>
 
 {#if predicted_prices.length > 0}
@@ -18,7 +17,6 @@
 			<!-- <AiForecaseIcon class="text-primary h-10 w-10" /> -->
 		</div>
 
-		<AiInsight />
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
 			{#each predicted_prices as price}
 				<div class="bg-primary text-primary-content snap-center rounded p-6 text-center">
