@@ -1,21 +1,20 @@
-import { SERVER_ENDPOINT } from '$env/static/private';
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+export const POST: RequestHandler = async ({ request }) => {
+	const { query } = await request.json();
+	console.log('query', query);
 
-export const GET = async () => {
-	const res = await fetch(`${SERVER_ENDPOINT}/api/chat/`, {
+	const res = await fetch('https://engage-dev.com:8000/api/chat/', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ message: 'My name is josh.' })
+		body: JSON.stringify({
+			message: query
+		})
 	});
 
 	const data = await res.json();
-	if (!res.ok) {
-		throw new Error(data.message);
-	} else {
-		return new Response(JSON.stringify(data), {
-			headers: { 'content-type': 'application/json' }
-		});
-	}
+	console.log('response', data);
+	return json(data);
 };
