@@ -42,64 +42,47 @@
 	<div class="text-2xl font-semibold">AI Insights</div>
 
 	<div class="py-5">
-		{#if loading}
-			<div class="chat chat-start chart">
-				<div class="chat-image avatar">
-					<div class="w-16 rounded-full shadow">
-						<img
-							alt="Tailwind CSS chat bubble component"
-							src="/images/robotAvatar.png"
-							class="scale-x-[-1]"
-							in:fade={{ delay: 0, duration: 500 }}
-						/>
-					</div>
+		<div class="chat chat-start">
+			<div class="chat-image avatar">
+				<div class="h-10 w-10 rounded-full shadow sm:h-16 sm:w-16">
+					<img
+						alt="Tailwind CSS chat bubble component"
+						src="/images/robotAvatar.png"
+						class="scale-x-[-1]"
+						in:fade={{ delay: 0, duration: 500 }}
+					/>
 				</div>
-				<div class="chat-header flex items-center gap-2">
-					<div>StonksBot</div>
-					<div>
-						<time class="text-xs opacity-50">
-							{new Date().toLocaleTimeString()}
-						</time>
-					</div>
+			</div>
+			<div class="chat-header flex items-center gap-2">
+				<div>StonksBot</div>
+				<div>
+					<time class="text-xs opacity-50">
+						{new Date().toLocaleTimeString()}
+					</time>
 				</div>
+			</div>
+			{#if loading}
 				<div class="chat-bubble w-full">
 					<div class="flex place-items-end p-2">
 						<span class="loading loading-dots loading-sm"></span>
 					</div>
 				</div>
 				<div class="chat-footer opacity-50">Typing...</div>
-			</div>
-		{/if}
+			{/if}
 
-		{#if aiResponse.message !== '' && !loading}
-			<div class="chat chat-start chart">
-				<div class="chat-image avatar">
-					<div class="w-16 rounded-full shadow">
-						<img
-							alt="Tailwind CSS chat bubble component"
-							src="/images/robotAvatar.png"
-							class="scale-x-[-1]"
-						/>
-					</div>
-				</div>
-				<div class="chat-header flex items-center gap-2">
-					<div>StonkBot</div>
-					<div>
-						<time class="text-xs opacity-50">
-							{new Date().toLocaleTimeString()}
-						</time>
-					</div>
-				</div>
+			{#if aiResponse.message !== '' && !loading}
 				<div class="chat-bubble w-full">
-					<div transition:slide={{ delay: 0, duration: 500 }} class="p-2">
+					<div transition:slide={{ delay: 0, duration: 500 }}>
 						<div transition:fade={{ delay: 500, duration: 100 }}>
 							{@html aiResponse}
 						</div>
 					</div>
 				</div>
 				<div class="chat-footer opacity-50">Delivered</div>
-			</div>
-			<!-- <div class="chat chat-end">
+			{/if}
+		</div>
+
+		<!-- <div class="chat chat-end">
 				<div class="chat-image avatar">
 					<div class="w-10 rounded-full">
 						<img
@@ -115,7 +98,6 @@
 				<div class="chat-bubble">I hate you!</div>
 				<div class="chat-footer opacity-50">Seen at 12:46</div>
 			</div> -->
-		{/if}
 
 		<!-- <div class="flex w-full gap-2"> -->
 		<!-- <input type="string" class="input input-primary w-full" bind:value={query} /> -->

@@ -4,6 +4,7 @@
 	import { calculatePercentageChange } from '$lib/tickerModel';
 	import ChartButtons from './ChartButtons.svelte';
 	import { prefferedTimeframe } from '$lib/store';
+	import { formatPrice } from '$lib/tickerModel';
 
 	prefferedTimeframe.subscribe((value) => {
 		$prefferedTimeframe = value;
@@ -39,9 +40,15 @@
 							<div
 								class="badge badge-primary text-primary-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-2xl"
 							>
-								<div>
-									{ticker.info.currentPrice}
-								</div>
+								{#if ticker.info.currentPrice}
+									<div>
+										{ticker.info.currentPrice}
+									</div>
+								{:else}
+									<div>
+										{formatPrice(data.price_history.slice(-1)[0].price)}
+									</div>
+								{/if}
 							</div>
 
 							{#if isBullish(data.price_history.slice(-timeframe)[0].price, data.price_history.slice(-timeframe)[timeframe - 1].price)}

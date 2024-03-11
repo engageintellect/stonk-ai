@@ -3,7 +3,46 @@
 	import { camelCaseToRegular, formatPrice } from '$lib/tickerModel';
 </script>
 
-{#if ticker.analysis.recommendation != ''}
+{#if ticker.analysis.recommendation !== ''}
+	<div class="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-auto text-nowrap">
+		{#each Object.entries(ticker) as [key, value]}
+			{#if key !== 'info' && key !== 'analysis' && value && Object.values(value).some((x) => x)}
+				<div class="flex flex-col gap-2 rounded pb-5">
+					<div class="snap-center pb-3 text-2xl font-semibold capitalize">{key}</div>
+					{#each Object.entries(value) as [prop, propValue]}
+						{#if propValue}
+							<div class="bg-primary text-primary-content rounded p-2">
+								<div class="flex gap-2">
+									<div class="flex w-full justify-between gap-5">
+										<div class="w-full whitespace-nowrap font-semibold capitalize">
+											{prop === 'fiftyTwoWeekRange'
+												? `${camelCaseToRegular(prop)}: ${propValue.percentage.toFixed(0)}%`
+												: camelCaseToRegular(prop)}:
+										</div>
+										<div>{prop === 'fiftyTwoWeekRange' ? null : propValue}</div>
+									</div>
+								</div>
+								{#if prop === 'fiftyTwoWeekRange'}
+									<div class="flex items-center gap-1">
+										<div class="text-xs">{formatPrice(propValue.low)}</div>
+										<progress
+											class="progress progress-warning border-warning h-3 w-full min-w-32 border"
+											value={propValue.percentage}
+											max="100"
+										></progress>
+										<div class="text-xs">{formatPrice(propValue.high)}</div>
+									</div>
+								{/if}
+							</div>
+						{/if}
+					{/each}
+				</div>
+			{/if}
+		{/each}
+	</div>
+{/if}
+
+<!-- {#if ticker.analysis.recommendation != ''}
 	<div class="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-auto text-nowrap">
 		{#each Object.entries(ticker) as [key, value]}
 			{#if key !== 'info' && key !== 'analysis'}
@@ -51,4 +90,4 @@
 			{/if}
 		{/each}
 	</div>
-{/if}
+{/if} -->
