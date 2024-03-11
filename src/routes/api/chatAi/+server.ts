@@ -13,6 +13,10 @@ export const POST: RequestHandler = async ({ request }) => {
 		})
 	});
 
-	const data = await res.json();
-	return json(data);
+	if (!res.ok) {
+		throw new Error('Failed to fetch data from OpenAI');
+	} else {
+		const data = await res.json();
+		return json(data);
+	}
 };

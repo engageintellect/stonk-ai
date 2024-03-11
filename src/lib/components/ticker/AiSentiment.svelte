@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { slide, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
+	// import { createEventDispatcher } from 'svelte';
+
+	let error = false;
 
 	let res: any;
 	export let data: any;
 	let loading = false;
-	let query = `Using the financial data and newsfeed headlines, give me a brief analysis and sentiment of the stock. make sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends. Make sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-7 sentences, max.`;
+	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-7 sentences, max.`;
 	let aiResponse = {
 		message: ''
 	};
 
-	const dispatch = createEventDispatcher();
+	// const dispatch = createEventDispatcher();
 
 	let observer: IntersectionObserver;
 
@@ -37,9 +39,10 @@
 		audio.play();
 	};
 
-	async function sendRequest() {
+	const sendRequest = async () => {
 		loading = true;
 		query = `${String(query)} ${JSON.stringify(data)}`;
+		console.log('searchString', query);
 		const response = await fetch('/api/chatAi', {
 			method: 'POST',
 			body: JSON.stringify({ query }),
@@ -48,19 +51,30 @@
 			}
 		});
 
-		try {
-			if (!response.ok) {
-				throw new Error('Error fetching /api/chatAi from client.');
-			} else {
-				res = await response.json();
-				loading = false;
-				playNotificationSound(0.7);
-				aiResponse = res.message;
-			}
-		} catch (error) {
-			console.error('Error:', error);
+		// timeout after 5 seconds of no response
+		// setTimeout(() => {
+		// 	if (loading) {
+		// 		loading = false;
+		// 		aiResponse = {
+		// 			message: 'Sorry, I am taking too long to respond. Please try again later.'
+		// 		};
+		// 	}
+		// }, 5000);
+
+		if (!response.ok) {
+			//TODO: this is bullshit... fix it
+			loading = false;
+			aiResponse = {
+				message: `<div class="flex flex-col gap-2"><div">Sorry, I am having trouble analyzing ${data.ticker_info.symbol}, or am not confident with my analysis.</div><div>Please try again later.</div></div>`
+			};
+			throw new Error('Error fetching /api/chatAi from client!!!');
+		} else {
+			res = await response.json();
+			loading = false;
+			playNotificationSound(0.7);
+			aiResponse = res.message;
 		}
-	}
+	};
 </script>
 
 <div>
@@ -99,7 +113,11 @@
 				<div class="chat-bubble w-full">
 					<div transition:slide={{ delay: 0, duration: 500 }}>
 						<div transition:fade={{ delay: 500, duration: 100 }}>
-							{@html aiResponse}
+							{#if aiResponse.message}
+								{@html aiResponse.message}
+							{:else}
+								{@html aiResponse}
+							{/if}
 						</div>
 					</div>
 				</div>
