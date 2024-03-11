@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { slide, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+
 	let res: any;
 	export let data: any;
 	let loading = false;
@@ -9,8 +11,24 @@
 		message: ''
 	};
 
-	onMount(async () => {
-		await sendRequest();
+	const dispatch = createEventDispatcher();
+
+	let observer: IntersectionObserver;
+
+	onMount(() => {
+		observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					sendRequest();
+					observer.unobserve(entry.target);
+				}
+			});
+		});
+
+		const targetElement = document.querySelector('.chat-header');
+		if (targetElement) {
+			observer.observe(targetElement);
+		}
 	});
 
 	const playNotificationSound = (volume: number) => {
@@ -22,7 +40,6 @@
 	async function sendRequest() {
 		loading = true;
 		query = `${String(query)} ${JSON.stringify(data)}`;
-		console.log('searchString', query);
 		const response = await fetch('/api/chatAi', {
 			method: 'POST',
 			body: JSON.stringify({ query }),
@@ -31,20 +48,28 @@
 			}
 		});
 
-		res = await response.json();
-		loading = false;
-		playNotificationSound(0.7);
-		aiResponse = res.message;
+		try {
+			if (!response.ok) {
+				throw new Error('Error fetching /api/chatAi from client.');
+			} else {
+				res = await response.json();
+				loading = false;
+				playNotificationSound(0.7);
+				aiResponse = res.message;
+			}
+		} catch (error) {
+			console.error('Error:', error);
+		}
 	}
 </script>
 
 <div>
-	<div class="text-2xl font-semibold">AI Insights</div>
+	<div class="ai-sentiment-text text-2xl font-semibold">AI Sentiment</div>
 
 	<div class="py-5">
 		<div class="chat chat-start">
 			<div class="chat-image avatar">
-				<div class="h-10 w-10 rounded-full shadow sm:h-16 sm:w-16">
+				<div class="border-primary h-10 w-10 rounded-full border shadow sm:h-16 sm:w-16">
 					<img
 						alt="Tailwind CSS chat bubble component"
 						src="/images/robotAvatar.png"
@@ -54,7 +79,7 @@
 				</div>
 			</div>
 			<div class="chat-header flex items-center gap-2">
-				<div>StonksBot</div>
+				<div>StonkBot</div>
 				<div>
 					<time class="text-xs opacity-50">
 						{new Date().toLocaleTimeString()}

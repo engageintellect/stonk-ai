@@ -88,22 +88,6 @@ export function generateTicker(data: PageData) {
 			)
 		},
 
-		sentiment: {
-			floatShares: formatPrice(data.ticker_info?.floatShares),
-			sharesOutstanding: formatPrice(data.ticker_info?.sharesOutstanding),
-			sharesShort: formatPrice(data.ticker_info?.sharesShort),
-			sharesShortPriorMonth: formatPrice(data.ticker_info?.sharesShortPriorMonth),
-			// shortPercent: formatPercent(data.ticker_info?.shortPercentOfFloat) + '%',
-
-			shortPercent:
-				data.ticker_info?.shortPercentOfFloat !== null &&
-				data.ticker_info?.shortPercentOfFloat !== undefined
-					? formatPercent(data.ticker_info.shortPercentOfFloat) + '%'
-					: undefined, // or '' depending on what you want for undefined cases
-
-			shortRatio: data.ticker_info?.shortRatio
-		},
-
 		financials: {
 			marketCap: formatPrice(data.ticker_info?.marketCap),
 			revenue: formatPrice(data.ticker_info?.revenue),
@@ -123,6 +107,22 @@ export function generateTicker(data: PageData) {
 			trailingPE: data.ticker_info?.trailingPE,
 			forwardPE: data.ticker_info?.forwardPE,
 			enterpriseValue: formatPrice(data.ticker_info?.enterpriseValue)
+		},
+
+		short: {
+			floatShares: formatPrice(data.ticker_info?.floatShares),
+			sharesOutstanding: formatPrice(data.ticker_info?.sharesOutstanding),
+			sharesShort: formatPrice(data.ticker_info?.sharesShort),
+			sharesShortPriorMonth: formatPrice(data.ticker_info?.sharesShortPriorMonth),
+			// shortPercent: formatPercent(data.ticker_info?.shortPercentOfFloat) + '%',
+
+			shortPercent:
+				data.ticker_info?.shortPercentOfFloat !== null &&
+				data.ticker_info?.shortPercentOfFloat !== undefined
+					? formatPercent(data.ticker_info.shortPercentOfFloat) + '%'
+					: undefined, // or '' depending on what you want for undefined cases
+
+			shortRatio: data.ticker_info?.shortRatio
 		}
 	};
 }

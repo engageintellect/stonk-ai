@@ -14,7 +14,6 @@
 			throw new Error('Error fetching /api/queryYouTube from client.');
 		}
 		response = await res.json();
-		console.log(response);
 		data = response;
 	});
 </script>

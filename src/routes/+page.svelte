@@ -45,7 +45,7 @@
 		<div class="font-thin">Find the latest stock information for any company</div>
 	{/if}
 
-	<form on:submit={handleSubmit} class="w-full max-w-sm">
+	<form on:submit={handleSubmit} class="w-full max-w-md">
 		<label class="input input-bordered my-5 flex w-full items-center gap-2">
 			<input
 				autofocus

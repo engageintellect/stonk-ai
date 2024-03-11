@@ -18,7 +18,7 @@
 							<div class="flex whitespace-nowrap font-thin capitalize">
 								{camelCaseToRegular(key)}:
 							</div>
-							<div class=" text-xl font-semibold uppercase">{value}</div>
+							<div class="text-nowrap text-xl font-semibold uppercase">{value}</div>
 						</div>
 					</div>
 				{/if}
