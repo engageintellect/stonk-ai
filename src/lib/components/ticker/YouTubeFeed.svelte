@@ -65,7 +65,7 @@
 		</div>
 	</div>
 {:else}
-	<Toast />
+	<!-- <Toast /> -->
 	<Alert alertMsg="Video API may be tired..." alertType="alert" />
 
 	<!-- <div class="">
