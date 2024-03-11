@@ -54,11 +54,13 @@
 						/>
 					</div>
 				</div>
-				<div class="chat-header flex gap-2">
+				<div class="chat-header flex items-center gap-2">
 					<div>StonksBot</div>
-					<time class="text-xs opacity-50">
-						{new Date().toLocaleTimeString()}
-					</time>
+					<div>
+						<time class="text-xs opacity-50">
+							{new Date().toLocaleTimeString()}
+						</time>
+					</div>
 				</div>
 				<div class="chat-bubble w-full">
 					<div class="flex place-items-end p-2">
@@ -80,11 +82,13 @@
 						/>
 					</div>
 				</div>
-				<div class="chat-header flex gap-2">
-					<div>StonksBot</div>
-					<time class="text-xs opacity-50">
-						{new Date().toLocaleTimeString()}
-					</time>
+				<div class="chat-header flex items-center gap-2">
+					<div>StonkBot</div>
+					<div>
+						<time class="text-xs opacity-50">
+							{new Date().toLocaleTimeString()}
+						</time>
+					</div>
 				</div>
 				<div class="chat-bubble w-full">
 					<div transition:slide={{ delay: 0, duration: 500 }} class="p-2">
