@@ -15,7 +15,7 @@
 		<a class="btn btn-primary" href={ticker.info.website} target="_blank">
 			<div class="flex items-center gap-1">
 				<div>Learn More</div>
-				<LearnMore class=" h-10 w-10" />
+				<LearnMore class=" h-7 w-7" />
 			</div>
 		</a>
 	</div>
