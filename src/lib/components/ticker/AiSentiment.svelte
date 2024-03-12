@@ -150,3 +150,9 @@
 		<!-- </div> -->
 	</div>
 </div>
+
+<style>
+	.chat-bubble {
+		width: 100%;
+	}
+</style>
