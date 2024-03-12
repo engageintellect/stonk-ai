@@ -58,4 +58,4 @@
 	</aside>
 </footer>
 
-<div class="h-16 w-full sm:hidden"></div>
+<div class="bg-base-300 h-16 w-full sm:hidden"></div>
