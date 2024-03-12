@@ -19,8 +19,11 @@
 		</div>
 	</div>
 
-	<div class="pt-10 sm:hidden sm:pt-0">
+	<div class="mb-12 sm:mb-0">
+		<Footer />
+	</div>
+
+	<div class="sm:hidden">
 		<BottomNav />
 	</div>
-	<!-- <Footer /> -->
 </div>

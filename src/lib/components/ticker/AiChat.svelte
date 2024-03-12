@@ -26,7 +26,7 @@
 </script>
 
 <div>
-	<div class="text-2xl font-semibold">AI Insights</div>
+	<div class="text-3xl font-semibold">AI Insights</div>
 
 	<div class="py-5">
 		{#if loading}

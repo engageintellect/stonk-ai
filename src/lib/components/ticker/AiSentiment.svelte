@@ -34,7 +34,7 @@
 	});
 
 	const playNotificationSound = (volume: number) => {
-		let audio = new Audio('/sounds/softBleep.mp3');
+		let audio = new Audio('/sounds/bleepBlop.mp3');
 		audio.volume = volume; // Set the volume
 		audio.play();
 	};
@@ -67,18 +67,19 @@
 			aiResponse = {
 				message: `<div class="flex flex-col gap-2"><div">Sorry, I am having trouble analyzing ${data.ticker_info.symbol}, or am not confident with my analysis.</div><div>Please try again later.</div></div>`
 			};
+			playNotificationSound(0.5);
 			throw new Error('Error fetching /api/chatAi from client!!!');
 		} else {
 			res = await response.json();
 			loading = false;
-			playNotificationSound(0.7);
+			playNotificationSound(0.5);
 			aiResponse = res.message;
 		}
 	};
 </script>
 
 <div>
-	<div class="ai-sentiment-text text-2xl font-semibold">AI Sentiment</div>
+	<div class="ai-sentiment-text text-3xl font-semibold">AI Sentiment</div>
 
 	<div class="py-5">
 		<div class="chat chat-start">

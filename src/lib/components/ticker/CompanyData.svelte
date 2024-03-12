@@ -8,7 +8,7 @@
 		{#each Object.entries(ticker) as [key, value]}
 			{#if key !== 'info' && key !== 'analysis' && value && Object.values(value).some((x) => x)}
 				<div class="flex flex-col gap-2 rounded pb-5">
-					<div class="snap-center pb-3 text-2xl font-semibold capitalize">{key}</div>
+					<div class="snap-center pb-3 text-3xl font-semibold capitalize">{key}</div>
 					{#each Object.entries(value) as [prop, propValue]}
 						{#if propValue}
 							<div class="bg-primary text-primary-content rounded p-2">
@@ -48,7 +48,7 @@
 			{#if key !== 'info' && key !== 'analysis'}
 				{#if value && Object.values(value).some((x) => x)}
 					<div class="flex flex-col gap-2 rounded pb-5">
-						<div class="snap-center pb-3 text-2xl font-semibold capitalize">{key}</div>
+						<div class="snap-center pb-3 text-3xl font-semibold capitalize">{key}</div>
 						{#each Object.entries(value) as [prop, propValue]}
 							{#if propValue}
 								<div class=" bg-primary text-primary-content rounded p-2">

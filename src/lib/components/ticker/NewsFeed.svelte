@@ -7,7 +7,7 @@
 
 {#if data.news}
 	<div>
-		<div class="text-2xl font-semibold">
+		<div class="text-3xl font-semibold">
 			<div class="flex items-center gap-2">
 				<span class="uppercase">{ticker.info.symbol}</span> News
 				<!-- <NewsIcon class="text-primary h-10 w-10" /> -->

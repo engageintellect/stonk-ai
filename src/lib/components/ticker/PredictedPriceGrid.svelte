@@ -6,7 +6,7 @@
 {#if predicted_prices.length > 0}
 	<div>
 		<div class="flex items-center gap-2">
-			<div class="text-2xl font-semibold">Predicted Prices</div>
+			<div class="text-3xl font-semibold">Predicted Prices</div>
 			<!-- <BrainIcon class="text-primary h-10 w-10" /> -->
 		</div>
 		<div class="my-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">

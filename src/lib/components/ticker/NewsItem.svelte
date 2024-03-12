@@ -40,7 +40,7 @@
 			></div>
 			<!-- OVERLAY END -->
 			<div class="text-secondary-content absolute bottom-0 z-10 flex w-80 flex-col p-6 drop-shadow">
-				<div class="line-clamp-5 h-full w-full text-2xl font-semibold">
+				<div class="line-clamp-5 h-full w-full text-3xl font-semibold">
 					{newsItem.title}
 				</div>
 				<div class="w-full font-thin">{newsItem.publisher}</div>
