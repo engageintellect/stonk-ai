@@ -14,7 +14,9 @@
 </script>
 
 <div class="py-10">
-	<div class="text-center text-3xl font-semibold">Built using the best technologies available.</div>
+	<div class="text-center text-2xl font-semibold sm:text-3xl">
+		Built using the best technologies available.
+	</div>
 
 	<div class="flex w-full items-center gap-5 overflow-auto py-5">
 		<a href="https://svelte.dev" target="_blank" class="flex flex-col items-center justify-center">

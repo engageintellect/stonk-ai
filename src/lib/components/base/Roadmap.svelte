@@ -7,11 +7,13 @@
 	import { fade } from 'svelte/transition';
 </script>
 
-<div class="">
-	<div class="text-center text-3xl font-semibold">Everything you need, in one place.</div>
+<div class="mx-auto w-full max-w-lg md:max-w-full">
+	<div class="text-center text-2xl font-semibold sm:text-3xl">
+		Everything you need, in one place.
+	</div>
 	<ul
 		transition:fade={{ delay: 0, duration: 200 }}
-		class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical my-5"
+		class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical py-5"
 	>
 		<li>
 			<div class="timeline-middle px-5">

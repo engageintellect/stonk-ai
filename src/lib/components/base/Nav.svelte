@@ -42,7 +42,7 @@
 				</div>
 				<ul
 					tabindex="0"
-					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end z-[1] h-96 w-52 overflow-auto border p-2 shadow"
+					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] h-96 w-52 overflow-auto border p-2 shadow"
 				>
 					{#each themes as theme}
 						<li>

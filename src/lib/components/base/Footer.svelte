@@ -1,4 +1,8 @@
-<footer class="footer footer-center bg-base text-base-content rounded p-10">
+<script>
+	import BottomNav from './BottomNav.svelte';
+</script>
+
+<footer class="footer footer-center bg-base-300 text-base-content rounded p-10">
 	<nav class="grid grid-flow-col gap-4">
 		<a class="link link-hover" href="/about">About</a>
 		<a class="link link-hover" href="mailto:engage.intellect@protonmail.com">Contact</a>
@@ -53,3 +57,5 @@
 		</p>
 	</aside>
 </footer>
+
+<div class="h-16 w-full sm:hidden"></div>

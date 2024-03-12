@@ -27,8 +27,7 @@
 </script>
 
 <div
-	out:fade={{ delay: 0, duration: 100 }}
-	class="mx-auto flex w-full flex-col items-center justify-center py-5 sm:py-10"
+	class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-10 lg:-translate-y-20"
 >
 	<div class="flex items-center gap-2">
 		<div>
@@ -36,7 +35,7 @@
 				class="bg-primary text-primary-content h-20 w-20 rounded px-4 py-2 lg:h-24 lg:w-24"
 			/>
 		</div>
-		<div class="my-5 text-center font-sans text-7xl font-thin lg:text-8xl">stonk ai</div>
+		<div class="text-center font-sans text-7xl font-thin lg:text-8xl">stonk ai</div>
 	</div>
 
 	{#if $isLoading}
@@ -51,12 +50,12 @@
 		<div class="font-thin">Find the latest stock information for any company</div>
 	{/if}
 
-	<form on:submit={handleSubmit} class="w-full max-w-md">
-		<label class="input input-bordered my-5 flex w-full items-center gap-2">
+	<form on:submit={handleSubmit} class="flex w-full max-w-lg flex-col gap-3">
+		<label class="input input-bordered flex w-full items-center gap-2 focus-within:outline-none">
 			<input
 				autofocus
 				type="text"
-				class="w-full grow uppercase"
+				class="grow uppercase"
 				placeholder="Enter a stock ticker..."
 				bind:value={inputValue}
 			/>
@@ -88,9 +87,9 @@
 	</form>
 </div>
 
-{#if !$isLoading}
-	<div transition:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-10 py-10">
+<!-- {#if !$isLoading}
+	<div transition:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-10 py-20">
 		<Roadmap />
 		<BuildWith />
 	</div>
-{/if}
+{/if} -->

@@ -31,14 +31,14 @@
 	<div class="hero-content text-neutral-content text-center">
 		<div class="max-w-md">
 			<div class="mx-auto flex w-full max-w-lg flex-col items-center justify-center">
-				<div class="my-5 text-7xl">Stonk AI</div>
+				<div class="py-5 text-7xl">Stonk AI</div>
 				<div class="font-thin">
 					Labore id consectetur proident id ipsum magna consectetur ut sunt officia et non. Nostrud
 					veniam
 				</div>
 
 				<form on:submit={handleSubmit} class="w-full">
-					<label class="input input-bordered my-5 flex w-full items-center gap-2">
+					<label class="input input-bordered flex w-full items-center gap-2 py-5">
 						<input type="text" class="w-full grow" placeholder="Search" bind:value={inputValue} />
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

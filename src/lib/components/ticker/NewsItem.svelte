@@ -39,7 +39,7 @@
 				class="bg-primary absolute left-0 top-0 h-full w-full rounded opacity-70 transition-all duration-300 sm:group-hover:opacity-80"
 			></div>
 			<!-- OVERLAY END -->
-			<div class="text-secondary-content absolute bottom-0 z-10 flex w-80 flex-col p-6 drop-shadow">
+			<div class="text-secondary-content absolute bottom-0 z-20 flex w-80 flex-col p-6 drop-shadow">
 				<div class="line-clamp-5 h-full w-full text-3xl font-semibold">
 					{newsItem.title}
 				</div>

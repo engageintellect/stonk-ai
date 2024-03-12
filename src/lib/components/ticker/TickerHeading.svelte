@@ -123,7 +123,7 @@
 		</div>
 	</div>
 
-	<div class="mb-10 mt-2 h-52 sm:h-80">
+	<div class="mb-10 mt-5 h-52 sm:h-80">
 		<ChartButtons
 			chartTitle="Price History"
 			chartLabels={data.price_history.map((date: any) => date.date)}

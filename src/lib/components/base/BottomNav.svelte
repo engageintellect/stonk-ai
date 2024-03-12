@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="btm-nav z-20 mt-20">
+<div class="btm-nav z-50">
 	<a href="/" on:click={() => handleClick(0)} class:active={$activeIndex === 0}>
 		<Home class="h-16 w-16 rounded px-4 py-2" />
 	</a>
@@ -38,11 +38,3 @@
 		<Mail class="h-16 w-16 rounded px-4 py-2" />
 	</a>
 </div>
-
-<style>
-	.selected {
-		/* Your active styles here */
-		/* For example: */
-		background-color: blue;
-	}
-</style>

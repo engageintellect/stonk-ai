@@ -81,7 +81,7 @@
 <div>
 	<div class="ai-sentiment-text text-3xl font-semibold">AI Sentiment</div>
 
-	<div class="py-5">
+	<div class="mx-auto w-full max-w-2xl py-5">
 		<div class="chat chat-start">
 			<div class="chat-image avatar">
 				<div class="border-primary h-10 w-10 rounded-full border shadow sm:h-16 sm:w-16">

@@ -9,7 +9,7 @@
 			<div class="text-3xl font-semibold">Predicted Prices</div>
 			<!-- <BrainIcon class="text-primary h-10 w-10" /> -->
 		</div>
-		<div class="my-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+		<div class="grid grid-cols-2 gap-2 py-5 sm:grid-cols-3 lg:grid-cols-4">
 			{#each predicted_prices as price}
 				<div class="bg-base-300 w-full rounded p-2">
 					<div class="w-full">{price.date}</div>

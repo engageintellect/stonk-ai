@@ -59,7 +59,7 @@
 	}
 </script>
 
-<div class="" in:fade={{ delay: 200, duration: 300 }}>
+<div class="" in:fade={{ delay: 0, duration: 936 }}>
 	{#if data.price_history.length === 0}
 		<div class="">
 			<Alert alertMsg="No data found for this ticker symbol." alertType="warning" />
