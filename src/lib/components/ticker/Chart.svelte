@@ -59,6 +59,11 @@
 				]
 			},
 			options: {
+				elements: {
+					point: {
+						radius: 0
+					}
+				},
 				responsive: true,
 				maintainAspectRatio: false,
 				plugins: {

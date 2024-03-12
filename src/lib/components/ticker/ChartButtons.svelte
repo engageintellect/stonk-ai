@@ -12,7 +12,7 @@
 		prefferedTimeframe.set(time);
 	}
 
-	let timeframeOptions = [10, 30, 60, 90, 180];
+	let timeframeOptions = [5, 10, 30, 60, 90, 180];
 </script>
 
 <div class="">

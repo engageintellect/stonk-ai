@@ -20,7 +20,7 @@
 
 	<div class="flex w-full items-center gap-5 overflow-auto py-5">
 		<a href="https://svelte.dev" target="_blank" class="flex flex-col items-center justify-center">
-			<SvelteIcon class="text-primary h-24 w-24 p-2" />
+			<SvelteIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Svelte</div>
 		</a>
 		<a
@@ -28,7 +28,7 @@
 			target="_blank"
 			class="flex flex-col items-center justify-center"
 		>
-			<TypeScriptIcon class="text-primary h-24 w-24 p-2" />
+			<TypeScriptIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">TypeScript</div>
 		</a>
 
@@ -37,12 +37,12 @@
 			target="_blank"
 			class="flex flex-col items-center justify-center"
 		>
-			<TailwindIcon class="text-primary h-24 w-24 p-2" />
+			<TailwindIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">TailwindCSS</div>
 		</a>
 
 		<a href="https://openai.com" target="_blank" class="flex flex-col items-center justify-center">
-			<OpenAiIcon class="text-primary h-24 w-24 p-2" />
+			<OpenAiIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">OpenAI</div>
 		</a>
 		<a
@@ -50,16 +50,16 @@
 			target="_blank"
 			class="flex flex-col items-center justify-center"
 		>
-			<TensorFlowIcon class="text-primary h-24 w-24 p-2" />
+			<TensorFlowIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">TensorFlow</div>
 		</a>
 		<a href="https://python.org" target="_blank" class="flex flex-col items-center justify-center">
-			<PythonIcon class="text-primary h-24 w-24 p-2" />
+			<PythonIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Python</div>
 		</a>
 
 		<a href="https://numpy.com" target="_blank" class="flex flex-col items-center justify-center">
-			<NumpyIcon class="text-primary h-24 w-24 p-2" />
+			<NumpyIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Numpy</div>
 		</a>
 
@@ -68,26 +68,26 @@
 			target="_blank"
 			class="flex flex-col items-center justify-center"
 		>
-			<FastApiIcon class="text-primary h-24 w-24 p-2" />
+			<FastApiIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">FastAPI</div>
 		</a>
 
 		<a href="https://youtube.com" target="_blank" class="flex flex-col items-center justify-center">
-			<YouTubeIcon class="text-primary h-24 w-24 p-2" />
+			<YouTubeIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">YouTube</div>
 		</a>
 
 		<a href="https://nginx.com" target="_blank" class="flex flex-col items-center justify-center">
-			<NginxIcon class="text-primary h-24 w-24 p-2" />
+			<NginxIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Nginx</div>
 		</a>
 		<a href="https://vercel.com" target="_blank" class="flex flex-col items-center justify-center">
-			<VercelIcon class="text-primary h-24 w-24 p-2" />
+			<VercelIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Vercel</div>
 		</a>
 
 		<a href="https://ubuntu.org" target="_blank" class="flex flex-col items-center justify-center">
-			<UbuntuIcon class="text-primary h-24 w-24 p-2" />
+			<UbuntuIcon class="text-primary h-20 w-20 p-2" />
 			<div class="text-xl font-thin">Ubuntu</div>
 		</a>
 	</div>

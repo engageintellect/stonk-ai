@@ -13,7 +13,7 @@
 	export let data: any;
 	export let ticker: any;
 
-	let timeframes = [10, 30, 60, 90, 180];
+	let timeframes = [5, 10, 30, 60, 90, 180];
 
 	const isBullish = (previous: number, current: number) => {
 		if (previous && current) {

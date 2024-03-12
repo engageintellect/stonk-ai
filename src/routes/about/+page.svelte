@@ -1,3 +1,7 @@
+<script lang="ts">
+	import BuildWith from '$lib/components/base/BuildWith.svelte';
+</script>
+
 <div class="flex flex-col gap-5">
 	<div class="font-sans text-5xl font-thin lowercase sm:text-7xl">Stonk Ai</div>
 	<div>
@@ -25,3 +29,5 @@
 		assist you in your financial endeavors.
 	</div>
 </div>
+
+<BuildWith />

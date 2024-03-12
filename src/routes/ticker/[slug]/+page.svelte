@@ -62,7 +62,10 @@
 <div class="" in:fade={{ delay: 0, duration: 936 }}>
 	{#if data.price_history.length === 0}
 		<div class="">
-			<Alert alertMsg="No data found for this ticker symbol." alertType="warning" />
+			<Alert
+				alertMsg={`No data found for ticker: "${data.ticker_info.symbol}"`}
+				alertType="warning"
+			/>
 		</div>
 	{:else}
 		<div class="flex flex-col gap-10">
