@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { formatPrice } from '$lib/tickerModel';
 	import { slide, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	// import { createEventDispatcher } from 'svelte';
 
-	let error = false;
+	const getHistoryLength = (data: any) => {
+		if (data.price_history) {
+			return data.price_history.length;
+		} else {
+			return 0;
+		}
+	};
 
 	let res: any;
 	export let data: any;
 	let loading = false;
-	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-7 sentences, max. Here is the data:`;
+	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-7 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
 	let aiResponse = {
 		message: ''
 	};
@@ -41,7 +48,8 @@
 
 	const sendRequest = async () => {
 		loading = true;
-		query = `${String(query)} ${JSON.stringify(data)}`;
+		// query = `${String(query)} ${JSON.stringify(data)}`;
+		query = `${String(query)}`;
 		console.log('searchString', query);
 		const response = await fetch('/api/chatAi', {
 			method: 'POST',
@@ -77,6 +85,13 @@
 		}
 	};
 </script>
+
+<!-- {JSON.stringify(getHistoryLength(data))} -->
+<!-- {JSON.stringify(query)} -->
+<!-- {JSON.stringify(data.news.map((item: any) => ({ -->
+<!-- date: item['providerPublishTime'], -->
+<!-- title: item['title'] -->
+<!-- })))} -->
 
 <div>
 	<div class="ai-sentiment-text text-3xl font-semibold">AI Sentiment</div>

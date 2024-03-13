@@ -1,5 +1,20 @@
 import type { PageData } from './$types';
 
+export const getTimeframe = (days: number): string => {
+	if (days < 0) {
+		return 'Invalid timeframe';
+	} else if (days < 30) {
+		// return `${days} d${days !== 1 ? 's' : ''}`;
+		return `${days}d${days !== 1 ? '' : ''}`;
+	} else if (days < 365) {
+		const months = Math.floor(days / 30);
+		return `${months}m${months !== 1 ? '' : ''}`;
+	} else {
+		const years = Math.floor(days / 365);
+		return `${years}y${years !== 1 ? '' : ''}`;
+	}
+};
+
 export const calculatePercentageChange = (previousValue: number, currentValue: number): number => {
 	const difference = currentValue - previousValue;
 	const percentageChange = (difference / Math.abs(previousValue)) * 100;

@@ -39,7 +39,7 @@
 				<StockMarket class="text-primary-content btn btn-primary h-20 w-20" />
 			{/if}
 		</div>
-		<div class="font-sans text-8xl font-thin">stonk ai</div>
+		<div class="font-sans text-7xl font-thin sm:text-8xl">stonk ai</div>
 	</div>
 
 	{#if $isLoading}
