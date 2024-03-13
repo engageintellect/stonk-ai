@@ -41,7 +41,7 @@
 	});
 
 	const playNotificationSound = (volume: number) => {
-		let audio = new Audio('/sounds/bleepBlop.mp3');
+		let audio = new Audio('/sounds/softBleep.mp3');
 		audio.volume = volume; // Set the volume
 		audio.play();
 	};
