@@ -11,15 +11,17 @@ export const nodes = [
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [~2],
-		"/about": [3],
-		"/ticker/[slug]": [~4]
-	};
+	'/': [~2],
+	'/about': [3],
+	'/ticker/[slug]': [~4]
+};
 
 export const hooks = {
-	handleError: (({ error }) => { console.error(error) }),
+	handleError: ({ error }) => {
+		console.error(error);
+	},
 
-	reroute: (() => {})
+	reroute: () => {}
 };
 
 export { default as root } from '../root.js';

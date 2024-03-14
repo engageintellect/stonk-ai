@@ -1,18 +1,8 @@
 {
-	"/": [
-		"src/routes/+page.server.ts"
-	],
+	"/": ["src/routes/+page.server.ts"],
 	"/about": [],
-	"/api/chatAi": [
-		"src/routes/api/chatAi/+server.ts"
-	],
-	"/api/predictPrice": [
-		"src/routes/api/predictPrice/+server.ts"
-	],
-	"/api/queryYouTube": [
-		"src/routes/api/queryYouTube/+server.ts"
-	],
-	"/ticker/[slug]": [
-		"src/routes/ticker/[slug]/+page.server.ts"
-	]
+	"/api/chatAi": ["src/routes/api/chatAi/+server.ts"],
+	"/api/predictPrice": ["src/routes/api/predictPrice/+server.ts"],
+	"/api/queryYouTube": ["src/routes/api/queryYouTube/+server.ts"],
+	"/ticker/[slug]": ["src/routes/ticker/[slug]/+page.server.ts"]
 }
