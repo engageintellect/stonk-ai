@@ -36,7 +36,7 @@
 				<div tabindex="0" role="button" class="">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
-						<div>Theme</div>
+						<div class="text-lg font-thin">Theme</div>
 						<ThemeIcon class="h-7 w-7" />
 					</div>
 				</div>
@@ -49,7 +49,7 @@
 							<input
 								type="radio"
 								name="theme-dropdown"
-								class="theme-controller btn btn-sm btn-block btn-ghost justify-start capitalize"
+								class="theme-controller btn btn-sm btn-block btn-ghost justify-start text-lg font-thin"
 								aria-label={theme}
 								value={theme}
 								on:change={handleThemeChange}
@@ -75,16 +75,16 @@
 					</div>
 					<ul
 						tabindex="0"
-						class="menu menu-sm dropdown-content bg-base-100 border-primary rounded-box z-[1] w-52 border p-2 shadow"
+						class="menu menu-sm dropdown-content bg-base-100 border-primary rounded-box z-[1] w-52 border p-2 text-lg shadow"
 					>
 						<li>
-							<a class="justify-between">
+							<a class="justify-between text-lg">
 								Profile
 								<span class="badge">New</span>
 							</a>
 						</li>
-						<li><a>Settings</a></li>
-						<li><a>Logout</a></li>
+						<li><a class="text-lg">Settings</a></li>
+						<li><a class="text-lg">Logout</a></li>
 					</ul>
 				</div>
 			</div>

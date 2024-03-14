@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
 	import StockMarket from 'virtual:icons/icon-park-twotone/stock-market';
+	import Footer from '$lib/components/base/Footer.svelte';
 
 	import SendIcon from 'virtual:icons/bi/send-fill';
 	import { fade } from 'svelte/transition';
@@ -28,7 +29,7 @@
 	}
 </script>
 
-<div class="mx-auto flex w-full flex-col items-center justify-center gap-3 lg:-translate-y-20">
+<div class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-5 sm:py-20">
 	<div class="flex items-center gap-2">
 		<div class="">
 			{#if $isLoading}
@@ -78,7 +79,7 @@
 				</svg>
 			</label>
 
-			<div class="flex w-full max-w-lg items-center gap-2 py-5">
+			<div class="flex w-full max-w-lg items-center gap-2 pt-5">
 				<div class="w-full">
 					<button type="submit" class="btn btn-primary w-full">
 						{#if $isLoading}
@@ -108,6 +109,8 @@
 		</div>
 	</form>
 </div>
+
+<!-- <Pane /> -->
 
 <!-- {#if !$isLoading}
 	<div transition:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-10 py-20">
