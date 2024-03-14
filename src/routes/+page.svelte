@@ -33,14 +33,17 @@
 	<div class="flex items-center gap-2">
 		<div class="">
 			{#if $isLoading}
-				<div class="bg-primary flex h-20 w-20 items-center justify-center shadow">
-					<span class="loading loading-spinner loading-lg text-primary-content"></span>
+				<div
+					in:fade={{ delay: 0, duration: 200 }}
+					class="bg-primary flex h-20 w-20 items-center justify-center rounded-full shadow transition-all duration-500 sm:h-24 sm:w-24"
+				>
+					<span class="loading loading-ring loading-lg text-primary-content"></span>
 				</div>
 			{:else}
-				<StockMarket class="text-primary-content btn btn-primary h-20 w-20" />
+				<StockMarket class="text-primary-content btn btn-primary h-20 w-20 sm:h-24 sm:w-24" />
 			{/if}
 		</div>
-		<div class="font-sans text-7xl font-thin sm:text-8xl">stonk ai</div>
+		<div class="align-middle font-sans text-7xl font-thin sm:text-8xl">stonk ai</div>
 	</div>
 
 	{#if $isLoading}
