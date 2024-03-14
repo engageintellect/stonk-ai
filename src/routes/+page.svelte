@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div class="mx-auto flex w-full flex-col items-center justify-center gap-3 lg:-translate-y-20">
+<div class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-5 lg:-translate-y-20">
 	<div class="flex items-center gap-2">
 		<div class="">
 			{#if $isLoading}

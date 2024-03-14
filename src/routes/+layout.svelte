@@ -7,7 +7,7 @@
 	import { fade } from 'svelte/transition';
 </script>
 
-<div class="flex min-h-screen flex-col">
+<div class="flex flex-col">
 	<!-- <div class="mx-auto max-w-3xl"></div> -->
 	<div class="sticky top-0 z-50 w-full shadow">
 		<Nav />
