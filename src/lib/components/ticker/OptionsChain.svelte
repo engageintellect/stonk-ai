@@ -1,17 +1,17 @@
 <script lang="ts">
+	import { formatPrice } from '$lib/tickerModel';
 	import { fade } from 'svelte/transition';
 	import { get } from 'svelte/store';
+	import { prettifyDate } from '$lib/tickerModel';
 	export let data: any;
-	let calls: any;
-	let options: any;
 
+	let options: any;
 	let selectedDate: string = '';
+	let selectedOption = ''; // Variable to store the selected option
 
 	const clearSelectedDate = () => {
 		selectedDate = '';
 	};
-
-	let selectedOption = ''; // Variable to store the selected option
 
 	// Function to handle selection change
 	const handleSelectionChange = (event: any) => {
@@ -38,80 +38,91 @@
 				<div class="text-3xl font-semibold">Options Chain</div>
 				<div class="badge badge-warning">Expiry Dates</div>
 			</div>
-			<!-- <BrainIcon class="text-primary h-10 w-10" /> -->
 		</div>
 
 		{#if selectedDate != ''}
-			<div in:fade={{ delay: 0, duration: 300 }} class="my-5 flex items-center gap-2">
-				<div class="text-3xl font-semibold">{selectedDate}</div>
-				<div class="badge badge-primary badge-lg uppercase">{selectedOption}s</div>
-				<!-- <button on:click={clearSelectedDate}>clear</button> -->
-				<button
-					in:fade={{ delay: 300, duration: 500 }}
-					on:click={clearSelectedDate}
-					class="btn btn-circle"
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						><path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/></svg
+			<div class="card bg-base-100 my-5 px-2 py-2">
+				<div in:fade={{ delay: 0, duration: 300 }} class="flex items-center justify-between gap-2">
+					<div class="flex items-center gap-2">
+						<div class="text-3xl font-semibold">{selectedDate}</div>
+						{#if selectedOption}
+							<div class="badge badge-primary badge-lg uppercase">{selectedOption}</div>
+						{/if}
+					</div>
+					<button
+						in:fade={{ delay: 100, duration: 300 }}
+						on:click={clearSelectedDate}
+						class="btn btn-circle"
 					>
-				</button>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							><path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							/></svg
+						>
+					</button>
+				</div>
 			</div>
 
-			<div class="w-full">
-				<div class="flex gap-2">
+			<!-- CALL / PUT BUTTONS -->
+			<div class="flex w-full gap-2">
+				<div class="w-full">
 					<input
-						class="btn btn-success w-1/2"
+						class="btn btn-outline w-full"
 						type="radio"
 						name="options"
-						value="call"
+						value="calls"
 						bind:group={selectedOption}
 						on:change={handleSelectionChange}
-						aria-label="Call"
+						aria-label="Calls"
 					/>
+				</div>
+
+				<div class="w-full">
 					<input
-						class="btn btn-error active:btn-info w-1/2"
+						class="btn btn-outline w-full"
 						type="radio"
 						name="options"
-						value="put"
+						value="puts"
 						bind:group={selectedOption}
 						on:change={handleSelectionChange}
-						aria-label="Put"
+						aria-label="Puts"
 					/>
 				</div>
 			</div>
 
-			<p>Selected Option: {selectedOption}</p>
-			<!-- Display the selected option -->
-
-			{#if selectedOption == 'call'}
+			{#if selectedOption == 'calls'}
 				<div in:fade={{ delay: 0, duration: 300 }}>
-					<div class="grid grid-cols-1 gap-2">
+					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{#each options.options.calls as call}
 							<div class="bg-base-300 card w-full p-2">
-								<div class="w-full">{call.strike}</div>
-								<div class="w-full">{call.lastPrice}</div>
+								<div class="w-full">{formatPrice(call.strike)}</div>
+								<div class="w-full">{formatPrice(call.lastPrice)}</div>
+								<div class="w-full">{call.volume}</div>
+								<div class="w-full">{call.openInterest}</div>
+								<div class="w-full">{call.impliedVolatility}</div>
 							</div>
 						{/each}
 					</div>
 				</div>
 			{/if}
-			{#if selectedOption == 'put'}
+			{#if selectedOption == 'puts'}
 				<div in:fade={{ delay: 0, duration: 300 }}>
-					<div class="grid grid-cols-1 gap-2">
+					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{#each options.options.puts as put}
 							<div class="bg-base-300 card w-full p-2">
-								<div class="w-full">{put.strike}</div>
-								<div class="w-full">{put.lastPrice}</div>
+								<div class="w-full">{formatPrice(put.strike)}</div>
+								<div class="w-full">{formatPrice(put.lastPrice)}</div>
+								<div class="w-full">{put.volume}</div>
+								<div class="w-full">{put.openInterest}</div>
+								<div class="w-full">{put.impliedVolatility}</div>
 							</div>
 						{/each}
 					</div>
@@ -121,7 +132,7 @@
 			<div class="grid grid-cols-2 gap-2 py-5 sm:grid-cols-3 lg:grid-cols-4">
 				{#each data.options as strike_date}
 					<button on:click={() => getOptionsChain(strike_date)} class="btn btn-primary">
-						<div class="">{strike_date}</div>
+						<div class="">{prettifyDate(strike_date)}</div>
 					</button>
 				{/each}
 			</div>
