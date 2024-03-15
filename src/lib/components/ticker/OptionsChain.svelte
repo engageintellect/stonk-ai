@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { formatPrice } from '$lib/tickerModel';
+	import { formatPrice, formatPercent } from '$lib/tickerModel';
 	import { fade } from 'svelte/transition';
-	import { get } from 'svelte/store';
 	import { prettifyDate } from '$lib/tickerModel';
 	export let data: any;
+	import OptionCard from './OptionCard.svelte';
 
 	let options: any;
 	let selectedDate: string = '';
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		{#if selectedDate != ''}
+		{#if selectedDate}
 			<div class="card bg-base-100 my-5 px-2 py-2">
 				<div in:fade={{ delay: 0, duration: 300 }} class="flex items-center justify-between gap-2">
 					<div class="flex items-center gap-2">
@@ -75,7 +75,7 @@
 			<div class="flex w-full gap-2">
 				<div class="w-full">
 					<input
-						class="btn btn-outline w-full"
+						class="btn btn-outline w-full uppercase"
 						type="radio"
 						name="options"
 						value="calls"
@@ -87,7 +87,7 @@
 
 				<div class="w-full">
 					<input
-						class="btn btn-outline w-full"
+						class="btn btn-outline w-full uppercase"
 						type="radio"
 						name="options"
 						value="puts"
@@ -100,30 +100,18 @@
 
 			{#if selectedOption == 'calls'}
 				<div in:fade={{ delay: 0, duration: 300 }}>
-					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-						{#each options.options.calls as call}
-							<div class="bg-base-300 card w-full p-2">
-								<div class="w-full">{formatPrice(call.strike)}</div>
-								<div class="w-full">{formatPrice(call.lastPrice)}</div>
-								<div class="w-full">{call.volume}</div>
-								<div class="w-full">{call.openInterest}</div>
-								<div class="w-full">{call.impliedVolatility}</div>
-							</div>
+					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2">
+						{#each options.options.calls as option}
+							<OptionCard {option} />
 						{/each}
 					</div>
 				</div>
 			{/if}
 			{#if selectedOption == 'puts'}
 				<div in:fade={{ delay: 0, duration: 300 }}>
-					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-						{#each options.options.puts as put}
-							<div class="bg-base-300 card w-full p-2">
-								<div class="w-full">{formatPrice(put.strike)}</div>
-								<div class="w-full">{formatPrice(put.lastPrice)}</div>
-								<div class="w-full">{put.volume}</div>
-								<div class="w-full">{put.openInterest}</div>
-								<div class="w-full">{put.impliedVolatility}</div>
-							</div>
+					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2">
+						{#each options.options.puts as option}
+							<OptionCard {option} />
 						{/each}
 					</div>
 				</div>

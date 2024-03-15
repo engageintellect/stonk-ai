@@ -10,6 +10,7 @@
 	import { searchTicker } from '$lib/store';
 	import BuiltWith from '$lib/components/base/BuiltWith.svelte';
 	import LearnMoreIcon from 'virtual:icons/carbon/machine-learning-model';
+	import OptionCard from '$lib/components/ticker/OptionCard.svelte';
 	let inputValue = '';
 	let isLoading = writable(false); // Initialize loading state as false
 
@@ -27,6 +28,21 @@
 			}
 		}
 	}
+
+	export let option = {
+		contractSymbol: 'AAPL220121C00100000',
+		strike: 100,
+		lastPrice: 0.01,
+		bid: 0.01,
+		ask: 0.01,
+		change: 0,
+		percentChange: 0,
+		volume: 0,
+		openInterest: 0,
+		impliedVolatility: 0,
+		inTheMoney: 'true',
+		contractSize: 'REGULAR'
+	};
 </script>
 
 <div class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-5 sm:py-20">
@@ -121,3 +137,7 @@
 		<BuiltWith />
 	</div>
 {/if} -->
+
+<div>
+	<OptionCard {option} />
+</div>
