@@ -1,8 +1,5 @@
 <script lang="ts">
-	function convertDate(timestampInSeconds: number): string {
-		const date = new Date(timestampInSeconds * 1000);
-		return date.toLocaleString(); // This will format the date based on the user's locale
-	}
+	import { convertDate } from '$lib/tickerModel';
 
 	export let newsItem = {
 		title: 'Title',

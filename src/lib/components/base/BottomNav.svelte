@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
-	import Home from 'virtual:icons/material-symbols/home-rounded';
+	import SearchIcon from 'virtual:icons/material-symbols/search';
 	import GitHub from 'virtual:icons/bi/github';
 	import Mail from 'virtual:icons/material-symbols/mail';
 
@@ -19,9 +19,9 @@
 	});
 </script>
 
-<div class="btm-nav z-50">
+<div class="btm-nav border-primary z-50 border-t">
 	<a href="/" on:click={() => handleClick(0)} class:active={$activeIndex === 0}>
-		<Home class="h-16 w-16 rounded px-4 py-2" />
+		<SearchIcon class="h-16 w-16 rounded px-4 py-2" />
 	</a>
 	<a
 		href="https://github.com/engageintellect"

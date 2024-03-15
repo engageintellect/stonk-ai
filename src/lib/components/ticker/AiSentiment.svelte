@@ -99,7 +99,7 @@
 	<div class="mx-auto w-full max-w-2xl py-5">
 		<div class="chat chat-start">
 			<div class="chat-image avatar">
-				<div class="border-primary h-10 w-10 rounded-full border shadow sm:h-16 sm:w-16">
+				<div class="border-primary h-10 w-10 rounded-full border-2 shadow sm:h-16 sm:w-16">
 					<img
 						alt="Tailwind CSS chat bubble component"
 						src="/images/robotAvatar.png"

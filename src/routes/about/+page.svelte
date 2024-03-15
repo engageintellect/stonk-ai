@@ -1,33 +1,37 @@
 <script lang="ts">
-	import BuildWith from '$lib/components/base/BuildWith.svelte';
+	import BuiltWith from '$lib/components/base/BuiltWith.svelte';
+	import { fade } from 'svelte/transition';
 </script>
 
 <div class="flex flex-col gap-5">
-	<div class="font-sans text-5xl font-thin lowercase sm:text-7xl">Stonk Ai</div>
+	<div>
+		<div class="font-sans text-5xl font-thin lowercase sm:text-7xl">Stonk Ai</div>
+		<div class="">
+			<!-- <div class="bg-primary float-left h-48 w-48">
+			<img
+				alt="Tailwind CSS chat bubble component"
+				src="/images/robotAvatar.png"
+				class="h-full w-full scale-x-[-1] object-cover"
+				in:fade={{ delay: 0, duration: 500 }}
+			/>
+		</div> -->
 
-	<div class="space-y-5">
-		<div>
-			Stonk AI is your go-to web application for comprehensive stock market analysis and
-			predictions. Our platform harnesses the power of machine learning to sift through vast amounts
-			of data, including historical stock prices, company financial reports, news articles, and
-			videos, to provide you with actionable insights into potential price movements.
-		</div>
+			<div class="card lg:card-side bg-base-100 h-full shadow-xl sm:min-h-80">
+				<figure>
+					<img src="/images/robotAvatar.png" class="h-full w-full object-cover" alt="AboutCard" />
+				</figure>
+				<div class="card-body">
+					<!-- <h2 class="card-title"></h2> -->
 
-		<div>
-			Whether you're a seasoned investor seeking informed decisions or someone curious about the
-			intricacies of the stock market, our user-friendly interface and advanced analytics are
-			tailored to meet your needs. By distilling complex information into easily understandable
-			trends and patterns, Stonk AI empowers you to make well-informed financial decisions.
-		</div>
-
-		<div>
-			From identifying emerging market trends to predicting future stock performance, our platform
-			equips you with the tools necessary to navigate the dynamic world of investing. Whether you're
-			looking to optimize your portfolio or simply stay informed, Stonk AI is here to support you
-			every step of the way. Join us today and unlock the potential of data-driven investment
-			strategies.
+					<div>
+						Stonk AI is here to help you form comprehensive stock market analysis and predictions.
+						It harnesses the power of machine learning to sift through vast amounts of data,
+						including historical stock prices, company financial reports, news articles, and videos,
+						to provide you with actionable insights into potential price movements.
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<BuiltWith />
 </div>
-
-<BuildWith />

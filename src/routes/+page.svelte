@@ -8,7 +8,7 @@
 	import SendIcon from 'virtual:icons/bi/send-fill';
 	import { fade } from 'svelte/transition';
 	import { searchTicker } from '$lib/store';
-	import BuildWith from '$lib/components/base/BuildWith.svelte';
+	import BuiltWith from '$lib/components/base/BuiltWith.svelte';
 	import LearnMoreIcon from 'virtual:icons/carbon/machine-learning-model';
 	let inputValue = '';
 	let isLoading = writable(false); // Initialize loading state as false
@@ -118,6 +118,6 @@
 <!-- {#if !$isLoading}
 	<div transition:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-10 py-20">
 		<Roadmap />
-		<BuildWith />
+		<BuiltWith />
 	</div>
 {/if} -->

@@ -21,17 +21,26 @@ export const calculatePercentageChange = (previousValue: number, currentValue: n
 	return percentageChange;
 };
 
+export const convertDate = (timestampInSeconds: number): string => {
+	const date = new Date(timestampInSeconds * 1000);
+	return date.toLocaleString(); // This will format the date based on the user's locale
+}
+
 export const prettifyDate = (dateString: string): string => {
 	const date = new Date(dateString);
-	const year = String(date.getFullYear()).slice(2);
 	const month = String(date.getMonth() + 1).padStart(2, '0');
 	const day = String(date.getDate()).padStart(2, '0');
-	const hours = String(date.getHours()).padStart(2, '0');
+	const year = String(date.getFullYear()).slice(2);
+	let hours = date.getHours();
+	const ampm = hours >= 12 ? 'PM' : 'AM';
+	hours = hours % 12;
+	hours = hours ? hours : 12; // Handle midnight (0 hours)
 	const minutes = String(date.getMinutes()).padStart(2, '0');
 	const seconds = String(date.getSeconds()).padStart(2, '0');
 
-	return `${month}-${day}-${year} ${hours}:${minutes}:${seconds}`;
+	return `${month}/${day}/${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
 };
+
 
 export const formatPercent = (number?: number): string => (number ? (number * 100).toFixed(2) : '');
 

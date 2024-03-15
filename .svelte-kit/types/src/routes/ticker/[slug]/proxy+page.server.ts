@@ -12,4 +12,4 @@ export const load = async ({ params }: any) => {
 		return data;
 	}
 };
-null as any as PageServerLoad;
+;null as any as PageServerLoad;

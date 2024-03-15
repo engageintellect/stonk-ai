@@ -14,6 +14,7 @@
 	import { fade } from 'svelte/transition';
 	import Alert from '$lib/components/base/Alert.svelte';
 	import AiSentiment from '$lib/components/ticker/AiSentiment.svelte';
+	import OptionsChain from '$lib/components/ticker/OptionsChain.svelte';
 
 	export let data: PageData;
 
@@ -78,6 +79,7 @@
 			<YouTubeFeed {ticker} />
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
+			<OptionsChain {data} />
 			<PredictedPriceGrid {predicted_prices} />
 		</div>
 	{/if}
