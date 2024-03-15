@@ -6,6 +6,9 @@
 	"/api/chatAi": [
 		"src/routes/api/chatAi/+server.ts"
 	],
+	"/api/getOptionsChain": [
+		"src/routes/api/getOptionsChain/+server.ts"
+	],
 	"/api/predictPrice": [
 		"src/routes/api/predictPrice/+server.ts"
 	],

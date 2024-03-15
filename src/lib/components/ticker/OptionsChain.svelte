@@ -1,6 +1,18 @@
 <script lang="ts">
+	import { get } from 'svelte/store';
 	export let data: any;
-	import BrainIcon from 'virtual:icons/lucide/brain';
+	let options: any;
+
+	const getOptionsChain = async (date: string) => {
+		const res = await fetch(
+			`/api/getOptionsChain/?ticker=${data.ticker_info.symbol}/&date=${date}`
+		);
+		if (!res.ok) {
+			throw new Error('Error fetching /api/optionsChain from client.');
+		}
+		options = await res.json();
+		return options;
+	};
 </script>
 
 {#if data.options.length > 0}
@@ -14,12 +26,13 @@
 		</div>
 		<div class="grid grid-cols-2 gap-2 py-5 sm:grid-cols-3 lg:grid-cols-4">
 			{#each data.options as strike_date}
-				<div class="btn btn-primary">
+				<button on:click={() => getOptionsChain(strike_date)} class="btn btn-primary">
 					<div class="">{strike_date}</div>
-				</div>
+				</button>
 			{/each}
 		</div>
 	</div>
+	{JSON.stringify(options)}
 {:else}
 	<div class="flex items-center gap-2">
 		<div class=" animate-pulse text-lg font-semibold">Generating AI Response</div>
