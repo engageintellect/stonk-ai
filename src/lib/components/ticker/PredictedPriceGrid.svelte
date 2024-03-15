@@ -20,7 +20,7 @@
 	</div>
 {:else}
 	<div class="flex items-center gap-2">
-		<div class=" animate-pulse text-lg font-semibold">Generating AI Response</div>
+		<div class=" animate-pulse text-3xl font-semibold">Generating AI Response</div>
 		<span class="loading loading-spinner text-primary"></span>
 	</div>
 {/if}
