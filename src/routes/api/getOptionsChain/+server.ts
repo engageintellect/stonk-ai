@@ -5,10 +5,6 @@ export const GET: RequestHandler = async ({ url }) => {
 	const ticker = url.searchParams.get('ticker');
 	const date = url.searchParams.get('date');
 
-	console.log('helleeeeeeeeeeeee')
-	console.log('ticker:', ticker);
-	console.log('date:', date);
-
 	const res = await fetch(`${SERVER_ENDPOINT}/api/options/${ticker}${date}`);
 	const data = await res.json();
 	if (!res.ok) {

@@ -44,7 +44,7 @@
 			<div class="card bg-base-100 my-5 px-2 py-2">
 				<div in:fade={{ delay: 0, duration: 300 }} class="flex items-center justify-between gap-2">
 					<div class="flex items-center gap-2">
-						<div class="text-3xl font-semibold">{selectedDate}</div>
+						<div class="text-xl font-semibold">{selectedDate}</div>
 						{#if selectedOption}
 							<div class="badge badge-primary badge-lg uppercase">{selectedOption}</div>
 						{/if}
@@ -102,7 +102,7 @@
 				<div in:fade={{ delay: 0, duration: 300 }}>
 					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2">
 						{#each options.options.calls as option}
-							<OptionCard {option} />
+							<OptionCard {option} {data} {selectedDate} />
 						{/each}
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 				<div in:fade={{ delay: 0, duration: 300 }}>
 					<div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2">
 						{#each options.options.puts as option}
-							<OptionCard {option} />
+							<OptionCard {option} {data} {selectedDate} />
 						{/each}
 					</div>
 				</div>

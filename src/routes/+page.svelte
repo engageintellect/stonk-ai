@@ -137,7 +137,3 @@
 		<BuiltWith />
 	</div>
 {/if} -->
-
-<div>
-	<OptionCard {option} />
-</div>

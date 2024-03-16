@@ -38,6 +38,7 @@ declare module '$env/static/private' {
 	export const TERM: string;
 	export const SHELL: string;
 	export const npm_package_devDependencies_vite: string;
+	export const npm_package_dependencies_jstat: string;
 	export const TMPDIR: string;
 	export const npm_package_scripts_lint: string;
 	export const TERM_PROGRAM_VERSION: string;
@@ -161,6 +162,7 @@ declare module '$env/dynamic/private' {
 		TERM: string;
 		SHELL: string;
 		npm_package_devDependencies_vite: string;
+		npm_package_dependencies_jstat: string;
 		TMPDIR: string;
 		npm_package_scripts_lint: string;
 		TERM_PROGRAM_VERSION: string;
