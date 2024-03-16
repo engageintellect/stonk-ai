@@ -9,6 +9,9 @@
 	"/api/getInterestRates": [
 		"src/routes/api/getInterestRates/+server.ts"
 	],
+	"/api/getOptionDelta": [
+		"src/routes/api/getOptionDelta/+server.ts"
+	],
 	"/api/getOptionsChain": [
 		"src/routes/api/getOptionsChain/+server.ts"
 	],

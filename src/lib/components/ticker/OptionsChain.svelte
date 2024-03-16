@@ -36,7 +36,7 @@
 		<div class="flex items-center gap-2">
 			<div class="flex items-center gap-2">
 				<div class="text-3xl font-semibold">Options Chain</div>
-				<div class="badge badge-warning">Expiry Dates</div>
+				<div class="badge badge-warning">Expiration Dates</div>
 			</div>
 		</div>
 
@@ -120,7 +120,7 @@
 			<div class="grid grid-cols-2 gap-2 py-5 sm:grid-cols-3 lg:grid-cols-4">
 				{#each data.options as strike_date}
 					<button on:click={() => getOptionsChain(strike_date)} class="btn btn-primary">
-						<div class="">{prettifyDate(strike_date)}</div>
+						<div class="">{strike_date}</div>
 					</button>
 				{/each}
 			</div>
