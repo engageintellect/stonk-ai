@@ -14,8 +14,8 @@
 	};
 
 	// Function to handle selection change
-	const handleSelectionChange = (event: any) => {
-		selectedOption = event.target.value;
+	const handleSelectionChange = (value: string) => {
+		selectedOption = value;
 	};
 
 	const getOptionsChain = async (date: string) => {
@@ -43,10 +43,12 @@
 		{#if selectedDate}
 			<div class="card bg-base-100 my-5 px-2 py-2">
 				<div in:fade={{ delay: 0, duration: 300 }} class="flex items-center justify-between gap-2">
-					<div class="flex items-center gap-2">
+					<div class="flex items-center justify-center gap-2">
 						<div class="text-xl font-semibold">{selectedDate}</div>
-						{#if selectedOption}
-							<div class="badge badge-primary badge-lg uppercase">{selectedOption}</div>
+						{#if selectedOption == 'calls'}
+							<div class="badge badge-success badge-lg uppercase">{selectedOption}</div>
+						{:else if selectedOption == 'puts'}
+							<div class="badge badge-error badge-lg uppercase">{selectedOption}</div>
 						{/if}
 					</div>
 					<button
@@ -73,28 +75,22 @@
 
 			<!-- CALL / PUT BUTTONS -->
 			<div class="flex w-full gap-2">
-				<div class="w-full">
-					<input
-						class="btn btn-outline w-full uppercase"
-						type="radio"
-						name="options"
-						value="calls"
-						bind:group={selectedOption}
-						on:change={handleSelectionChange}
-						aria-label="Calls"
-					/>
+				<div class="tet-white w-full">
+					<button
+						class="btn btn-outline btn-success w-full uppercase"
+						on:click={() => handleSelectionChange('calls')}
+					>
+						Calls
+					</button>
 				</div>
 
 				<div class="w-full">
-					<input
-						class="btn btn-outline w-full uppercase"
-						type="radio"
-						name="options"
-						value="puts"
-						bind:group={selectedOption}
-						on:change={handleSelectionChange}
-						aria-label="Puts"
-					/>
+					<button
+						class="btn btn-outline btn-error w-full uppercase"
+						on:click={() => handleSelectionChange('puts')}
+					>
+						Puts
+					</button>
 				</div>
 			</div>
 

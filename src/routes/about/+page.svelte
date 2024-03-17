@@ -17,10 +17,10 @@
 		</div> -->
 
 			<div class="card lg:card-side bg-base-100 h-full shadow-xl sm:min-h-80">
-				<figure class="">
+				<figure class="w-full">
 					<img src="/images/robot14-nobg.png" class="h-full w-full shadow-lg" alt="AboutCard" />
 				</figure>
-				<div class="card-body">
+				<div class="card-body w-full">
 					<!-- <h2 class="card-title"></h2> -->
 
 					<div>

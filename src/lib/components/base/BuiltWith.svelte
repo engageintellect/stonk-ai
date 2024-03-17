@@ -15,7 +15,7 @@
 
 <div class="sm:card sm:bg-base-100 sm:shadow-xl">
 	<div class="sm:card-body py-10">
-		<div class="text-center text-2xl font-semibold sm:text-3xl">
+		<div class="text-primary text-center text-2xl font-thin sm:text-3xl">
 			Built using the best technologies available.
 		</div>
 

@@ -27,19 +27,17 @@
 			</div>
 			<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 				{#each data.items as item}
-					<div
-						class="bg-primary text-primary-content group flex w-full min-w-72 max-w-80 snap-center flex-col rounded"
-					>
+					<div class=" group flex w-full min-w-72 max-w-80 snap-center flex-col rounded">
 						<a
 							href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
 							target="_blank"
 							rel="noreferrer"
 							class="border-primary flex h-full w-full flex-col rounded border"
 						>
-							<div class="flex flex-col overflow-hidden">
+							<div class="flex h-full flex-col overflow-hidden">
 								<div class="p-2">
 									<div
-										class="badge badge-outline flex-grow rounded p-2 text-sm font-thin capitalize"
+										class="badge badge-primary flex-grow rounded p-2 text-sm font-thin capitalize"
 									>
 										{prettifyDate(item.snippet.publishTime)}
 									</div>
@@ -52,19 +50,19 @@
 										class="h-40 w-full scale-105 object-cover saturate-150 transition-all duration-300 sm:group-hover:scale-[107%]"
 									/>
 
-									<div
-										class="bg-primary absolute left-0 top-0 h-40 w-full opacity-0 transition-all duration-300 sm:opacity-40 sm:group-hover:opacity-20"
-									></div>
+									<!-- <div
+										class="bg-primary absolute left-0 top-0 h-40 w-full opacity-0 transition-all duration-300 sm:opacity-20 sm:group-hover:opacity-0"
+									></div> -->
 								</div>
 
-								<div class="flex h-full flex-col justify-between bg-red-500">
-									<div class="flex-grow p-2 text-lg font-thin capitalize">
-										{item.snippet.title}
+								<div class="flex h-full flex-col justify-between p-2">
+									<div class="flex-grow text-lg font-thin capitalize">
+										<div class="line-clamp-3">
+											{item.snippet.title}
+										</div>
 									</div>
 
-									<div
-										class="badge badge-primary text-primary-content flex-grow p-2 text-lg font-thin capitalize"
-									>
+									<div class="badge badge-sm badge-primary text-primary-content p-2 font-thin">
 										{item.snippet.channelTitle}
 									</div>
 								</div>
