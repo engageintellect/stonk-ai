@@ -50,12 +50,11 @@
 	</nav> -->
 	<aside>
 		<p>
-			Copyright © 2024 - All right reserved by <a
-				href="https://github.com/engageintellect"
-				target="_blank">@engageintellect</a
+			Copyright © 2024 - <a href="https://github.com/engageintellect" target="_blank"
+				>@engageintellect</a
 			>
 		</p>
 	</aside>
 </footer>
 
-<div class="bg-base-300 h-16 w-full sm:hidden"></div>
+<div class="bg-base-200 h-16 w-full sm:hidden"></div>

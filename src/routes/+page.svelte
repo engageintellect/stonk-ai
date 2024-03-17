@@ -1,16 +1,11 @@
 <script lang="ts">
-	import Roadmap from '$lib/components/base/Roadmap.svelte';
+	import StockMarket from 'virtual:icons/icon-park-twotone/stock-market';
+	import SendIcon from 'virtual:icons/bi/send-fill';
+	import LearnMoreIcon from 'virtual:icons/carbon/machine-learning-model';
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
-	import StockMarket from 'virtual:icons/icon-park-twotone/stock-market';
-	import Footer from '$lib/components/base/Footer.svelte';
-
-	import SendIcon from 'virtual:icons/bi/send-fill';
 	import { fade } from 'svelte/transition';
 	import { searchTicker } from '$lib/store';
-	import BuiltWith from '$lib/components/base/BuiltWith.svelte';
-	import LearnMoreIcon from 'virtual:icons/carbon/machine-learning-model';
-	import OptionCard from '$lib/components/ticker/OptionCard.svelte';
 	let inputValue = '';
 	let isLoading = writable(false); // Initialize loading state as false
 
@@ -71,7 +66,7 @@
 			<div>...</div>
 		</div>
 	{:else}
-		<div class="font-thin">AI enhanced sentiment & analysis engine.</div>
+		<div class="font-thin">AI enhanced financial sentiment & analysis engine.</div>
 	{/if}
 
 	<form on:submit={handleSubmit} class="flex w-full max-w-sm flex-col gap-3">

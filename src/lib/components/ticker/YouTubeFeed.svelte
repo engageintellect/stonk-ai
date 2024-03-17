@@ -3,7 +3,7 @@
 	let data: any;
 	export let ticker: any;
 	import { onMount } from 'svelte';
-	import { convertDate, prettifyDate } from '$lib/tickerModel';
+	import { prettifyDate } from '$lib/tickerModel';
 	import Alert from '$lib/components/base/Alert.svelte';
 	import YouTubeIcon from 'virtual:icons/tabler/brand-youtube-filled';
 	import Toast from '$lib/components/base/Toast.svelte';
