@@ -18,7 +18,7 @@
 
 			<div class="card lg:card-side bg-base-100 h-full shadow-xl sm:min-h-80">
 				<figure class="w-full">
-					<img src="/images/robot14-nobg.png" class="h-full w-full shadow-lg" alt="AboutCard" />
+					<img src="/images/robot14-nobg.png" class="h-full w-full drop-shadow" alt="AboutCard" />
 				</figure>
 				<div class="card-body w-full">
 					<!-- <h2 class="card-title"></h2> -->

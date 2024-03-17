@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<ul
-					tabindex="0"
+					tabindex="-1"
 					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] h-96 w-52 overflow-auto border p-2 shadow"
 				>
 					{#each themes as theme}
@@ -74,17 +74,17 @@
 						</div>
 					</div>
 					<ul
-						tabindex="0"
+						tabindex="-1"
 						class="menu menu-sm dropdown-content bg-base-100 border-primary rounded-box z-[1] w-52 border text-lg shadow"
 					>
 						<li>
-							<a class="justify-between text-lg">
+							<a href="/" class="justify-between text-lg">
 								Profile
 								<span class="badge">New</span>
 							</a>
 						</li>
-						<li><a class="text-lg">Settings</a></li>
-						<li><a class="text-lg">Logout</a></li>
+						<li><a href="/" class="text-lg">Settings</a></li>
+						<li><a href="/" class="text-lg">Logout</a></li>
 					</ul>
 				</div>
 			</div>
