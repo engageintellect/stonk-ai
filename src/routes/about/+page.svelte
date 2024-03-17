@@ -17,8 +17,8 @@
 		</div> -->
 
 			<div class="card lg:card-side bg-base-100 h-full shadow-xl sm:min-h-80">
-				<figure>
-					<img src="/images/robotAvatar.png" class="h-full w-full object-cover" alt="AboutCard" />
+				<figure class="">
+					<img src="/images/robot14-nobg.png" class="h-full w-full shadow-lg" alt="AboutCard" />
 				</figure>
 				<div class="card-body">
 					<!-- <h2 class="card-title"></h2> -->
@@ -28,6 +28,13 @@
 						It harnesses the power of machine learning to sift through vast amounts of data,
 						including historical stock prices, company financial reports, news articles, and videos,
 						to provide you with actionable insights into potential price movements.
+
+						<div class="mt-5 font-thin">
+							Stonk AI is a project by
+							<a href="https://github.com/engageintellect" target="_blank" class="link">
+								@engageintellect
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

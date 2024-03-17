@@ -71,7 +71,7 @@
 			<div>...</div>
 		</div>
 	{:else}
-		<div class="font-thin">Find the latest stock information for any company</div>
+		<div class="font-thin">AI enhanced sentiment & analysis engine.</div>
 	{/if}
 
 	<form on:submit={handleSubmit} class="flex w-full max-w-sm flex-col gap-3">

@@ -57,8 +57,16 @@
 									></div>
 								</div>
 
-								<div class="flex-grow p-2 text-lg font-semibold capitalize">
-									{item.snippet.title}
+								<div class="flex h-full flex-col justify-between bg-red-500">
+									<div class="flex-grow p-2 text-lg font-thin capitalize">
+										{item.snippet.title}
+									</div>
+
+									<div
+										class="badge badge-primary text-primary-content flex-grow p-2 text-lg font-thin capitalize"
+									>
+										{item.snippet.channelTitle}
+									</div>
 								</div>
 							</div>
 						</a>
