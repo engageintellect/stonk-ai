@@ -80,7 +80,7 @@
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<OptionsChain {data} />
-			<PredictedPriceGrid {predicted_prices} />
+			<!-- <PredictedPriceGrid {predicted_prices} /> -->
 		</div>
 	{/if}
 </div>

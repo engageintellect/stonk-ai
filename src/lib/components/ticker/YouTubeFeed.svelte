@@ -43,7 +43,9 @@
 									</div>
 								</div>
 
-								<div class="relative h-full max-h-40 overflow-hidden">
+								<div
+									class="border-primary relative h-full max-h-40 overflow-hidden border-b border-t"
+								>
 									<img
 										src={item.snippet.thumbnails.high.url}
 										alt=""
@@ -62,7 +64,7 @@
 										</div>
 									</div>
 
-									<div class="badge badge-sm badge-primary text-primary-content p-2 font-thin">
+									<div class="badge badge-sm badge-primary text-primary-content p-2 font-semibold">
 										{item.snippet.channelTitle}
 									</div>
 								</div>

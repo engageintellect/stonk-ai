@@ -90,32 +90,34 @@
 
 <div class="bg-base-300 card w-full">
 	<div class=" relative">
-		<div class="flex justify-between gap-5 p-6 pt-12">
-			<div class="badge badge-lg badge-primary absolute left-0 top-0 rounded-bl-none font-semibold">
+		<div class="2-full flex gap-5 p-6 pt-12">
+			<div
+				class="badge badge-lg badge-primary absolute left-0 top-0 rounded-bl-none text-lg font-semibold"
+			>
 				Strike: {formatPrice(option.strike)}
 			</div>
 			{#if option.percentChange > 0}
 				<div class="badge badge-success badge-lg absolute right-0 top-0 rounded-br-none">
-					+{option.percentChange.toFixed(2)}%
+					Change: +{option.percentChange.toFixed(2)}%
 				</div>
 			{:else if option.percentChange < 0}
 				<div class="badge badge-error badge-lg absolute right-0 top-0 rounded-br-none">
-					{option.percentChange.toFixed(2)}%
+					Change: {option.percentChange.toFixed(2)}%
 				</div>
 			{:else}
 				<div class="badge badge-lg absolute right-0 top-0 rounded-br-none">
-					{option.percentChange.toFixed(2)}%
+					Change: {option.percentChange.toFixed(2)}%
 				</div>
 			{/if}
 
-			<div>
-				<div class="w-full">Last Price: {formatPrice(option.lastPrice)}</div>
+			<div class="w-full">
+				<div class="w-full">Price: {formatPrice(option.lastPrice * 100)}</div>
 				<div class="w-full">Bid: {formatPrice(option.bid)}</div>
 				<div class="w-full">Ask: {formatPrice(option.ask)}</div>
 				<div class="w-full">Volume: {option.volume || 0}</div>
 			</div>
 
-			<div>
+			<div class="w-full">
 				<div class="w-full">ITM: <span class="capitalize">{option.inTheMoney}</span></div>
 				<div class="w-full">Open Interest: {option.openInterest}</div>
 				<div class="w-full">IV: {formatPercent(option.impliedVolatility)}%</div>
