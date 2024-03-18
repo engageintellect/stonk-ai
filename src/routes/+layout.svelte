@@ -9,7 +9,6 @@
 </script>
 
 <div class="flex flex-col justify-between sm:min-h-screen">
-	<!-- <div class="mx-auto max-w-3xl"></div> -->
 	<div class="sticky top-0 z-50 w-full">
 		<Nav />
 	</div>

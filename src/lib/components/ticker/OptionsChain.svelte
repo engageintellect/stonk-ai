@@ -74,7 +74,7 @@
 			</div>
 
 			{#if selectedOption == ''}
-				<div class="badge badge-primary text-primary-content mb-5 w-full p-6 text-lg font-thin">
+				<div class="badge badge-primary text-primary-content mb-5 w-full p-6 font-thin">
 					Select calls or puts to view their options chain
 				</div>
 			{/if}

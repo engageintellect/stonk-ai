@@ -7,14 +7,14 @@
 	import { fade } from 'svelte/transition';
 	import { searchTicker } from '$lib/store';
 	let inputValue = '';
-	let isLoading = writable(false); // Initialize loading state as false
+	let isLoading = writable(false);
 
 	async function handleSubmit(event: any) {
-		event.preventDefault(); // Prevent default form submission behavior
+		event.preventDefault();
 		const searchQuery = inputValue.trim();
-		searchTicker.set(searchQuery); // Set the search query in the store
+		searchTicker.set(searchQuery);
 		if (searchQuery) {
-			isLoading.set(true); // Activate loading state
+			isLoading.set(true);
 			try {
 				await new Promise((resolve) => setTimeout(resolve, 2000));
 				goto(`/ticker/${encodeURIComponent(searchQuery)}`);
@@ -123,12 +123,3 @@
 		</div>
 	</form>
 </div>
-
-<!-- <Pane /> -->
-
-<!-- {#if !$isLoading}
-	<div transition:fade={{ delay: 0, duration: 200 }} class="flex flex-col gap-10 py-20">
-		<Roadmap />
-		<BuiltWith />
-	</div>
-{/if} -->

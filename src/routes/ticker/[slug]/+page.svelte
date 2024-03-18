@@ -6,7 +6,6 @@
 	import CompanyData from '$lib/components/ticker/CompanyData.svelte';
 	import CompanyDescription from '$lib/components/ticker/CompanyDescription.svelte';
 	import CompanyOfficers from '$lib/components/ticker/CompanyOfficers.svelte';
-	import PredictedPriceGrid from '$lib/components/ticker/PredictedPriceGrid.svelte';
 	import AiForecast from '$lib/components/ticker/AiForecast.svelte';
 	import NewsFeed from '$lib/components/ticker/NewsFeed.svelte';
 	import { onMount } from 'svelte';
@@ -39,10 +38,6 @@
 				price: formatPrice(price.price)
 			};
 		});
-
-		// console.log('map', predicted_prices);
-		// console.log('prices', onlyPrices);
-		// console.log('dates', onlyDates);
 	});
 
 	let companyOfficers: any;
@@ -82,7 +77,6 @@
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<OptionsChain {data} />
-			<!-- <PredictedPriceGrid {predicted_prices} /> -->
 		</div>
 	{/if}
 </div>
