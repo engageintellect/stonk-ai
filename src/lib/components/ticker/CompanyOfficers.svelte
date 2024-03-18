@@ -2,7 +2,6 @@
 	import CompanyOfficerCard from '$lib/components/ticker/CompanyOfficerCard.svelte';
 	export let data: any;
 	export let companyOfficers: any;
-	import OfficersIcon from 'virtual:icons/akar-icons/people-group';
 </script>
 
 {#if data.ticker_info.companyOfficers}

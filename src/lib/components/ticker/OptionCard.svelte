@@ -110,18 +110,62 @@
 				</div>
 			{/if}
 
-			<div class="w-full">
-				<div class="w-full">Price: {formatPrice(option.lastPrice * 100)}</div>
-				<div class="w-full">Bid: {formatPrice(option.bid)}</div>
-				<div class="w-full">Ask: {formatPrice(option.ask)}</div>
-				<div class="w-full">Volume: {option.volume || 0}</div>
+			<div class="flex w-full flex-col gap-2">
+				<div class="flex w-full gap-2">
+					<div>Value:</div>
+					<div class="font-semibold">
+						{formatPrice(option.lastPrice * 100)}
+					</div>
+				</div>
+
+				<div class="flex w-full gap-2">
+					<div>Bid:</div>
+					<div class="font-semibold">
+						{formatPrice(option.bid) || 0}
+					</div>
+				</div>
+
+				<div class="flex w-full gap-2">
+					<div>Ask:</div>
+					<div class="font-semibold">
+						{formatPrice(option.ask) || 0}
+					</div>
+				</div>
+				<div class="flex w-full gap-2">
+					<div>Volume:</div>
+					<div class="font-semibold">
+						{option.volume || 0}
+					</div>
+				</div>
 			</div>
 
-			<div class="w-full">
-				<div class="w-full">ITM: <span class="capitalize">{option.inTheMoney}</span></div>
-				<div class="w-full">Open Interest: {option.openInterest}</div>
-				<div class="w-full">IV: {formatPercent(option.impliedVolatility)}%</div>
-				<div class="w-full">Delta: {optionDelta}</div>
+			<div class="flex w-full flex-col gap-2">
+				<div class="flex w-full gap-2">
+					<div>ITM:</div>
+					<div class="font-semibold capitalize">
+						{option.inTheMoney}
+					</div>
+				</div>
+
+				<div class="flex w-full gap-2">
+					<div>Open Interest:</div>
+					<div class="font-semibold">
+						{option.openInterest}
+					</div>
+				</div>
+				<div class="flex w-full gap-2">
+					<div>IV:</div>
+
+					<div class="font-semibold">
+						{formatPercent(option.impliedVolatility)}%
+					</div>
+				</div>
+				<div class="flex w-full gap-2">
+					<div>Delta:</div>
+					<div class="font-semibold">
+						{optionDelta}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

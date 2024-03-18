@@ -1,13 +1,11 @@
 <script lang="ts">
-	import { formatPrice, formatPercent } from '$lib/tickerModel';
 	import { fade } from 'svelte/transition';
-	import { prettifyDate } from '$lib/tickerModel';
 	export let data: any;
 	import OptionCard from './OptionCard.svelte';
 
 	let options: any;
 	let selectedDate: string = '';
-	let selectedOption = ''; // Variable to store the selected option
+	let selectedOption = '';
 
 	const clearSelectedDate = () => {
 		selectedDate = '';
@@ -42,7 +40,7 @@
 
 		{#if selectedDate}
 			<div class="card bg-base-100 my-5 px-2 py-2">
-				<div in:fade={{ delay: 0, duration: 300 }} class="flex items-center justify-between gap-2">
+				<div in:fade={{ delay: 0, duration: 200 }} class="flex items-center justify-between gap-2">
 					<div class="flex items-center justify-center gap-2">
 						<div class="text-xl font-semibold">{selectedDate}</div>
 						{#if selectedOption == 'calls'}
@@ -52,7 +50,7 @@
 						{/if}
 					</div>
 					<button
-						in:fade={{ delay: 100, duration: 300 }}
+						in:fade={{ delay: 100, duration: 500 }}
 						on:click={clearSelectedDate}
 						class="btn btn-circle"
 					>

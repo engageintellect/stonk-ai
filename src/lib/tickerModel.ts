@@ -61,7 +61,6 @@ export const calculatePricePercentage = (high: number, low: number, currentPrice
 			'Invalid input. Ensure 52-week high is greater than 52-week low, and current price is within the range.'
 		);
 	}
-
 	const priceRange = high - low;
 	const priceAboveLow = currentPrice - low;
 	const percentage = (priceAboveLow / priceRange) * 100;
