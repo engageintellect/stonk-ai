@@ -5,11 +5,12 @@
 	import BottomNav from '$lib/components/base/BottomNav.svelte';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
 </script>
 
 <div class="flex flex-col justify-between sm:min-h-screen">
 	<!-- <div class="mx-auto max-w-3xl"></div> -->
-	<div class="sticky top-0 z-50 w-full shadow">
+	<div class="sticky top-0 z-50 w-full">
 		<Nav />
 	</div>
 

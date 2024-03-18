@@ -32,7 +32,7 @@
 </script>
 
 {#if data.options.length > 0}
-	<div>
+	<div id="options">
 		<div class="flex items-center gap-2">
 			<div class="flex items-center gap-2">
 				<div class="text-3xl font-semibold">Options Chain</div>

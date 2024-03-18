@@ -5,7 +5,7 @@
 </script>
 
 {#if ticker.analysis.recommendation != ''}
-	<div class="">
+	<div class="" id="analyst-data">
 		<div class="flex items-center gap-2">
 			<div class="text-3xl font-semibold">Analyst Data</div>
 			<!-- <AnalysisIcon class="text-primary h-10 w-10" /> -->

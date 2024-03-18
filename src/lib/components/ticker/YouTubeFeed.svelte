@@ -18,7 +18,7 @@
 	});
 </script>
 
-<div>
+<div id="videos">
 	<div class="text-3xl font-semibold">{ticker.info.symbol} Videos</div>
 	{#if data}
 		<div class="">

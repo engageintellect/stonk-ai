@@ -4,7 +4,10 @@
 </script>
 
 {#if ticker.analysis.recommendation !== ''}
-	<div class="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-auto text-nowrap">
+	<div
+		id="company-data"
+		class="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-auto text-nowrap"
+	>
 		{#each Object.entries(ticker) as [key, value]}
 			{#if key !== 'info' && key !== 'analysis' && value && Object.values(value).some((x) => x)}
 				<div class="flex flex-col gap-2 rounded pb-5">

@@ -6,7 +6,7 @@
 </script>
 
 {#if data.news}
-	<div>
+	<div id="news">
 		<div class="text-3xl font-semibold">
 			<div class="flex items-center gap-2">
 				<span class="uppercase">{ticker.info.symbol}</span> News

@@ -6,7 +6,7 @@
 </script>
 
 {#if data.ticker_info.longBusinessSummary}
-	<div>
+	<div id="company-description">
 		<div class="flex items-center gap-2">
 			<div class="text-3xl font-semibold">Description</div>
 			<!-- <DescriptionIcon class="text-primary h-10 w-10" /> -->

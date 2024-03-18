@@ -15,6 +15,7 @@
 	import Alert from '$lib/components/base/Alert.svelte';
 	import AiSentiment from '$lib/components/ticker/AiSentiment.svelte';
 	import OptionsChain from '$lib/components/ticker/OptionsChain.svelte';
+	import ScrollerMenu from '$lib/components/ticker/ScrollerMenu.svelte';
 
 	export let data: PageData;
 
@@ -71,6 +72,7 @@
 	{:else}
 		<div class="flex flex-col gap-10">
 			<TickerHeading {ticker} {data} />
+			<ScrollerMenu />
 			<AnalystData {ticker} />
 			<AiSentiment {data} />
 			<CompanyData {ticker} />

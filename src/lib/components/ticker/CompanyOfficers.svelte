@@ -6,7 +6,7 @@
 </script>
 
 {#if data.ticker_info.companyOfficers}
-	<div>
+	<div id="company-officers">
 		<div class="flex items-center gap-2">
 			<div class="text-3xl font-semibold">Company Officers</div>
 			<!-- <OfficersIcon class="text-primary h-10 w-10" /> -->

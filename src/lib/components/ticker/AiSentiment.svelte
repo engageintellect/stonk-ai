@@ -93,8 +93,8 @@
 <!-- title: item['title'] -->
 <!-- })))} -->
 
-<div>
-	<div class="ai-sentiment-text text-3xl font-semibold">AI Sentiment</div>
+<div id="ai-sentiment">
+	<div class="text-3xl font-semibold">AI Sentiment</div>
 
 	<div class="mx-auto w-full max-w-2xl py-5">
 		<div class="chat chat-start">
