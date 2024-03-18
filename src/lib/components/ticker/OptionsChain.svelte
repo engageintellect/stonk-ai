@@ -73,24 +73,47 @@
 				</div>
 			</div>
 
+			{#if selectedOption == ''}
+				<div class="badge badge-primary text-primary-content mb-5 w-full p-6 text-lg font-thin">
+					Select calls or puts to view their options chain
+				</div>
+			{/if}
 			<!-- CALL / PUT BUTTONS -->
 			<div class="flex w-full gap-2">
 				<div class="tet-white w-full">
-					<button
-						class="btn btn-outline btn-success w-full uppercase"
-						on:click={() => handleSelectionChange('calls')}
-					>
-						Calls
-					</button>
+					{#if selectedOption == 'calls'}
+						<button
+							class="btn btn-success w-full uppercase"
+							on:click={() => handleSelectionChange('calls')}
+						>
+							Calls
+						</button>
+					{:else}
+						<button
+							class="btn btn-outline btn-success w-full uppercase"
+							on:click={() => handleSelectionChange('calls')}
+						>
+							Calls
+						</button>
+					{/if}
 				</div>
 
 				<div class="w-full">
-					<button
-						class="btn btn-outline btn-error w-full uppercase"
-						on:click={() => handleSelectionChange('puts')}
-					>
-						Puts
-					</button>
+					{#if selectedOption == 'puts'}
+						<button
+							class="btn btn-error w-full uppercase"
+							on:click={() => handleSelectionChange('puts')}
+						>
+							Puts
+						</button>
+					{:else}
+						<button
+							class="btn btn-outline btn-error w-full uppercase"
+							on:click={() => handleSelectionChange('puts')}
+						>
+							Puts
+						</button>
+					{/if}
 				</div>
 			</div>
 
