@@ -1,8 +1,6 @@
 <script lang="ts">
 	let query: string;
 	let data: any;
-	import { fade } from 'svelte/transition';
-
 	let loading = false;
 
 	let aiResponse = {

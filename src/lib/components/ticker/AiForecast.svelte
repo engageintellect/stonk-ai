@@ -1,13 +1,13 @@
 <script lang="ts">
 	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
 	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
-	export let predicted_prices: any = [];
-	export let onlyPrices: any = [];
-	export let onlyDates: any = [];
 	import Chart from '$lib/components/ticker/Chart.svelte';
 	import { fade } from 'svelte/transition';
 	import { calculatePercentageChange } from '$lib/tickerModel';
-	import AiForecaseIcon from 'virtual:icons/ph/calendar-duotone';
+
+	export let predicted_prices: any = [];
+	export let onlyPrices: any = [];
+	export let onlyDates: any = [];
 </script>
 
 {#if predicted_prices.length > 0}
