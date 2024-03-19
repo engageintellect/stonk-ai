@@ -2,7 +2,17 @@
 	import { formatPrice } from '$lib/tickerModel';
 	import { slide, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	// import { createEventDispatcher } from 'svelte';
+	import { useChat } from 'ai/svelte';
+
+	let msgStatus = 'Typing...';
+
+	const { input, handleSubmit, messages } = useChat({
+		api: '/api/chat',
+		onFinish() {
+			msgStatus = 'Delivered.';
+			playNotificationSound(0.3);
+		}
+	});
 
 	const getHistoryLength = (data: any) => {
 		if (data.price_history) {
@@ -12,15 +22,9 @@
 		}
 	};
 
-	let res: any;
 	export let data: any;
 	let loading = false;
-	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-7 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
-	let aiResponse = {
-		message: ''
-	};
-
-	// const dispatch = createEventDispatcher();
+	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-8 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
 
 	let observer: IntersectionObserver;
 
@@ -42,56 +46,27 @@
 
 	const playNotificationSound = (volume: number) => {
 		let audio = new Audio('/sounds/softBleep.mp3');
-		audio.volume = volume; // Set the volume
+		audio.volume = volume;
 		audio.play();
 	};
 
 	const sendRequest = async () => {
 		loading = true;
-		// query = `${String(query)} ${JSON.stringify(data)}`;
-		query = `${String(query)}`;
-		console.log('searchString', query);
-		const response = await fetch('/api/chatAi', {
-			method: 'POST',
-			body: JSON.stringify({ query }),
-			headers: {
-				'content-type': 'application/json'
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		input.set(query);
+		const syntheticEvent = {
+			preventDefault() {}, // Shorthand notation for defining a function
+			stopPropagation() {}, // Shorthand notation for defining a function
+			target: {
+				value: $input // Access the value of the writable store directly using the $ prefix
 			}
-		});
+		} as Event & { target: { value: string } }; // Type assertion
 
-		// timeout after 5 seconds of no response
-		// setTimeout(() => {
-		// 	if (loading) {
-		// 		loading = false;
-		// 		aiResponse = {
-		// 			message: 'Sorry, I am taking too long to respond. Please try again later.'
-		// 		};
-		// 	}
-		// }, 5000);
-
-		if (!response.ok) {
-			//TODO: this is bullshit... fix it
-			loading = false;
-			aiResponse = {
-				message: `<div class="flex flex-col gap-2"><div">Sorry, I am having trouble analyzing ${data.ticker_info.symbol}, or am not confident with my analysis.</div><div>Please try again later.</div></div>`
-			};
-			playNotificationSound(0.5);
-			throw new Error('Error fetching /api/chatAi from client!!!');
-		} else {
-			res = await response.json();
-			loading = false;
-			playNotificationSound(0.5);
-			aiResponse = res.message;
-		}
+		console.log('Sending request to AI...');
+		handleSubmit(syntheticEvent); // Pass the synthetic event object to handleSubmit
+		loading = false;
 	};
 </script>
-
-<!-- {JSON.stringify(getHistoryLength(data))} -->
-<!-- {JSON.stringify(query)} -->
-<!-- {JSON.stringify(data.news.map((item: any) => ({ -->
-<!-- date: item['providerPublishTime'], -->
-<!-- title: item['title'] -->
-<!-- })))} -->
 
 <div id="ai-sentiment">
 	<div class="text-3xl font-semibold">AI Sentiment</div>
@@ -116,6 +91,7 @@
 					</time>
 				</div>
 			</div>
+
 			{#if loading}
 				<div class="chat-bubble w-full">
 					<div class="flex place-items-end p-2">
@@ -125,19 +101,19 @@
 				<div class="chat-footer opacity-50">Typing...</div>
 			{/if}
 
-			{#if aiResponse.message !== '' && !loading}
+			{#if $messages.length > 0 && !loading}
 				<div class="chat-bubble w-full">
 					<div transition:slide={{ delay: 0, duration: 500 }}>
-						<div transition:fade={{ delay: 500, duration: 100 }}>
-							{#if aiResponse.message}
-								{@html aiResponse.message}
-							{:else}
-								{@html aiResponse}
-							{/if}
+						<div transition:fade={{ delay: 0, duration: 100 }}>
+							{#each $messages as message}
+								{#if message.role === 'assistant'}
+									{@html message.content}
+								{/if}
+							{/each}
 						</div>
 					</div>
 				</div>
-				<div class="chat-footer opacity-50">Delivered</div>
+				<div class="chat-footer opacity-50">{msgStatus}</div>
 			{/if}
 		</div>
 
