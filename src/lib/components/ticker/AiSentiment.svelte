@@ -7,7 +7,7 @@
 	let msgStatus = 'Typing...';
 
 	const { input, handleSubmit, messages } = useChat({
-		api: '/api/chat',
+		api: '/api/chatAiStream',
 		onFinish() {
 			msgStatus = 'Delivered.';
 			playNotificationSound(0.3);
@@ -103,15 +103,11 @@
 
 			{#if $messages.length > 0 && !loading}
 				<div class="chat-bubble w-full">
-					<div transition:slide={{ delay: 0, duration: 500 }}>
-						<div transition:fade={{ delay: 0, duration: 100 }}>
-							{#each $messages as message}
-								{#if message.role === 'assistant'}
-									{@html message.content}
-								{/if}
-							{/each}
-						</div>
-					</div>
+					{#each $messages as message}
+						{#if message.role === 'assistant'}
+							{@html message.content}
+						{/if}
+					{/each}
 				</div>
 				<div class="chat-footer opacity-50">{msgStatus}</div>
 			{/if}
