@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	import LayoutIcon from 'virtual:icons/lucide/layout-dashboard';
+
 	let menuOptions = [
 		{ name: 'Analyst Data', link: '#analyst-data' },
 		{ name: 'Ai Sentiment', link: '#ai-sentiment' },
@@ -37,21 +39,28 @@
 	});
 </script>
 
-<div class="bg-base-200 sticky top-[67px] z-40 overflow-auto">
-	<div class="flex gap-2 py-2">
-		{#each filteredMenuOptions as option}
-			<a
-				href="#"
-				on:click={(event) => {
-					event.preventDefault();
-					scrollToAnchor(option.link);
-				}}
-				class="btn btn-sm btn-primary"
-			>
-				<div>
-					{option.name}
-				</div>
-			</a>
-		{/each}
+<div class="bg-base-200 sticky top-[66px] z-40">
+	<div class="flex items-center gap-2">
+		<div>
+			<LayoutIcon class="h-7 w-7" />
+		</div>
+		<div class="overflow-auto">
+			<div class="flex items-center gap-2 py-2">
+				{#each filteredMenuOptions as option}
+					<a
+						href="#"
+						on:click={(event) => {
+							event.preventDefault();
+							scrollToAnchor(option.link);
+						}}
+						class="btn btn-sm btn-primary shadow"
+					>
+						<div>
+							{option.name}
+						</div>
+					</a>
+				{/each}
+			</div>
+		</div>
 	</div>
 </div>
