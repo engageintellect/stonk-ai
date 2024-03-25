@@ -12,9 +12,9 @@
 			<!-- <DescriptionIcon class="text-primary h-10 w-10" /> -->
 		</div>
 		<div class="py-5">{data.ticker_info.longBusinessSummary}</div>
-		<a class="btn btn-primary" href={ticker.info.website} target="_blank">
+		<a class="btn btn-secondary" href={ticker.info.website} target="_blank">
 			<div class="flex items-center gap-1">
-				<div>Learn More</div>
+				<div>Learn More About {data.ticker_info.symbol}</div>
 				<LearnMore class=" h-7 w-7" />
 			</div>
 		</a>

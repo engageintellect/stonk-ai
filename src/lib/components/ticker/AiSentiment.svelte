@@ -6,6 +6,8 @@
 
 	let msgStatus = 'Typing...';
 
+	let triggerGenerate = false;
+
 	const { input, handleSubmit, messages } = useChat({
 		api: '/api/chatAiStream',
 		onFinish() {
@@ -25,32 +27,10 @@
 	export let data: any;
 	let loading = false;
 
-	// <!-- V1 PROMPT -->
-
-	// let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-8 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
-
-	// <!-- V2 PROMPT -->
-
-	let query = `Using the provided financial data and recent news headlines, analyze the data and provide a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Present your analysis in HTML format without color emphasis. Focus on assessing the overall sentiment of the stock and highlight any significant financial data, patterns, or trends observed. Keep your analysis concise, resembling an article or human conversation, spanning 5-8 sentences at most.Closing prices for the last ${String(getHistoryLength(data))} days (from oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}
-	Company and financial data overview: ${JSON.stringify(data.ticker_info)}.`;
+	let query = `Using the provided financial data and recent news headlines, analyze the data and provide a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Present your analysis in HTML format without color emphasis. Focus on assessing the overall sentiment of the stock and highlight any significant financial data, patterns, or trends observed. Keep your analysis concise, resembling an article or human conversation, spanning 5-8 sentences at most. Closing prices for the last ${String(getHistoryLength(data))} days (from oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}
+    Company and financial data overview: ${JSON.stringify(data.ticker_info)}.`;
 
 	let observer: IntersectionObserver;
-
-	onMount(() => {
-		observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					sendRequest();
-					observer.unobserve(entry.target);
-				}
-			});
-		});
-
-		const targetElement = document.querySelector('.chat-header');
-		if (targetElement) {
-			observer.observe(targetElement);
-		}
-	});
 
 	const playNotificationSound = (volume: number) => {
 		let audio = new Audio('/sounds/softBleep.mp3');
@@ -59,6 +39,7 @@
 	};
 
 	const sendRequest = async () => {
+		triggerGenerate = true;
 		loading = true;
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 		input.set(query);
@@ -80,74 +61,57 @@
 <div id="ai-sentiment">
 	<div class="text-3xl font-semibold">AI Sentiment</div>
 
-	<div class="mx-auto w-full max-w-2xl py-5">
-		<div class="chat chat-start">
-			<div class="chat-image avatar">
-				<div class="border-primary h-10 w-10 rounded-full border-2 shadow sm:h-16 sm:w-16">
-					<img
-						alt="Tailwind CSS chat bubble component"
-						src="/images/robotAvatar.png"
-						class="scale-x-[-1]"
-						in:fade={{ delay: 0, duration: 500 }}
-					/>
-				</div>
-			</div>
-			<div class="chat-header flex items-center gap-2">
-				<div>StonkBot</div>
-				<div>
-					<time class="text-xs opacity-50">
-						{new Date().toLocaleTimeString()}
-					</time>
-				</div>
-			</div>
-
-			{#if loading}
-				<div class="chat-bubble w-full">
-					<div class="flex place-items-end p-2">
-						<span class="loading loading-dots loading-sm"></span>
-					</div>
-				</div>
-				<div class="chat-footer opacity-50">Typing...</div>
-			{/if}
-
-			{#if $messages.length > 0 && !loading}
-				<div class="chat-bubble w-full">
-					{#each $messages as message}
-						{#if message.role === 'assistant'}
-							<div class="message-content">
-								{@html message.content
-									.replace(/<p>/g, '<p class="py-2">')
-									.replace(/<h2>/g, '<h2 class="text-primary py-2 text-lg font-semibold">')
-									.replace(/<h3>/g, '<h3 class="text-primary py-2 font-semibold">')}
-							</div>
-						{/if}
-					{/each}
-				</div>
-				<div class="chat-footer opacity-50">{msgStatus}</div>
-			{/if}
+	{#if !triggerGenerate}
+		<div class="py-5">
+			<button class="btn btn-secondary" on:click={sendRequest}>Generate AI Sentiment</button>
 		</div>
-
-		<!-- <div class="chat chat-end">
+	{:else}
+		<div class="mx-auto w-full max-w-2xl py-5">
+			<div class="chat chat-start">
 				<div class="chat-image avatar">
-					<div class="w-10 rounded-full">
+					<div class="border-primary h-10 w-10 rounded-full border-2 shadow sm:h-16 sm:w-16">
 						<img
 							alt="Tailwind CSS chat bubble component"
-							src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+							src="/images/robotAvatar.png"
+							class="scale-x-[-1]"
+							in:fade={{ delay: 0, duration: 500 }}
 						/>
 					</div>
 				</div>
-				<div class="chat-header">
-					Anakin
-					<time class="text-xs opacity-50">12:46</time>
+				<div class="chat-header flex items-center gap-2">
+					<div>StonkBot</div>
+					<div>
+						<time class="text-xs opacity-50">
+							{new Date().toLocaleTimeString()}
+						</time>
+					</div>
 				</div>
-				<div class="chat-bubble">I hate you!</div>
-				<div class="chat-footer opacity-50">Seen at 12:46</div>
-			</div> -->
 
-		<!-- <div class="flex w-full gap-2"> -->
-		<!-- <input type="string" class="input input-primary w-full" bind:value={query} /> -->
+				{#if loading}
+					<div class="chat-bubble w-full">
+						<div class="flex place-items-end p-2">
+							<span class="loading loading-dots loading-sm"></span>
+						</div>
+					</div>
+					<div class="chat-footer opacity-50">Typing...</div>
+				{/if}
 
-		<!-- <button class="btn btn-primary" on:click={sendRequest}>submit</button> -->
-		<!-- </div> -->
-	</div>
+				{#if $messages.length > 0 && !loading}
+					<div class="chat-bubble w-full">
+						{#each $messages as message}
+							{#if message.role === 'assistant'}
+								<div class="message-content">
+									{@html message.content
+										.replace(/<p>/g, '<p class="py-2">')
+										.replace(/<h2>/g, '<h2 class="text-primary py-2 text-lg font-semibold">')
+										.replace(/<h3>/g, '<h3 class="text-primary py-2 font-semibold">')}
+								</div>
+							{/if}
+						{/each}
+					</div>
+					<div class="chat-footer opacity-50">{msgStatus}</div>
+				{/if}
+			</div>
+		</div>
+	{/if}
 </div>

@@ -163,7 +163,11 @@
 				<div class="flex w-full gap-2">
 					<div>Delta:</div>
 					<div class="font-semibold">
-						{optionDelta}
+						{#if optionDelta === null}
+							<span class="loading loading-spinner loading-xs"></span>
+						{:else}
+							{optionDelta}
+						{/if}
 					</div>
 				</div>
 			</div>
