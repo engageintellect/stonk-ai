@@ -24,7 +24,15 @@
 
 	export let data: any;
 	let loading = false;
-	let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-8 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
+
+	// <!-- V1 PROMPT -->
+
+	// let query = `Using the following financial data and newsfeed headlines, give a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Be sure to write the output in plain html (no colors). I am primarily interested in the overall sentiment of the stock, as well as any notable financial data, patterns, or trends that you notice. Be sure that your analysis is concise, and written like an article (in sentences/paragraphs), or human conversation. Only include your sentiment alaysis in your response. Your response should be 5-8 sentences, max. Here are the closing prices for the last ${String(getHistoryLength(data))} days (oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Here is the recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}. Here is all the company and financial data: ${JSON.stringify(data.ticker_info)}.`;
+
+	// <!-- V2 PROMPT -->
+
+	let query = `Using the provided financial data and recent news headlines, analyze the data and provide a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Present your analysis in HTML format without color emphasis. Focus on assessing the overall sentiment of the stock and highlight any significant financial data, patterns, or trends observed. Keep your analysis concise, resembling an article or human conversation, spanning 5-8 sentences at most.Closing prices for the last ${String(getHistoryLength(data))} days (from oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}
+	Company and financial data overview: ${JSON.stringify(data.ticker_info)}.`;
 
 	let observer: IntersectionObserver;
 
@@ -64,6 +72,7 @@
 
 		console.log('Sending request to AI...');
 		handleSubmit(syntheticEvent); // Pass the synthetic event object to handleSubmit
+		console.log('Request sent.');
 		loading = false;
 	};
 </script>
@@ -105,7 +114,11 @@
 				<div class="chat-bubble w-full">
 					{#each $messages as message}
 						{#if message.role === 'assistant'}
-							{@html message.content}
+							<div class="message-content">
+								{@html message.content
+									.replace(/<p>/g, '<p class="py-2">')
+									.replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gs, '')}
+							</div>
 						{/if}
 					{/each}
 				</div>
