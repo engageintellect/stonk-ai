@@ -117,7 +117,8 @@
 							<div class="message-content">
 								{@html message.content
 									.replace(/<p>/g, '<p class="py-2">')
-									.replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gs, '')}
+									.replace(/<h2>/g, '<h2 class="text-primary py-2 text-lg font-semibold">')
+									.replace(/<h3>/g, '<h3 class="text-primary py-2 font-semibold">')}
 							</div>
 						{/if}
 					{/each}
