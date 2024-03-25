@@ -3,6 +3,7 @@
 	import { slide, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { useChat } from 'ai/svelte';
+	import OpenAiIcon from 'virtual:icons/simple-icons/openai';
 
 	let msgStatus = 'Typing...';
 
@@ -63,7 +64,14 @@
 
 	{#if !triggerGenerate}
 		<div class="py-5">
-			<button class="btn btn-secondary" on:click={sendRequest}>Generate AI Sentiment</button>
+			<button class="btn btn-secondary" on:click={sendRequest}>
+				<div class="flex items-center gap-2">
+					<div>Generate AI Sentiment</div>
+					<div>
+						<OpenAiIcon class="h-5 w-5" />
+					</div>
+				</div>
+			</button>
 		</div>
 	{:else}
 		<div class="mx-auto w-full max-w-2xl py-5">
