@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuiltWith from '$lib/components/base/BuiltWith.svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 	import robotImage from '$lib/assets/robot14-nobg.png';
 </script>
 
@@ -9,10 +9,15 @@
 		<div class="font-sans text-5xl font-thin lowercase sm:text-7xl">Stonk Ai</div>
 		<div class="card lg:card-side bg-base-100 h-full shadow-xl sm:min-h-80">
 			<figure class="w-full">
-				<img src={robotImage} class="h-full w-full drop-shadow" alt="AboutCard" />
+				<img
+					in:fade={{ delay: 200, duration: 1500 }}
+					src={robotImage}
+					class="h-full w-full drop-shadow"
+					alt="AboutCard"
+				/>
 			</figure>
 			<div class="card-body w-full">
-				<div>
+				<div in:fade={{ delay: 500, duration: 1500 }}>
 					<strong>Stonk AI was developed to help analyze complex financial data</strong> in order to
 					form comprehensive stock market and predictions. It harnesses the power of machine
 					learning to sift through vast amounts of data, including historical stock prices, company

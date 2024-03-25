@@ -11,6 +11,7 @@
 	import UbuntuIcon from 'virtual:icons/simple-icons/ubuntu';
 	import TypeScriptIcon from 'virtual:icons/teenyicons/typescript-outline';
 	import YouTubeIcon from 'virtual:icons/teenyicons/youtube-outline';
+	import { fade, slide } from 'svelte/transition';
 </script>
 
 <div class="sm:card sm:bg-base-100 sm:shadow-xl">
@@ -19,7 +20,10 @@
 			Built using the best technologies available.
 		</div>
 
-		<div class="flex w-full items-center gap-5 overflow-auto py-5">
+		<div
+			in:slide={{ delay: 0, duration: 500, axis: 'x' }}
+			class="flex w-full items-center gap-5 overflow-auto py-5"
+		>
 			<a
 				href="https://svelte.dev"
 				target="_blank"
