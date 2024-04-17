@@ -1,9 +1,10 @@
 import { json } from '@sveltejs/kit';
+import { SERVER_ENDPOINT } from '$env/static/private';
 import type { RequestHandler } from './$types';
 export const POST: RequestHandler = async ({ request }) => {
 	const { query } = await request.json();
 
-	const res = await fetch('https://engage-dev.com:8000/api/chat/', {
+	const res = await fetch(`${SERVER_ENDPOINT}/api/chat/`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
