@@ -45,6 +45,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^5.3.0",
 		"@tailwindcss/line-clamp": "^0.4.4",
 		"ai": "^3.0.12",
 		"chart.js": "^4.4.2",
