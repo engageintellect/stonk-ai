@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { useChat } from 'ai/svelte';
 	import OpenAiIcon from 'virtual:icons/simple-icons/openai';
+	import robotImage from '$lib/assets/robot14-nobg.png';
 
 	let msgStatus = 'Typing...';
 
@@ -63,15 +64,29 @@
 	<div class="text-3xl font-semibold">AI Sentiment</div>
 
 	{#if !triggerGenerate}
-		<div class="py-5">
-			<button class="btn btn-secondary" on:click={sendRequest}>
+		<div class="flex flex-col items-center gap-2 py-5 sm:flex-row">
+			<button class="btn btn-lg btn-accent w-full sm:flex-1" on:click={sendRequest}>
 				<div class="flex items-center gap-2">
-					<div>Generate AI Sentiment</div>
+					<div class="">Get AI Sentiment</div>
 					<div>
-						<OpenAiIcon class="h-5 w-5" />
+						<OpenAiIcon class="h-7 w-7" />
 					</div>
 				</div>
 			</button>
+
+			<a href="https://stonkai-chat.vercel.app" class="btn btn-lg btn-accent w-full sm:flex-1">
+				<div class="flex items-center gap-2">
+					<div class="">Chat with StonkAI</div>
+					<div>
+						<!-- <OpenAiIcon class="h-5 w-5" /> -->
+						<img
+							src={robotImage}
+							class="bg-primary border-primary h-7 w-7 rounded-full border shadow"
+							alt="robot"
+						/>
+					</div>
+				</div>
+			</a>
 		</div>
 	{:else}
 		<div class="mx-auto w-full max-w-2xl py-5">
@@ -120,6 +135,26 @@
 					<div class="chat-footer opacity-50">{msgStatus}</div>
 				{/if}
 			</div>
+
+			{#if msgStatus === 'Delivered.'}
+				<a
+					in:fade={{ delay: 0, duration: 500 }}
+					href="https://stonkai-chat.vercel.app"
+					class="btn btn-lg btn-accent mt-5 w-full"
+				>
+					<div class="flex items-center gap-2">
+						<div class="">Chat with StonkAI</div>
+						<div>
+							<!-- <OpenAiIcon class="h-5 w-5" /> -->
+							<img
+								src={robotImage}
+								class="bg-primary border-primary h-7 w-7 rounded-full border"
+								alt="robot"
+							/>
+						</div>
+					</div>
+				</a>
+			{/if}
 		</div>
 	{/if}
 </div>
