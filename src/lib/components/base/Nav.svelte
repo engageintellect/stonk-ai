@@ -4,6 +4,7 @@
 	import ThemeIcon from 'virtual:icons/gridicons/themes';
 	import { selectedTheme } from '$lib/store';
 	import { onMount } from 'svelte';
+	import defaultAvatar from '$lib/assets/default-avatar.jpg';
 
 	let themes = Object.keys(daisyuiColors);
 
@@ -67,10 +68,7 @@
 				<div class="dropdown dropdown-end">
 					<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
 						<div class="border-primary w-10 rounded-full border-2">
-							<img
-								alt="Tailwind CSS Navbar component"
-								src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-							/>
+							<img alt="Tailwind CSS Navbar component" src={defaultAvatar} />
 						</div>
 					</div>
 					<ul
