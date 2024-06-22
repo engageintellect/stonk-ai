@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { formatPrice } from '$lib/tickerModel';
 	import { slide, fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
 	import { useChat } from 'ai/svelte';
 	import OpenAiIcon from 'virtual:icons/simple-icons/openai';
 	import robotImage from '$lib/assets/robot14-nobg.png';

@@ -14,9 +14,9 @@
 					<div class="snap-center pb-3 text-3xl font-semibold capitalize">{key}</div>
 					{#each Object.entries(value) as [prop, propValue]}
 						{#if propValue}
-							<div class="bg-primary text-primary-content rounded p-2">
-								<div class="flex gap-2">
-									<div class="flex w-full justify-between gap-5">
+							<div class="card bg-primary text-primary-content">
+								<div class="card-body p-5">
+									<div class="flex w-full justify-between gap-5 bg-red-200">
 										<div class="w-full whitespace-nowrap font-semibold capitalize">
 											{prop === 'fiftyTwoWeekRange'
 												? `${camelCaseToRegular(prop)}: ${propValue.percentage.toFixed(0)}%`
@@ -26,10 +26,10 @@
 									</div>
 								</div>
 								{#if prop === 'fiftyTwoWeekRange'}
-									<div class="flex items-center gap-1">
+									<div class="flex items-center gap-1 p-5">
 										<div class="text-xs">{formatPrice(propValue.low)}</div>
 										<progress
-											class="progress progress-warning border-warning h-3 w-full min-w-32 border"
+											class="progress progress-accent border-accent h-5 w-full border"
 											value={propValue.percentage}
 											max="100"
 										></progress>
