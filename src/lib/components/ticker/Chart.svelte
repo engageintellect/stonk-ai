@@ -3,6 +3,7 @@
 	import daisyuiColors from 'daisyui/src/theming/themes';
 	import { selectedTheme } from '$lib/store';
 	import { onMount, afterUpdate } from 'svelte';
+	import { customThemes } from '$lib/custom-themes';
 
 	export let chartTitle: string;
 	export let chartValues: number[];
@@ -14,6 +15,10 @@
 	let chartCanvas: HTMLCanvasElement;
 	let chart: any;
 
+	const combineThemes = (daisyuiColors: any, customThemes: any) => {
+		return { ...daisyuiColors, ...customThemes };
+	};
+
 	selectedTheme.subscribe((value) => {
 		currentTheme = value;
 		updateChartColor();
@@ -21,7 +26,7 @@
 
 	function updateChartColor() {
 		if (!currentTheme) return;
-		Object.entries(daisyuiColors).forEach(([key, value]) => {
+		Object.entries(combineThemes(daisyuiColors, customThemes)).forEach(([key, value]: any) => {
 			if (key == currentTheme) {
 				primary = value.primary;
 				if (chart) {

@@ -69,11 +69,11 @@
 			<TickerHeading {ticker} {data} />
 			<ScrollerMenu />
 			<AnalystData {ticker} />
-			<!-- <AiSentiment {data} /> -->
+			<AiSentiment {data} />
 			<CompanyData {ticker} />
-			<!-- <AiForecast {predicted_prices} {onlyPrices} {onlyDates} /> -->
+			<AiForecast {predicted_prices} {onlyPrices} {onlyDates} />
 			<NewsFeed {data} {ticker} />
-			<!-- <YouTubeFeed {ticker} /> -->
+			<YouTubeFeed {ticker} />
 			<CompanyDescription {data} {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
 			<OptionsChain {data} />

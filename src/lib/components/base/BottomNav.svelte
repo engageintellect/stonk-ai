@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="btm-nav border-primary z-50 border-t">
+<div class="btm-nav border-primary z-50 border-t-[0.5px]">
 	<a href="/" on:click={() => handleClick(0)} class:active={$activeIndex === 0}>
 		<SearchIcon class="h-16 w-16 rounded px-4 py-2" />
 	</a>

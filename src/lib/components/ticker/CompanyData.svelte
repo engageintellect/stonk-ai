@@ -16,7 +16,7 @@
 						{#if propValue}
 							<div class="card bg-primary text-primary-content">
 								<div class="card-body p-5">
-									<div class="flex w-full justify-between gap-5 bg-red-200">
+									<div class="flex w-full justify-between gap-5">
 										<div class="w-full whitespace-nowrap font-semibold capitalize">
 											{prop === 'fiftyTwoWeekRange'
 												? `${camelCaseToRegular(prop)}: ${propValue.percentage.toFixed(0)}%`

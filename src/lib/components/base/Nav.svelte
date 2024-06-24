@@ -4,9 +4,13 @@
 	import ThemeIcon from 'virtual:icons/gridicons/themes';
 	import { selectedTheme } from '$lib/store';
 	import { onMount } from 'svelte';
+	import { customThemeNames } from '$lib/custom-themes';
 	import defaultAvatar from '$lib/assets/default-avatar.jpg';
 
 	let themes = Object.keys(daisyuiColors);
+
+	// push all items from customThemes to themes
+	themes.push(...customThemeNames);
 
 	// Read the selected theme from local storage or cookies when the component mounts
 	onMount(() => {
@@ -45,12 +49,12 @@
 					tabindex="-1"
 					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] h-96 w-52 overflow-auto border p-2 shadow"
 				>
-					{#each themes as theme}
+					{#each themes.sort() as theme}
 						<li>
 							<input
 								type="radio"
 								name="theme-dropdown"
-								class="theme-controller btn btn-sm btn-block btn-ghost justify-start text-lg font-thin"
+								class="theme-controller btn btn-sm btn-block btn-ghost justify-start font-thin"
 								aria-label={theme}
 								value={theme}
 								on:change={handleThemeChange}
@@ -65,7 +69,7 @@
 			<input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
 		</div> -->
 
-				<div class="dropdown dropdown-end">
+				<!-- <div class="dropdown dropdown-end">
 					<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
 						<div class="border-primary w-10 rounded-full border-2">
 							<img alt="Tailwind CSS Navbar component" src={defaultAvatar} />
@@ -84,7 +88,7 @@
 						<li><a href="/" class="text-lg">Settings</a></li>
 						<li><a href="/" class="text-lg">Logout</a></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
