@@ -52,7 +52,7 @@
               event.preventDefault();
               scrollToAnchor(option.link);
             }}
-            class="btn btn-sm bg-base-200 shadow"
+            class="btn btn-sm btn-outline shadow"
           >
             <div>
               {option.name}
