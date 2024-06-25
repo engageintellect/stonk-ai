@@ -34,6 +34,9 @@ devDependencies:
   '@iconify/json':
     specifier: ^2.2.187
     version: 2.2.187
+  '@iconify/svelte':
+    specifier: ^3.1.6
+    version: 3.1.6(svelte@5.0.0-next.68)
   '@playwright/test':
     specifier: ^1.28.1
     version: 1.42.0
@@ -628,6 +631,15 @@ packages:
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
+    dev: true
+
+  /@iconify/svelte@3.1.6(svelte@5.0.0-next.68):
+    resolution: {integrity: sha512-yLSrlkOx5J6xXU5GDLPBV/MdVBVEZhd36onfqSbxQobp1XBoWQbMPLNZyCAmTKCPnmzXSowGy79agl8FQ3kj6A==}
+    peerDependencies:
+      svelte: '*'
+    dependencies:
+      '@iconify/types': 2.0.0
+      svelte: 5.0.0-next.68
     dev: true
 
   /@iconify/types@2.0.0:

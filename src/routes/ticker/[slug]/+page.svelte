@@ -54,29 +54,31 @@
 			};
 		});
 	}
+
+	// Ensure options are part of the data or extracted properly
+	let options = data.options || {}; // Adjust according to your data structure
 </script>
 
-<div class="" in:fade={{ delay: 0, duration: 936 }}>
+<div in:fade={{ delay: 0, duration: 936 }}>
 	{#if data.price_history.length === 0}
-		<div class="">
-			<Alert
-				alertMsg={`No data found for ticker: "${data.ticker_info.symbol}"`}
-				alertType="warning"
-			/>
-		</div>
+		<Alert
+			alertMsg={`No data found for ticker: "${data.ticker_info.symbol}", please try a different ticker.`}
+			alertType="warning"
+		/>
 	{:else}
 		<div class="flex flex-col gap-10">
 			<TickerHeading {ticker} {data} />
 			<ScrollerMenu />
 			<AnalystData {ticker} />
-			<AiSentiment {data} />
-			<CompanyData {ticker} />
-			<AiForecast {predicted_prices} {onlyPrices} {onlyDates} />
 			<NewsFeed {data} {ticker} />
-			<YouTubeFeed {ticker} />
+			<AiSentiment {data} />
 			<CompanyDescription {data} {ticker} />
+			<CompanyData {ticker} />
 			<CompanyOfficers {data} {companyOfficers} />
-			<OptionsChain {data} />
+			<AiForecast {predicted_prices} {onlyPrices} {onlyDates} />
+			<YouTubeFeed {ticker} />
+			<OptionsChain {data} {options} />
+			<!-- Pass the options prop -->
 		</div>
 	{/if}
 </div>

@@ -2,11 +2,12 @@
 	import { formatPrice } from '$lib/tickerModel';
 	import { slide, fade } from 'svelte/transition';
 	import { useChat } from 'ai/svelte';
-	import OpenAiIcon from 'virtual:icons/simple-icons/openai';
 	import robotImage from '$lib/assets/robot14-nobg.png';
+	import Icon from '@iconify/svelte';
 
+	export let data: any;
+	let loading = false;
 	let msgStatus = 'Typing...';
-
 	let triggerGenerate = false;
 
 	const { input, handleSubmit, messages } = useChat({
@@ -24,9 +25,6 @@
 			return 0;
 		}
 	};
-
-	export let data: any;
-	let loading = false;
 
 	let query = `Using the provided financial data and recent news headlines, analyze the data and provide a brief analysis and sentiment of ${data.ticker_info.symbol} (${data.ticker_info.shortName}). Present your analysis in HTML format without color emphasis. Focus on assessing the overall sentiment of the stock and highlight any significant financial data, patterns, or trends observed. Keep your analysis concise, resembling an article or human conversation, spanning 5-8 sentences at most. Closing prices for the last ${String(getHistoryLength(data))} days (from oldest to newest): ${JSON.stringify(data.price_history.slice(-getHistoryLength(data)).map((item: any) => formatPrice(item['Close'])))} Recent newsfeed: ${JSON.stringify(data.news.map((item: any) => ({ date: item['providerPublishTime'], title: item['title'] })))}
     Company and financial data overview: ${JSON.stringify(data.ticker_info)}.`;
@@ -63,19 +61,19 @@
 	<div class="text-3xl font-semibold">AI Sentiment</div>
 
 	{#if !triggerGenerate}
-		<div class="flex flex-col items-center gap-2 py-5 sm:flex-row">
-			<button class="btn btn-lg btn-accent w-full sm:flex-1" on:click={sendRequest}>
+		<div class="flex items-center gap-2 py-5">
+			<button class="btn btn-accent w-full flex-1" on:click={sendRequest}>
 				<div class="flex items-center gap-2">
-					<div class="">Get AI Sentiment</div>
+					<div class="">AI Sentiment</div>
 					<div>
-						<OpenAiIcon class="h-7 w-7" />
+						<Icon icon="simple-icons:openai" class="h-7 w-7" />
 					</div>
 				</div>
 			</button>
 
-			<a href="https://stonkai-chat.vercel.app" class="btn btn-lg btn-accent w-full sm:flex-1">
+			<a href="https://stonkai-chat.vercel.app" class="btn btn-accent w-full flex-1">
 				<div class="flex items-center gap-2">
-					<div class="">Chat with StonkAI</div>
+					<div class="">StonkAI Chat</div>
 					<div>
 						<!-- <OpenAiIcon class="h-5 w-5" /> -->
 						<img
@@ -119,7 +117,7 @@
 				{/if}
 
 				{#if $messages.length > 0 && !loading}
-					<div class="chat-bubble w-full">
+					<div class="chat-bubble w-full transition-all duration-300">
 						{#each $messages as message}
 							{#if message.role === 'assistant'}
 								<div class="message-content">
@@ -136,23 +134,25 @@
 			</div>
 
 			{#if msgStatus === 'Delivered.'}
-				<a
-					in:fade={{ delay: 0, duration: 500 }}
-					href="https://stonkai-chat.vercel.app"
-					class="btn btn-lg btn-accent mt-5 w-full"
-				>
-					<div class="flex items-center gap-2">
-						<div class="">Chat with StonkAI</div>
-						<div>
-							<!-- <OpenAiIcon class="h-5 w-5" /> -->
-							<img
-								src={robotImage}
-								class="bg-primary border-primary h-7 w-7 rounded-full border"
-								alt="robot"
-							/>
+				<div class="flex w-full justify-center">
+					<a
+						in:fade={{ delay: 0, duration: 500 }}
+						href="https://stonkai-chat.vercel.app"
+						class="btn btn-accent mt-5"
+					>
+						<div class="flex items-center gap-2">
+							<div class="">Chat with StonkAI</div>
+							<div>
+								<!-- <OpenAiIcon class="h-5 w-5" /> -->
+								<img
+									src={robotImage}
+									class="bg-primary border-primary h-7 w-7 rounded-full border"
+									alt="robot"
+								/>
+							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			{/if}
 		</div>
 	{/if}

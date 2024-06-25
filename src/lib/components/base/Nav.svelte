@@ -1,11 +1,11 @@
 <script lang="ts">
 	import daisyuiColors from 'daisyui/src/theming/themes';
-	import StockMarket from 'virtual:icons/icon-park-solid/stock-market';
-	import ThemeIcon from 'virtual:icons/gridicons/themes';
 	import { selectedTheme } from '$lib/store';
 	import { onMount } from 'svelte';
 	import { customThemeNames } from '$lib/custom-themes';
 	import defaultAvatar from '$lib/assets/default-avatar.jpg';
+
+	import Icon from '@iconify/svelte';
 
 	let themes = Object.keys(daisyuiColors);
 
@@ -33,21 +33,23 @@
 <div class="navbar bg-base-100 z-20">
 	<div class="mx-auto w-full max-w-3xl">
 		<div class="flex-1">
-			<a href="/" class="btn btn-primary text-xl"> <StockMarket class="h-7 w-7" /></a>
+			<a href="/" class="btn btn-primary text-xl">
+				<Icon icon="icon-park-solid:stock-market" class="h-7 w-7" /></a
+			>
 		</div>
 
 		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="">
+				<div tabindex="0" role="button" class="md:tooltip tooltip-left" data-tip="select theme">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
-						<div class="text-lg font-thin">Theme</div>
-						<ThemeIcon class="h-7 w-7" />
+						<!-- <div class="text-lg font-thin">Theme</div> -->
+						<Icon icon="gridicons:themes" class="h-7 w-7" />
 					</div>
 				</div>
 				<ul
 					tabindex="-1"
-					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] h-96 w-52 overflow-auto border p-2 shadow"
+					class="dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] mt-3 h-96 w-52 overflow-auto border p-2 shadow"
 				>
 					{#each themes.sort() as theme}
 						<li>

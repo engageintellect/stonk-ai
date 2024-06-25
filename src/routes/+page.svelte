@@ -1,7 +1,5 @@
 <script lang="ts">
-	import StockMarket from 'virtual:icons/icon-park-twotone/stock-market';
-	import SendIcon from 'virtual:icons/bi/send-fill';
-	import LearnMoreIcon from 'virtual:icons/carbon/machine-learning-model';
+	import Icon from '@iconify/svelte';
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
 	import { fade } from 'svelte/transition';
@@ -40,7 +38,9 @@
 	};
 </script>
 
-<div class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-5 sm:py-20">
+<div
+	class="mx-auto flex w-full flex-col items-center justify-center gap-3 py-5 transition-all duration-300 sm:py-20"
+>
 	<div class="flex items-center gap-2">
 		<div class="">
 			{#if $isLoading}
@@ -51,10 +51,13 @@
 					<span class="loading loading-ring loading-lg text-primary-content"></span>
 				</div>
 			{:else}
-				<StockMarket class="text-primary-content btn btn-primary h-20 w-20 sm:h-24 sm:w-24" />
+				<Icon
+					icon="icon-park-twotone:stock-market"
+					class="text-primary-content btn btn-primary h-20 w-20 sm:h-24 sm:w-24"
+				/>
 			{/if}
 		</div>
-		<div class="align-middle font-sans text-7xl font-thin sm:text-8xl">stonk ai</div>
+		<div class="align-middle text-7xl font-thin sm:text-8xl">stonk ai</div>
 	</div>
 
 	{#if $isLoading}
@@ -102,7 +105,7 @@
 							<div class="flex items-center gap-2">
 								<div class="uppercase">search</div>
 								<div>
-									<SendIcon class="h-5 w-5" />
+									<Icon icon="bi:send-fill" class="h-5 w-5" />
 								</div>
 							</div>
 						{/if}
@@ -114,7 +117,7 @@
 						<div class="flex items-center gap-2">
 							<div class="uppercase">Learn More</div>
 							<div>
-								<LearnMoreIcon class="h-5 w-5" />
+								<Icon icon="carbon:machine-learning-model" class="h-5 w-5" />
 							</div>
 						</div>
 					</a>

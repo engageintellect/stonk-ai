@@ -5,8 +5,8 @@
 	import { onMount } from 'svelte';
 	import { prettifyDate } from '$lib/tickerModel';
 	import Alert from '$lib/components/base/Alert.svelte';
-	import YouTubeIcon from 'virtual:icons/tabler/brand-youtube-filled';
 	import Toast from '$lib/components/base/Toast.svelte';
+	import Icon from '@iconify/svelte';
 
 	onMount(async () => {
 		const res = await fetch(`/api/queryYouTube/?value=${ticker.info.symbol}`);
@@ -23,16 +23,16 @@
 	{#if data}
 		<div class="">
 			<div class="flex items-center gap-2">
-				<!-- <YouTubeIcon class="text-primary h-10 w-10" /> -->
+				<!-- <Icon icon="tabler:brand-youtube-filled" class="text-primary h-10 w-10" /> -->
 			</div>
 			<div class="flex w-full snap-x snap-mandatory gap-2 overflow-auto py-5">
 				{#each data.items as item}
-					<div class=" group flex w-full min-w-72 max-w-80 snap-center flex-col rounded">
+					<div class="group flex w-full min-w-72 max-w-80 snap-center flex-col rounded shadow-lg">
 						<a
 							href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
 							target="_blank"
 							rel="noreferrer"
-							class="border-primary flex h-full w-full flex-col rounded border"
+							class="border-primary flex h-full w-full flex-col rounded border shadow-lg"
 						>
 							<div class="flex h-full flex-col overflow-hidden">
 								<div class="p-2">
