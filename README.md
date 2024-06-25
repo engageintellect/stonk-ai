@@ -84,6 +84,36 @@ pnpm run build
 
 ### Server
 
+1. Navigate to the server directory
+
+```bash
+cd stonk-ai/server
+```
+
+2. Create a new Python virtual environment
+
+```bash
+python3 -m venv venv && source venv/bin/activate
+```
+
+3. Install the dependencies
+
+```
+pip3 install -r requirements.txt
+```
+
+4. Run the server code
+
+```
+python3 main.py
+```
+
+**NOTE:** Take note of the server URL. You will need it to set the SERVER_URL environment variable in the client.
+
+#### Logs
+
+server logs can be found in ./log.txt
+
 ## Contributing
 
 1. Fork the repository
