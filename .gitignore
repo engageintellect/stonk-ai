@@ -1,17 +1,17 @@
-/client/.DS_Store
-/client//node_modules
-/client//build
-/client//.svelte-kit
-/client//package
-/client/.env
-/client/.env.*
-/client/!.env.example
-/client/vite.config.js.timestamp-*
-/client/vite.config.ts.timestamp-*
-/client/log.txt
+.DS_Store
+node_modules
+build
+.svelte-kit
+package
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+log.txt
 
 
-/server/.vercel
-/server/venv
-/server/__pycache__
-/server/log.txt
+.vercel
+venv
+__pycache__
+log.txt

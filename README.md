@@ -1,10 +1,28 @@
-# ai-stock-client
+# stonk-ai
 
-## Getting Started:
+## Description
+
+An AI-powered stock market analysis and prediction engine that uses OpenAI's GPT-3.5/4/4o to analyze historic financial data, news headlines, and YouTube videos and predict future stock prices and performance.
+
+## Installation:
 
 ### Prerequisites
 
-YOUTUBE_API_KEY: You will need to create a YouTube API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
+#### Client
+
+1. YOUTUBE_API_KEY: You will need to create a YouTube API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
+
+2. OPENAI_API_KEY: You will need to create an OpenAI API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
+
+#### Server
+
+1.
+2.
+3.
+
+## Getting Started:
+
+### Client
 
 ```bash
 YOUTUBE_API_KEY=your_api_key
@@ -45,3 +63,34 @@ pnpm run dev
 ```bash
 pnpm run build
 ```
+
+### Server
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature`)
+5. Create a new Pull Request
+
+## License
+
+MIT License
+
+## Acknowledgements
+
+- [OpenAI](https://openai.com)
+- [YouTube Data API](https://developers.google.com/youtube/v3)
+- [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs)
+- [Alpha Vantage API](https://www.alphavantage.co/documentation/)
+- [IEX Cloud API](https://iexcloud.io/docs/api/)
+- [Polygon.io API](https://polygon.io/docs/getting-started)
+- [Yahoo Finance API](https://www.yahoofinanceapi.com/)
+- [Finage API](https://finage.co.uk/docs)
+- [Finnhub API](https://finnhub.io/docs/api)
+- [Stock News API](https://stocknewsapi.com/)
+- [Stocktwits API](https://api.stocktwits.com/developers/docs)
+- [Twitter API](https://developer.twitter.com/en/docs)
+- [Reddit API](https://www.reddit.com/dev/api/)
+- [News API](https://newsapi.org/docs)
