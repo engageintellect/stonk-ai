@@ -7,6 +7,17 @@
 An AI-powered stock market analysis and prediction engine that uses OpenAI's GPT-3.5/4/4o to analyze historic financial data, news headlines, and YouTube videos and predict future stock prices and performance.
 
 ![Stonk AI Logo](/assets/stonkai.png)
+
+## Features
+
+- [ ]Search for stock symbols and get detailed information about the stock
+- [ ]AI sentiment analysis of stock news headlines
+- AI future price predictions
+- Get the latest news about a stock
+- Get the latest YouTube videos about a stock
+- Options data
+- Custom Themes
+
 ![Stonk AI Logo](/assets/stonkai-sentiment.png)
 
 ## Installation:
