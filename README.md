@@ -1,3 +1,5 @@
+#( UNDER CONSTRUCTION...)
+
 # stonk-ai
 
 ## Description
