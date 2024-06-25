@@ -1,4 +1,4 @@
-#( UNDER CONSTRUCTION...)
+# ( UNDER CONSTRUCTION...)
 
 # stonk-ai
 
