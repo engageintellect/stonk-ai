@@ -10,39 +10,38 @@ An AI-powered stock market analysis and prediction engine that uses OpenAI's GPT
 
 ## Installation:
 
+### First things first, some info...
+
+This is a full-stack repository that contains both the client and server code.
+
+You can run both the client and the server code locally. For deployment, I recommend using a cloud service like Vercel for the client and Heroku or a VPS for the server. The current deployment of this application is as follows:
+
+- Client: Vercel
+- Server: Ubuntu 20.04 VPS (Nginx, Uvicorn, SystemD)
+
 ### Prerequisites
 
 #### Client
+
+##### Environment Variables
 
 1. YOUTUBE_API_KEY: You will need to create a YouTube API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
 
 2. OPENAI_API_KEY: You will need to create an OpenAI API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
 
+3. SERVER_URL: You will need to set the server url as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
+
+```bash
+SERVER_URL=YOUR_SERVER_URL (e.g. http://localhost:8000)
+```
+
 #### Server
 
-1.
-2.
-3.
+1. A way to run Python code (e.g. a VPS, Heroku, etc.)
+2. A way to run FastAPI (e.g. Uvicorn, Gunicorn, etc.)
+3. A way to proxy requests to the FastAPI server (e.g. Nginx, Caddy, etc.)
 
 ## Getting Started:
-
-### Client
-
-```bash
-YOUTUBE_API_KEY=your_api_key
-```
-
-OPENAI_API_KEY: You will need to create an OpenAI API key and set it as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
-
-```bash
-OPENAI_API_KEY=your_api_key
-```
-
-SERVER_URL: You will need to set the server url as an environment variable. You can do this by creating a .env file in the root of the project and adding the following line:
-
-```bash
-SERVER_URL=your_server_url (e.g. http://localhost:8000)
-```
 
 ## Running client
 
