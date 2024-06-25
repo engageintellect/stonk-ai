@@ -45,23 +45,38 @@ SERVER_URL=YOUR_SERVER_URL (e.g. http://localhost:8000)
 
 ## Running client
 
+1. Clone the repository
+
 ```bash
-cd ai-stock-client
+git clone https://github.com/engageintellect/stonk-ai.git
+cd stonk-ai/client
 ```
 
-### Install dependencies
+2. Create a .env (or .env.local) file in the root of the project and add the following line:
+
+```bash
+YOUTUBE_API_KEY=YOUR_YOUTUBE_API_KEY
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+SERVER_URL=YOUR_SERVER_URL
+```
+
+3. Install the dependencies
 
 ```bash
 pnpm install
 ```
 
-### Run client
+4. Run the development server
 
 ```bash
 pnpm run dev
 ```
 
-### Build client
+## Deployment
+
+### Client
+
+#### Build client
 
 ```bash
 pnpm run build
