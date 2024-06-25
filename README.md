@@ -7,6 +7,7 @@
 An AI-powered stock market analysis and prediction engine that uses OpenAI's GPT-3.5/4/4o to analyze historic financial data, news headlines, and YouTube videos and predict future stock prices and performance.
 
 ![Stonk AI Logo](/assets/stonkai.png)
+![Stonk AI Logo](/assets/stonkai-sentiment.png)
 
 ## Installation:
 
@@ -112,7 +113,7 @@ python3 main.py
 
 #### Logs
 
-server logs can be found in ./log.txt
+server logs can be found in `/stonk-ai/server/log.txt`.
 
 ## Contributing
 
