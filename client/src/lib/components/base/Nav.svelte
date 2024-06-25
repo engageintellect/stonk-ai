@@ -40,7 +40,7 @@
 
 		<div class="flex items-center">
 			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="md:tooltip tooltip-left" data-tip="select theme">
+				<div tabindex="0" role="button" class="md:tooltip md:tooltip-left" data-tip="select theme">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
 						<!-- <div class="text-lg font-thin">Theme</div> -->
