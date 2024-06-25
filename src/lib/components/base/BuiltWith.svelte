@@ -1,22 +1,13 @@
 <script lang="ts">
-	import SvelteIcon from 'virtual:icons/teenyicons/svelte-outline';
-	import OpenAiIcon from 'virtual:icons/simple-icons/openai';
-	import TensorFlowIcon from 'virtual:icons/cib/tensorflow';
-	import VercelIcon from 'virtual:icons/simple-icons/vercel';
-	import FastApiIcon from 'virtual:icons/simple-icons/fastapi';
-	import NginxIcon from 'virtual:icons/simple-icons/nginx';
-	import PythonIcon from 'virtual:icons/teenyicons/python-outline';
-	import NumpyIcon from 'virtual:icons/simple-icons/numpy';
-	import TailwindIcon from 'virtual:icons/teenyicons/tailwind-outline';
-	import UbuntuIcon from 'virtual:icons/simple-icons/ubuntu';
-	import TypeScriptIcon from 'virtual:icons/teenyicons/typescript-outline';
-	import YouTubeIcon from 'virtual:icons/teenyicons/youtube-outline';
 	import { fade, slide } from 'svelte/transition';
+	import Icon from '@iconify/svelte';
 </script>
 
 <div class="sm:card sm:bg-base-100 sm:shadow-xl">
 	<div class="sm:card-body py-10">
-		<div class="text-primary text-center text-2xl font-thin drop-shadow sm:text-3xl">
+		<div
+			class="text-primary text-center text-xl font-thin drop-shadow transition-all duration-300 sm:text-2xl lg:text-3xl"
+		>
 			Built using the best technologies available.
 		</div>
 
@@ -29,7 +20,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<SvelteIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="teenyicons:svelte-outline" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Svelte</div>
 			</a>
 			<a
@@ -37,7 +28,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<TypeScriptIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="teenyicons:typescript-outline" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">TypeScript</div>
 			</a>
 
@@ -46,7 +37,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<TailwindIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="teenyicons:tailwind-outline" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">TailwindCSS</div>
 			</a>
 
@@ -55,7 +46,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<OpenAiIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:openai" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">OpenAI</div>
 			</a>
 			<a
@@ -63,7 +54,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<TensorFlowIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="cib:tensorflow" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">TensorFlow</div>
 			</a>
 			<a
@@ -71,12 +62,12 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<PythonIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="teenyicons:python-outline" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Python</div>
 			</a>
 
 			<a href="https://numpy.com" target="_blank" class="flex flex-col items-center justify-center">
-				<NumpyIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:numpy" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Numpy</div>
 			</a>
 
@@ -85,7 +76,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<FastApiIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:fastapi" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">FastAPI</div>
 			</a>
 
@@ -94,12 +85,12 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<YouTubeIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="teenyicons:youtube-outline" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">YouTube</div>
 			</a>
 
 			<a href="https://nginx.com" target="_blank" class="flex flex-col items-center justify-center">
-				<NginxIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:nginx" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Nginx</div>
 			</a>
 			<a
@@ -107,7 +98,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<VercelIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:vercel" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Vercel</div>
 			</a>
 
@@ -116,7 +107,7 @@
 				target="_blank"
 				class="flex flex-col items-center justify-center"
 			>
-				<UbuntuIcon class="text-primary h-20 w-20 p-2" />
+				<Icon icon="simple-icons:ubuntu" class="text-primary h-20 w-20 p-2" />
 				<div class="text-xl font-thin">Ubuntu</div>
 			</a>
 		</div>

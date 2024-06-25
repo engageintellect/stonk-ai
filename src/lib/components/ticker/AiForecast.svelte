@@ -1,6 +1,5 @@
 <script lang="ts">
-	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
-	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
+	import Icon from '@iconify/svelte';
 	import Chart from '$lib/components/ticker/Chart.svelte';
 	import { fade } from 'svelte/transition';
 	import { calculatePercentageChange } from '$lib/tickerModel';
@@ -14,7 +13,6 @@
 	<div id="ai-forecast" in:fade={{ delay: 0, duration: 500 }}>
 		<div class="flex items-center gap-2">
 			<div class="text-3xl font-semibold">30 day AI Forecast</div>
-			<!-- <AiForecaseIcon class="text-primary h-10 w-10" /> -->
 		</div>
 
 		<div class="flex snap-x snap-mandatory gap-2 overflow-auto py-5">
@@ -33,12 +31,12 @@
 			{#if parseFloat(predicted_prices[0].price.replace('$', '')) > parseFloat(predicted_prices[predicted_prices.length - 1].price.replace('$', ''))}
 				<div class="badge badge-error text-error-content h-full px-4 py-2 text-sm font-bold">
 					Bearish
-					<ArrowDown class="text-error-content h-5 w-5" />
+					<Icon icon="material-symbols:arrow-downward" class="text-error-content h-5 w-5" />
 				</div>
 			{:else}
 				<div class="badge badge-success text-success-content h-full px-4 py-2 text-sm font-bold">
 					Bullish
-					<ArrowUp class="text-success-content h-5 w-5" />
+					<Icon icon="material-symbols:arrow-upward" class="text-error-content h-5 w-5" />
 				</div>
 			{/if}
 

@@ -1,10 +1,9 @@
 <script lang="ts">
-	import ArrowUp from 'virtual:icons/material-symbols/arrow-upward';
-	import ArrowDown from 'virtual:icons/material-symbols/arrow-downward';
 	import { calculatePercentageChange } from '$lib/tickerModel';
 	import ChartWithButtons from './ChartWithButtons.svelte';
 	import { prefferedTimeframe } from '$lib/store';
 	import { formatPrice } from '$lib/tickerModel';
+	import Icon from '@iconify/svelte';
 
 	prefferedTimeframe.subscribe((value) => {
 		$prefferedTimeframe = value;
@@ -29,7 +28,7 @@
 
 	<div class="pb-2">
 		<div class="flex items-center gap-5">
-			<div class="font-sans text-5xl font-thin sm:text-7xl">
+			<div class="text-5xl font-thin sm:text-7xl">
 				{ticker.info.symbol}
 			</div>
 
@@ -56,7 +55,10 @@
 									class="badge badge-success text-success-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-3xl"
 								>
 									<div>
-										<ArrowUp class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+										<Icon
+											icon="material-symbols:arrow-upward"
+											class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7"
+										/>
 									</div>
 
 									<div>
@@ -71,7 +73,10 @@
 									class="badge badge-error text-error-content flex h-full items-center gap-1 px-2 py-1 text-lg font-semibold sm:text-3xl"
 								>
 									<div>
-										<ArrowDown class="text-error-content h-5 w-5 animate-pulse sm:h-7 sm:w-7" />
+										<Icon
+											icon="material-symbols:arrow-downward"
+											class="text-success-content h-5 w-5 animate-pulse sm:h-7 sm:w-7"
+										/>
 									</div>
 
 									<div>
@@ -96,7 +101,9 @@
 			{#if ticker.info.website}
 				<div>
 					<span class="font-semibold">Website:</span>
-					<a href={ticker.info.website} target="_blank">{ticker.info.website}</a>
+					<a class="link text-primary" href={ticker.info.website} target="_blank"
+						>{ticker.info.website}</a
+					>
 				</div>
 			{/if}
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MoneyIcon from 'virtual:icons/teenyicons/money-outline';
+	import Icon from '@iconify/svelte';
 	import { formatPrice } from '$lib/tickerModel';
 	export let companyOfficers = {
 		name: '',
@@ -25,7 +25,7 @@
 		<div class="w-full">
 			{#if companyOfficers.totalPay}
 				<div class="flex items-center gap-2 text-sm">
-					<div><MoneyIcon class="h-5 w-5" /></div>
+					<div><Icon icon="teenyicons:money-outline" class="h-5 w-5" /></div>
 					<div>
 						<div class="flex items-center">
 							{formatPrice(Number(companyOfficers.totalPay))}

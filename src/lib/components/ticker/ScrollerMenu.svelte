@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
-	import LayoutIcon from 'virtual:icons/lucide/layout-dashboard';
+	import Icon from '@iconify/svelte';
 
 	let menuOptions = [
 		{ name: 'Analyst Data', link: '#analyst-data' },
+		{ name: 'News', link: '#news' },
 		{ name: 'Ai Sentiment', link: '#ai-sentiment' },
 		{ name: 'Company Data', link: '#company-data' },
-		{ name: 'Ai Forecase', link: '#ai-forecast' },
 		{ name: 'Company Description', link: '#company-description' },
 		{ name: 'Company Officers', link: '#company-officers' },
-		{ name: 'News', link: '#news' },
+		{ name: 'Ai Forecase', link: '#ai-forecast' },
 		{ name: 'Videos', link: '#videos' },
 		{ name: 'Options', link: '#options' }
 	];
@@ -39,13 +38,13 @@
 	});
 </script>
 
-<div class="bg-base-200 sticky top-[66px] z-40">
+<div class="bg-base-100 sticky top-[60px] z-40">
 	<div class="flex items-center gap-2">
 		<div>
-			<LayoutIcon class="h-7 w-7" />
+			<Icon icon="lucide:layout-dashboard" class="h-7 w-7" />
 		</div>
 		<div class="overflow-auto">
-			<div class="flex items-center gap-2 py-2">
+			<div class="flex items-center gap-1 py-2">
 				{#each filteredMenuOptions as option}
 					<a
 						href="#"
