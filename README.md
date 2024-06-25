@@ -10,13 +10,13 @@ An AI-powered stock market analysis and prediction engine that uses OpenAI's GPT
 
 ## Features
 
-- [ ]Search for stock symbols and get detailed information about the stock
-- [ ]AI sentiment analysis of stock news headlines
-- AI future price predictions
-- Get the latest news about a stock
-- Get the latest YouTube videos about a stock
-- Options data
-- Custom Themes
+- [x] Search for stock symbols and get detailed information about the stock
+- [x] AI sentiment analysis of stock news headlines
+- [x] AI future price predictions
+- [x] Get the latest news about a stock
+- [x] Get the latest YouTube videos about a stock
+- [x] Options data
+- [x] Custom Themes
 
 ![Stonk AI Logo](/assets/stonkai-sentiment.png)
 
